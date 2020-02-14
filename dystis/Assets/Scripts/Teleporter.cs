@@ -29,6 +29,7 @@ public class Teleporter : MonoBehaviour {
             if (hit.collider != null && (hit.transform.tag == "Teleporter")) {
                 Debug.Log("We Clicked: " + this.name);
                 //teleportInPhase = true;
+                AudioFW.Play("teleport");
                 playerToTeleport.transform.position = teleportDestination.transform.Find("TeleporterExit").position + new Vector3(0, 2, 0);
             }
 
