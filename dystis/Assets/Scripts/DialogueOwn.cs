@@ -4,7 +4,7 @@ using UnityEngine;
 //Dialogi-luokka toimii tyhjänä pohjana eri npc-hahmojen dialogeille
 
 [System.Serializable]
-public class Dialogue{
+public class DialogueOwn{
     public string name;
 
     [TextArea(3,10)]
