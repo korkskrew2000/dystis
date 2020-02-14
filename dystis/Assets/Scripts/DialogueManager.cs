@@ -2,27 +2,63 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+//Yksinkertainen dialogimanageri NPC:lle. NPC:lle voi kirjoittaa ennalta "vuorosanat",
+//jotka se käy läpi keskustelun aikana. Keskustelu aloitetaan painamalla E-kirjainta
+//NPC:n lähellä. Keskustelussa edetään hiiren vasenta näppäintä klikkaamalla. NPC
+//havaitsee vain Player-tagilla merkityn pelaajan.
+
 
 public class DialogueManager : MonoBehaviour
 {
     public Queue<string> sentences;
+    public GameObject pressKeyText;
     public Text nameText;
     public Text dialogueText;
     public Animator animator;
-    public Dialogue dialogue;
+    public DialogueOwn dialogue;
+    private bool triggering;
+    private bool conversating;
 
-    public void TriggerDialogue() {
-        StartDialogue(dialogue);
-    }
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         sentences = new Queue<string>();
     }
 
-    //Aloittaa keskustelun kyseisen npc:n kanssa
-    public void StartDialogue(Dialogue dialogue) {
+    private void OnTriggerEnter(Collider other) {
+        if (other.tag == "Player") {
+            pressKeyText.SetActive(true);
+            triggering = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if (other.tag == "Player") {
+            pressKeyText.SetActive(false);
+            triggering = false;
+            EndDialogue();
+        }
+    }
+
+    // Update is called once per frame
+    void Update() {
+        if (triggering) {
+            if (Input.GetKeyDown(KeyCode.E)) {
+                triggering = false;
+                pressKeyText.SetActive(false);
+                conversating = true;
+                StartDialogue(dialogue);
+            }
+        }
+        if (conversating) {
+            if (Input.GetKeyDown(KeyCode.Mouse0)) {
+                DisplayNextSentence();
+            }
+        }
+    }
+
+    //Aloittaa keskustelun
+    public void StartDialogue(DialogueOwn dialogue) {
         animator.SetBool("isOpen", true);
         sentences.Clear();
         nameText.text = dialogue.name;
