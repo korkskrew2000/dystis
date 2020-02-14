@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NPCLooksAtPlayer : MonoBehaviour {
-    public Transform target;
+    
+    GameObject player;
 
-    // Update is called once per frame
+    void Start() {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     void Update() {
-        if (target != null) {
-            transform.LookAt(target);
+        if (player != null) {
+            //transform.LookAt(player.transform.position);
+            //we want to rotate only around Z-axis
+            transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+        } else {
+            print("No Player Found!");
         }
     }
 }

@@ -90,7 +90,7 @@ public class AudioFW : MonoBehaviour {
     }
 
     void DebugPrint() {
-        string s = "";
+        string s = "Audio loaded: ";
         foreach (var id in sfx.Keys)
             s += id + " ";
         print(s);
