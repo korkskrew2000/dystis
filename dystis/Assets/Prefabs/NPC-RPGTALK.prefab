@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 6718608965814840633}
   - component: {fileID: 6718608965814840632}
   m_Layer: 0
-  m_Name: NPC1
+  m_Name: NPC-RPGTALK
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
