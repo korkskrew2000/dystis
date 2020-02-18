@@ -1,0 +1,7 @@
+Masa: Moi! Tässä jotain juttua
+Masa: Tässäpä vähän lisää puhetta
+Masa: Joo
+Masa: [question=0] Miten menee?
+[choice]Hyvin!
+[choice]Ei kovin hyvin..
+Masa: Selvä peli!
