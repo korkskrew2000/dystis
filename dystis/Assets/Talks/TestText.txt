@@ -1,5 +1,5 @@
-TeppoTesteri:Jotain löpinää [jitter=5 angle=1]ja[/jitter] höpinää!
-TeppoTesteri:Lisää höpinöitä.
-TeppoTesteri:Ja juttu sen kun jatkuu...
-TeppoTesteri:1 + 1 = 2
-TeppoTesteri:...niinpä...
+Jotain yleistä tekstiä TestText:stä.
+Jotain löpinää [jitter=5 angle=1]ja[/jitter] höpinää!
+Lisää höpinöitä.
+1 + 1 = 2
+...niinpä...

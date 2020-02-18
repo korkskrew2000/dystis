@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour, ITalkable {
 
-    public RPGTalk rpgTalk;
+    //public RPGTalk rpgTalk;
 
     public float npcHealth = 100f;
 
+    
+
     public void TalkWith() {
         print(" :: Blah Blah :: ");
-        rpgTalk.NewTalk("1","4");
+        //rpgTalk.NewTalk("1","4");
     }
 
     public void HitSomething(GameObject whoHit) {
@@ -44,9 +46,9 @@ public class NPCController : MonoBehaviour, ITalkable {
         HitSomething(collision.gameObject);
     }
 
-    void OnMouseDown() {
-        ClickIt();
-    }
+    //void OnMouseDown() {
+    //    ClickIt();
+    //}
 
     void isNPCDestroyed(float health) {
         if (health <= 0) {
