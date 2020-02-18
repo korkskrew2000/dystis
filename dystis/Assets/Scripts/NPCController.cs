@@ -10,17 +10,21 @@ public class NPCController : MonoBehaviour, ITalkable {
     public GameObject player;
 
     public void DisablePlayerMovement() {
-        player.GetComponent<FirstPersonAIO>().lockAndHideCursor = false;
+        //player.GetComponent<FirstPersonAIO>().lockAndHideCursor = false;
         player.GetComponent<FirstPersonAIO>().playerCanMove = false;
         player.GetComponent<FirstPersonAIO>().enableCameraMovement = false;
-
+        player.GetComponent<FirstPersonAIO>().autoCrosshair = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void EnablePlayerMovement() {
         player.GetComponent<FirstPersonAIO>().playerCanMove = true;
         player.GetComponent<FirstPersonAIO>().enableCameraMovement = true;
-        player.GetComponent<FirstPersonAIO>().lockAndHideCursor = true;
-
+        player.GetComponent<FirstPersonAIO>().autoCrosshair = true;
+        //player.GetComponent<FirstPersonAIO>().lockAndHideCursor = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void TalkWith() {
