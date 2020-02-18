@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour {
                     var c = hit.collider.GetComponentInParent<ITalkable>();
                     if (c != null)
                         //Debug.Log(" :: c != null :: ");
-                        c.TalkWith();
+                        //c.TalkWith();
+                        hit.transform.parent.GetComponent<NPCController>().TalkWith();
                 }
             }
         }
