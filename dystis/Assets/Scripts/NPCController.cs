@@ -5,10 +5,23 @@ using UnityEngine;
 public class NPCController : MonoBehaviour, ITalkable {
 
     //public RPGTalk rpgTalk;
-
     public float npcHealth = 100f;
 
-    
+    public GameObject player;
+
+    public void DisablePlayerMovement() {
+        player.GetComponent<FirstPersonAIO>().lockAndHideCursor = false;
+        player.GetComponent<FirstPersonAIO>().playerCanMove = false;
+        player.GetComponent<FirstPersonAIO>().enableCameraMovement = false;
+
+    }
+
+    public void EnablePlayerMovement() {
+        player.GetComponent<FirstPersonAIO>().playerCanMove = true;
+        player.GetComponent<FirstPersonAIO>().enableCameraMovement = true;
+        player.GetComponent<FirstPersonAIO>().lockAndHideCursor = true;
+
+    }
 
     public void TalkWith() {
         print(" :: Blah Blah :: ");

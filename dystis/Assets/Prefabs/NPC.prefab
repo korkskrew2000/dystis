@@ -59,6 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcHealth: 100
+  player: {fileID: 0}
 --- !u!1 &2443181000156405721
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,13 +221,35 @@ MonoBehaviour:
   checkIfColliderHasTag: 
   callbackBeforeTalk:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2443180999149192194}
+        m_MethodName: DisablePlayerMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   lineToStart: 1
   lineToBreak: -1
   txtToParse: {fileID: 4900000, guid: c7a20229500c97e42ae6fb1ac3d8b60b, type: 3}
   overwriteCallbackAfterTalk:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2443180999149192194}
+        m_MethodName: EnablePlayerMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   happenOnlyOnce: 0
   alreadyHappened: 0
   triggerEnter: 1
