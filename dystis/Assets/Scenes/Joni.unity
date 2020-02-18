@@ -186,6 +186,21 @@ PrefabInstance:
       propertyPath: useStamina
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114051214696948948, guid: 2e62f5703e5f8d2488a5e1bc8433be41,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114051214696948948, guid: 2e62f5703e5f8d2488a5e1bc8433be41,
+        type: 3}
+      propertyPath: lockAndHideCursor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114051214696948948, guid: 2e62f5703e5f8d2488a5e1bc8433be41,
+        type: 3}
+      propertyPath: autoCrosshair
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e62f5703e5f8d2488a5e1bc8433be41, type: 3}
 --- !u!1 &314302248
@@ -554,6 +569,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1068940997}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &667377319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667377314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aea2220dd1fd87748bbd59fd296acd18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcHealth: 100
+  player: {fileID: 1417643922}
 --- !u!4 &667377321 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6718608965814840636, guid: 9b2f0d8864dd2214fa2c431fe7dc522a,
@@ -583,9 +612,9 @@ MonoBehaviour:
   callbackBeforeTalk:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1236249107}
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 667377319}
+        m_MethodName: DisablePlayerMovement
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -600,9 +629,9 @@ MonoBehaviour:
   overwriteCallbackAfterTalk:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1236249107}
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 667377319}
+        m_MethodName: EnablePlayerMovement
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1141,18 +1170,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1068940997}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1236249107 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114051214696948948, guid: 2e62f5703e5f8d2488a5e1bc8433be41,
+--- !u!1 &1417643922 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1743903104223250, guid: 2e62f5703e5f8d2488a5e1bc8433be41,
     type: 3}
   m_PrefabInstance: {fileID: 157301349}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf1a5ad4f9ffb154ca7813fdad11017a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1458414858
 GameObject:
   m_ObjectHideFlags: 0
