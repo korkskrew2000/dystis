@@ -7,7 +7,14 @@ public class EightWayMovingAnimation : MonoBehaviour {
 
     Animator animator;
     Transform sprite;
+
     Vector3 lastPosition;
+
+    GameObject player;
+
+    void Start() {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     int[] mapSectorToFlipped = new int[] { 0, 1, 2, 3, 4, 3, 2, 1 };
     string[] animationNames =
@@ -23,16 +30,22 @@ public class EightWayMovingAnimation : MonoBehaviour {
     void Awake() {
         animator = GetComponent<Animator>();
         sprite = transform.Find("Sprite");
+        if (sprite != null) {
+            Debug.Log("Sprite found!" + sprite.name);
+        }
     }
 
     void FixedUpdate() {
         var v = transform.forward;
-        float shortestAngle = Vector3.Angle(Vector3.forward, v);
+        //float shortestAngle = Vector3.Angle(Vector3.forward, v);
+        float shortestAngle = Vector3.Angle(player.transform.forward, v);
+        //float clockwiseAngle = v.x >= 0 ? shortestAngle : 360 - shortestAngle;
         float clockwiseAngle = v.x >= 0 ? shortestAngle : 360 - shortestAngle;
         int sector = ((int)(clockwiseAngle + 22.5f) % 360) / 45;
         bool nowMoving = Vector3.Distance(transform.position, lastPosition) > Mathf.Epsilon;
 
         int animSector = mapSectorToFlipped[sector];
+        Debug.Log("Sector: " + sector + "   animsector: " + animSector);
         SetSpriteFlip(sector != animSector);
 
         if (lastAnimSector != animSector) {
