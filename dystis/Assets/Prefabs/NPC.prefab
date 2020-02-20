@@ -206,9 +206,9 @@ MonoBehaviour:
   shouldInteractWithButton: 1
   showWhenInteractionIsPossible:
   - {fileID: 0}
-  interactionKey: 0
+  interactionKey: 101
   interactionButton: 
-  interactWithMouse: 1
+  interactWithMouse: 0
   checkIfColliderHasTag: 
   callbackBeforeTalk:
     m_PersistentCalls:
@@ -226,7 +226,7 @@ MonoBehaviour:
         m_CallState: 2
   lineToStart: 1
   lineToBreak: -1
-  txtToParse: {fileID: 4900000, guid: c7a20229500c97e42ae6fb1ac3d8b60b, type: 3}
+  txtToParse: {fileID: 4900000, guid: 1506b591d6e25f54aafde705e8cd854b, type: 3}
   overwriteCallbackAfterTalk:
     m_PersistentCalls:
       m_Calls:

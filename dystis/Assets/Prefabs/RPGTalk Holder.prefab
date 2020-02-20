@@ -152,10 +152,6 @@ MonoBehaviour:
     follow: {fileID: 0}
     followOffset: {x: 0, y: 0, z: 0}
     animatorOverwrite: {fileID: 0}
-  - character: {fileID: 11400000, guid: e4e0544228cc7fb4089935e61b4d3398, type: 2}
-    follow: {fileID: 0}
-    followOffset: {x: 0, y: 0, z: 0}
-    animatorOverwrite: {fileID: 0}
   - character: {fileID: 11400000, guid: 06c515b387772704a81b8a37531ef5d2, type: 2}
     follow: {fileID: 0}
     followOffset: {x: 0, y: 0, z: 0}
@@ -164,7 +160,7 @@ MonoBehaviour:
   shouldStayOnScreen: 0
   textAudio: {fileID: 0}
   passAudio: {fileID: 0}
-  passWithMouse: 0
+  passWithMouse: 1
   passWithInputButton: 
   passWithKey: 0
   enablePass: 1
@@ -181,8 +177,9 @@ MonoBehaviour:
   actualTextSpeed: 50
   isPlaying: 1
   isAnimating: 1
-  choicePrefab: {fileID: 0}
-  choicesParent: {fileID: 0}
+  choicePrefab: {fileID: 6752284632846649868, guid: c60e09da8777de546ad4d0a5bb7c7e3a,
+    type: 3}
+  choicesParent: {fileID: 1272441724084371085}
   expressing:
     name: 
     photo: {fileID: 0}
@@ -201,6 +198,7 @@ GameObject:
   - component: {fileID: 1272441724084371085}
   - component: {fileID: 1272441724084371087}
   - component: {fileID: 1272441724084371086}
+  - component: {fileID: 7732243216913701509}
   m_Layer: 5
   m_Name: ButtonsArea
   m_TagString: Untagged
@@ -345,6 +343,31 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7732243216913701509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272441724084371084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
 --- !u!1 &1272441724132123410
 GameObject:
   m_ObjectHideFlags: 0
