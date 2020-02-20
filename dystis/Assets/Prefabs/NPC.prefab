@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2443180999149192193}
-  - component: {fileID: 2443180999149192192}
-  - component: {fileID: 2443180999149192194}
+  - component: {fileID: 5636199141554949041}
   m_Layer: 0
   m_Name: NPC
   m_TagString: NPC
@@ -34,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2443180999149192192
+--- !u!114 &5636199141554949041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,23 +42,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2443180999149192223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0006e060c317f8141b451284ac02510c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2443180999149192194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2443180999149192223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aea2220dd1fd87748bbd59fd296acd18, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d105a3d5b9988840a59ba6a639550f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   npcHealth: 100
-  player: {fileID: 0}
+  npcFollows: 0
+  npcFollowSpeed: 8
+  npcFollowDistance: 4
+  npcLooksAtPlayer: 1
+  npcLookDistance: 3
 --- !u!1 &2443181000156405721
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +213,7 @@ MonoBehaviour:
   callbackBeforeTalk:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2443180999149192194}
+      - m_Target: {fileID: 0}
         m_MethodName: DisablePlayerMovement
         m_Mode: 1
         m_Arguments:
@@ -239,7 +230,7 @@ MonoBehaviour:
   overwriteCallbackAfterTalk:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2443180999149192194}
+      - m_Target: {fileID: 0}
         m_MethodName: EnablePlayerMovement
         m_Mode: 1
         m_Arguments:

@@ -3,7 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-    
+
+    GameObject player;
+
+    void Start() {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    public void DisablePlayerMovement() {
+        //player.GetComponent<FirstPersonAIO>().lockAndHideCursor = false;
+        player.GetComponent<FirstPersonAIO>().playerCanMove = false;
+        player.GetComponent<FirstPersonAIO>().enableCameraMovement = false;
+        player.GetComponent<FirstPersonAIO>().autoCrosshair = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void EnablePlayerMovement() {
+        player.GetComponent<FirstPersonAIO>().playerCanMove = true;
+        player.GetComponent<FirstPersonAIO>().enableCameraMovement = true;
+        player.GetComponent<FirstPersonAIO>().autoCrosshair = true;
+        //player.GetComponent<FirstPersonAIO>().lockAndHideCursor = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.Mouse0)) {
