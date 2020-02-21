@@ -38,7 +38,7 @@ public class EightWayMovingAnimation : MonoBehaviour {
         animator = GetComponent<Animator>();
         sprite = transform.Find("Sprite");
         if (sprite != null) {
-            Debug.Log("Sprite found!" + sprite.name);
+            //Debug.Log("Sprite found!" + sprite.name);
         }
     }
 
@@ -55,7 +55,7 @@ public class EightWayMovingAnimation : MonoBehaviour {
         var pv = player.transform.forward;
         shortestAngle = Vector3.Angle(pv, v);
         clockwiseAngle = v.x >= 0 ? shortestAngle : 360 - shortestAngle;
-        Debug.Log("v.x : " + v.x);
+        //Debug.Log("v.x : " + v.x);
         sector = ((int)(clockwiseAngle + 22.5f) % 360) / 45;
         nowMoving = Vector3.Distance(transform.position, lastPosition) > Mathf.Epsilon;
 

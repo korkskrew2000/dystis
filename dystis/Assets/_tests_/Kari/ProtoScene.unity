@@ -1082,11 +1082,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.78
       objectReference: {fileID: 0}
-    - target: {fileID: 7436685231532020833, guid: 3ade4fb971932f64da09f9023c9e9acc,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.78
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ade4fb971932f64da09f9023c9e9acc, type: 3}
 --- !u!1 &896027203 stripped
@@ -1650,26 +1645,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531700685}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1635731142 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2171466361602112558, guid: 3ade4fb971932f64da09f9023c9e9acc,
-    type: 3}
-  m_PrefabInstance: {fileID: 892273390}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &1635731144
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635731142}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.64
-  m_Height: 2.56
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1761748409 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8526675457428127271, guid: 8c75d58ca8033bb49a50de3e10f0acb0,
@@ -2865,7 +2840,7 @@ Transform:
   m_GameObject: {fileID: 8010233280621851065}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.73, y: 0, z: -0.24}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.78, y: 0.78, z: 1}
   m_Children:
   - {fileID: 8913784914274261302}
   - {fileID: 1765235907}
