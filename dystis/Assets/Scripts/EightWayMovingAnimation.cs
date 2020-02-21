@@ -12,6 +12,13 @@ public class EightWayMovingAnimation : MonoBehaviour {
 
     GameObject player;
 
+
+    public float shortestAngle;
+    public float clockwiseAngle;
+    public int sector;
+    public bool nowMoving;
+    public int animSector;
+
     void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -31,21 +38,28 @@ public class EightWayMovingAnimation : MonoBehaviour {
         animator = GetComponent<Animator>();
         sprite = transform.Find("Sprite");
         if (sprite != null) {
-            Debug.Log("Sprite found!" + sprite.name);
+            //Debug.Log("Sprite found!" + sprite.name);
         }
     }
 
     void FixedUpdate() {
-        var v = transform.forward;
-        //float shortestAngle = Vector3.Angle(Vector3.forward, v);
-        float shortestAngle = Vector3.Angle(player.transform.forward, v);
-        //float clockwiseAngle = v.x >= 0 ? shortestAngle : 360 - shortestAngle;
-        float clockwiseAngle = v.x >= 0 ? shortestAngle : 360 - shortestAngle;
-        int sector = ((int)(clockwiseAngle + 22.5f) % 360) / 45;
-        bool nowMoving = Vector3.Distance(transform.position, lastPosition) > Mathf.Epsilon;
 
-        int animSector = mapSectorToFlipped[sector];
-        Debug.Log("Sector: " + sector + "   animsector: " + animSector);
+        //alkup.
+        //var v = transform.forward;
+        //float shortestAngle = Vector3.Angle(Vector3.forward, v);
+        //float clockwiseAngle = v.x >= 0 ? shortestAngle : 360 - shortestAngle;
+        //int sector = ((int)(clockwiseAngle + 22.5f) % 360) / 45;
+        //bool nowMoving = Vector3.Distance(transform.position, lastPosition) > Mathf.Epsilon;
+
+        var v = transform.forward;
+        var pv = player.transform.forward;
+        shortestAngle = Vector3.Angle(pv, v);
+        clockwiseAngle = v.x >= 0 ? shortestAngle : 360 - shortestAngle;
+        //Debug.Log("v.x : " + v.x);
+        sector = ((int)(clockwiseAngle + 22.5f) % 360) / 45;
+        nowMoving = Vector3.Distance(transform.position, lastPosition) > Mathf.Epsilon;
+
+        animSector = mapSectorToFlipped[sector];
         SetSpriteFlip(sector != animSector);
 
         if (lastAnimSector != animSector) {
