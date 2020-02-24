@@ -5,6 +5,8 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public List<Item> items = new List<Item>();
+    public int inventorySpace = 20;
+
     public static Inventory instance;
 
     private void Awake() {
@@ -15,10 +17,15 @@ public class Inventory : MonoBehaviour
         instance = this;
     }
 
-    public void Add(Item item) {
+    public bool Add(Item item) {
         if (!item.isDefaultItem) {
+            if (items.Count >= inventorySpace) {
+                print("Inventory is full.");
+                return false;
+            }
             items.Add(item);
         }
+        return true;
     }
 
     public void Remove(Item item) {
