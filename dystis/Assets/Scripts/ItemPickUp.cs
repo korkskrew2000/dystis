@@ -27,8 +27,8 @@ public class ItemPickUp : MonoBehaviour
         if (interactable) {
             if (Input.GetKeyDown(KeyCode.E)) {
                 print(item.name + " added to inventory");
-                Inventory.instance.Add(item);
-                Destroy(gameObject);
+                bool wasPickedUp = Inventory.instance.Add(item);
+                if(wasPickedUp) Destroy(gameObject);
             }
         }
     }
