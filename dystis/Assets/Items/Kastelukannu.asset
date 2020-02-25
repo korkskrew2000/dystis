@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Kastelukannu
   m_EditorClassIdentifier: 
   name: Pertin kastelukannu
-  icon: {fileID: 0}
+  icon: {fileID: 21300014, guid: 29abebc8e9c7048819f3d2245a2a92be, type: 3}
   isDefaultItem: 0

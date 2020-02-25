@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Kirves
   m_EditorClassIdentifier: 
   name: Retkikirves
-  icon: {fileID: 0}
+  icon: {fileID: 21300004, guid: 6fe35ef24b6ca481494e3fcef8f39aa0, type: 3}
   isDefaultItem: 0

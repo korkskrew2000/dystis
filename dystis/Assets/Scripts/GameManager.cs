@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     GameObject player;
+    public GameObject inventoryPanel;
 
     void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -29,7 +30,10 @@ public class GameManager : MonoBehaviour {
     }
 
     // Update is called once per frame
-   //void Update() {
+   void Update() {
+        if (Input.GetKeyDown(KeyCode.I)) {
+            SwitchState(inventoryPanel);
+        }
    //    if (Input.GetKeyDown(KeyCode.Mouse0)) {
    //        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
    //        RaycastHit hit;
@@ -46,5 +50,16 @@ public class GameManager : MonoBehaviour {
    //            }
    //        }
    //    }
-   //}
+   }
+
+    void SwitchState(GameObject gO) {
+        if (gO.activeSelf == true) {
+            gO.SetActive(false);
+            EnablePlayerMovement();
+        }
+        else {
+            gO.SetActive(true);
+            DisablePlayerMovement();
+        }
+    }
 }

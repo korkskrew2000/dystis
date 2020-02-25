@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Avainkortti
   m_EditorClassIdentifier: 
   name: Kotiavain
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 6fe35ef24b6ca481494e3fcef8f39aa0, type: 3}
   isDefaultItem: 0

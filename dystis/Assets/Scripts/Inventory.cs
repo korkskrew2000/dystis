@@ -7,6 +7,9 @@ public class Inventory : MonoBehaviour
     public List<Item> items = new List<Item>();
     public int inventorySpace = 20;
 
+    public delegate void OnItemChanged();
+    public OnItemChanged onItemChangedCallBack;
+
     public static Inventory instance;
 
     private void Awake() {
@@ -24,11 +27,14 @@ public class Inventory : MonoBehaviour
                 return false;
             }
             items.Add(item);
+
+            if (onItemChangedCallBack != null) onItemChangedCallBack.Invoke();
         }
         return true;
     }
 
     public void Remove(Item item) {
         items.Remove(item);
+        if (onItemChangedCallBack != null) onItemChangedCallBack.Invoke();
     }
 }
