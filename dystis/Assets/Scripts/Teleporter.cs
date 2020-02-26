@@ -6,13 +6,13 @@ public class Teleporter : MonoBehaviour {
     [Tooltip("Destination teleporter.")]
     public Transform teleportDestination;
     GameObject player;
-    bool teleportInPhase = false;
-    [Tooltip("What is the longest distance teleport activates.")]
-    public float teleportMaxActivationDistance = 5f ;
+    [Tooltip("What is the longest distance to activate teleport.")]
+    public float teleportActDistance = 2f ;
 
-    // Start is called before the first frame update
     void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
+        //Hide teleporter meshes during runtime
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
 
     private void OnMouseDown() {
@@ -23,17 +23,10 @@ public class Teleporter : MonoBehaviour {
         Vector3 playerPos = player.transform.position;
         Vector3 distance = player.transform.position - transform.position;
 
-        if (Physics.Raycast(ray, out hit)) {
-
-            //Vector3 targetPos = hit.transform.position;
-            //var direction = playerPos - targetPos;
-            //Debug.DrawRay(playerPos, direction, Color.green, 0.5f);
-            //Debug.Log("Raycast hit OK name: " + hit.transform.name);
-            Debug.Log("Distance to teleporter" + distance.magnitude);
-            //if (hit.collider != null && (hit.transform.tag == "Teleporter") && (distance.magnitude < teleportMaxActivationDistance)) {
+        if (Physics.Raycast(ray, out hit, teleportActDistance)) {
+            //Debug.DrawLine(ray.origin, hit.point, Color.red, 5f);
             if (hit.collider != null && (hit.transform.tag == "Teleporter") ) {
-            Debug.Log("We Clicked: " + this.name);
-                //teleportInPhase = true;
+                //Debug.Log("We Clicked: " + this.name);
                 AudioFW.Play("teleport");
                 player.transform.position = teleportDestination.transform.Find("TeleporterExit").position + new Vector3(0, 2, 0);
             }
