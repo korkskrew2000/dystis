@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcHealth: 100
-  npcFollows: 1
+  npcFollows: 0
   npcFollowSpeed: 8
   npcFollowDistance: 4
   npcLooksAtPlayer: 1
