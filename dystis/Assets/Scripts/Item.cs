@@ -7,5 +7,7 @@ public class Item : ScriptableObject
     public Sprite icon;
     public bool isDefaultItem = false;
 
-
+    public virtual void Use() {
+        Debug.Log("Using " + name);
+    }
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b61ccd0fe5c395445aed8c9cbfa5ed67, type: 3}
-  m_Name: Puukko
+  m_Name: Hieno puukko
   m_EditorClassIdentifier: 
   name: Hieno puukko
   icon: {fileID: 21300008, guid: 29abebc8e9c7048819f3d2245a2a92be, type: 3}

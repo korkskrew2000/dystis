@@ -22,11 +22,10 @@ public class PlayerController : MonoBehaviour {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            // tämä pitää korjata jos ja kun ehkä tarvitaan maskia...
-            //if (Physics.Raycast(ray, out hit, 100, movementMask)) {
-            if (Physics.Raycast(ray, out hit, 100)) {
+                //if (Physics.Raycast(ray, out hit, 100, movementMask)) {
+                if (Physics.Raycast(ray, out hit, 100)) {
 
-                Debug.Log("We hit " + hit.collider.name + " " + hit.point);
+                    Debug.Log("We hit " + hit.collider.name + " " + hit.point);
 
                 RemoveFocus();
             }
