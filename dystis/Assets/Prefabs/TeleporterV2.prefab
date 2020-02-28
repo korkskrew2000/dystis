@@ -218,4 +218,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportDestination: {fileID: 0}
-  teleportActDistance: 2
+  teleportActDistance: 3
+  teleportInProgress: 0

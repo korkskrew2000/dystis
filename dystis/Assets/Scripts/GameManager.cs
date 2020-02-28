@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
 
     GameObject player;
     public GameObject inventoryPanel;
+    public CanvasGroup overlay; // Screen fade Overlay
 
     void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
