@@ -317,7 +317,7 @@ MonoBehaviour:
   jumpPower: 5
   canJump: 1
   canHoldJump: 0
-  useStamina: 1
+  useStamina: 0
   staminaDepletionSpeed: 2
   staminaLevel: 50
   speed: 0
