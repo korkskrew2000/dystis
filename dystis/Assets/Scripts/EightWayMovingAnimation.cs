@@ -62,13 +62,13 @@ public class EightWayMovingAnimation : MonoBehaviour {
         animSector = mapSectorToFlipped[sector];
         SetSpriteFlip(sector != animSector);
 
-        if (lastAnimSector != animSector) {
-            animator.Play(animationNames[animSector * 2 + (nowMoving ? 1 : 0)]);
-        } else if (wasMoving && !nowMoving) {
-            animator.Play(animationNames[animSector * 2]);
-        } else if (!wasMoving && nowMoving) {
-            animator.Play(animationNames[animSector * 2 + 1]);
-        }
+        //if (lastAnimSector != animSector) {
+        //    animator.Play(animationNames[animSector * 2 + (nowMoving ? 1 : 0)]);
+        //} else if (wasMoving && !nowMoving) {
+        //    animator.Play(animationNames[animSector * 2]);
+        //} else if (!wasMoving && nowMoving) {
+        //    animator.Play(animationNames[animSector * 2 + 1]);
+        //}
 
         lastAnimSector = animSector;
         lastPosition = transform.position;
