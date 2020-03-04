@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Kumisaappaat
   icon: {fileID: 21300006, guid: 6fe35ef24b6ca481494e3fcef8f39aa0, type: 3}
   isDefaultItem: 0
-  equipSlot: 5
+  equipSlot: 4
   armorModifier: 1
   damageModifier: 0
