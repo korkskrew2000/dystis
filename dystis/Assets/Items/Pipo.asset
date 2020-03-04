@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7fb2f4c7c674484e9c3b9c9fa27485b, type: 3}
-  m_Name: Hieno puukko
+  m_Name: Pipo
   m_EditorClassIdentifier: 
-  name: Hieno puukko
-  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  name: Pipo
+  icon: {fileID: 21300004, guid: 6fe35ef24b6ca481494e3fcef8f39aa0, type: 3}
   isDefaultItem: 0
-  equipSlot: 3
-  armorModifier: 0
-  damageModifier: 2
+  equipSlot: 0
+  armorModifier: 1
+  damageModifier: 0

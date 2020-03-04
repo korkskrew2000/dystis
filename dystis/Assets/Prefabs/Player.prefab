@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1129895495175522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4288335847994348}
@@ -58,7 +58,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1264833946912854}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4204582120663750}
@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 54587624234064098}
   - component: {fileID: 136239539305442568}
   - component: {fileID: 114051214696948948}
+  - component: {fileID: 6136271799823135893}
   m_Layer: 0
   m_Name: FirstPerson-AIO
   m_TagString: Player
@@ -281,7 +282,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.4
-  m_Height: 1.8
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114051214696948948
@@ -296,8 +297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf1a5ad4f9ffb154ca7813fdad11017a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  versionNum: 19.9.11cu
   enableCameraMovement: 1
+  mouseInputInversion: 0
   verticalRotationRange: 170
   mouseSensitivity: 10
   mouseSensitivityInternal: 10
@@ -313,11 +314,12 @@ MonoBehaviour:
   playerCanMove: 1
   walkByDefault: 1
   walkSpeed: 4
+  sprintKey: 304
   sprintSpeed: 8
   jumpPower: 5
   canJump: 1
   canHoldJump: 0
-  useStamina: 0
+  useStamina: 1
   staminaDepletionSpeed: 2
   staminaLevel: 50
   speed: 0
@@ -358,34 +360,60 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     fovStart: 0
+  advanced:
+    gravityMultiplier: 1
+    zeroFrictionMaterial: {fileID: 0}
+    highFrictionMaterial: {fileID: 0}
+    _maxSlopeAngle: 70
+    maxStepHeight: 0.2
+    lastKnownSlopeAngle: 0
   isCrouching: 0
   fps_Rigidbody: {fileID: 0}
   useHeadbob: 1
   head: {fileID: 4204582120663750}
+  snapHeadjointToCapsul: 1
   headbobFrequency: 1.5
   headbobSwayAngle: 2.5
   headbobHeight: 1
   headbobSideMovement: 0.5
-  useJumdLandMovement: 1
-  jumpAngle: 3
-  landAngle: 60
+  jumpLandIntensity: 3
   Volume: 5
   jumpSound: {fileID: 0}
   landSound: {fileID: 0}
-  _useFootStepSounds: 1
   footStepSounds:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   fsmode: 1
   dynamicFootstep:
-    woodPhysMat: {fileID: 0}
-    metalAndGlassPhysMat: {fileID: 0}
-    grassPhysMat: {fileID: 0}
-    dirtAndGravelPhysMat: {fileID: 0}
-    rockAndConcretePhysMat: {fileID: 0}
-    mudPhysMat: {fileID: 0}
-    customPhysMat: {fileID: 0}
+    materialMode: 0
+    woodPhysMat:
+    - {fileID: 0}
+    metalAndGlassPhysMat:
+    - {fileID: 0}
+    grassPhysMat:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    dirtAndGravelPhysMat:
+    - {fileID: 0}
+    rockAndConcretePhysMat:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    mudPhysMat:
+    - {fileID: 0}
+    customPhysMat:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    woodMat: []
+    metalAndGlassMat: []
+    grassMat: []
+    dirtAndGravelMat: []
+    rockAndConcreteMat: []
+    mudMat: []
+    customMat: []
     currentClipSet: []
     woodClipSet: []
     metalAndGlassClipSet: []
@@ -427,3 +455,16 @@ MonoBehaviour:
     - {fileID: 8300000, guid: fef61cddf814a2c49bf7a6c33791c766, type: 3}
     - {fileID: 8300000, guid: 73f938638097f8042ad7842aa5b04ac5, type: 3}
     - {fileID: 8300000, guid: e06c6ae1948cafd45a952ab85ebe4fa7, type: 3}
+--- !u!114 &6136271799823135893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743903104223250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d139c041f8ac60b40855278424b4065f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focus: {fileID: 0}
