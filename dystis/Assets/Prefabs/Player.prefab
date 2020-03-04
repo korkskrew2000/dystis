@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 114051214696948948}
   - component: {fileID: 6136271799823135893}
   m_Layer: 0
-  m_Name: FirstPerson-AIO
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,7 +170,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -381,16 +381,16 @@ MonoBehaviour:
   jumpSound: {fileID: 0}
   landSound: {fileID: 0}
   footStepSounds:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 6bceaf82f1d8ca64bb6df2c0699e5887, type: 3}
+  - {fileID: 8300000, guid: ebcf6abcb3e35314ba8bf1dae9ff4a56, type: 3}
+  - {fileID: 8300000, guid: dd3960f9194c4bb4e92559e1909158a9, type: 3}
   fsmode: 1
   dynamicFootstep:
     materialMode: 0
     woodPhysMat:
-    - {fileID: 0}
+    - {fileID: 13400000, guid: 3aeb7dadc0c69d54d9e5777e9d5631f1, type: 2}
     metalAndGlassPhysMat:
-    - {fileID: 0}
+    - {fileID: 13400000, guid: 01571ba68fb2dad46aa03094ab219579, type: 2}
     grassPhysMat:
     - {fileID: 0}
     - {fileID: 0}
@@ -415,8 +415,18 @@ MonoBehaviour:
     mudMat: []
     customMat: []
     currentClipSet: []
-    woodClipSet: []
-    metalAndGlassClipSet: []
+    woodClipSet:
+    - {fileID: 8300000, guid: 6bceaf82f1d8ca64bb6df2c0699e5887, type: 3}
+    - {fileID: 8300000, guid: 2e8aa713666c22046b2ce128fd9dcab2, type: 3}
+    - {fileID: 8300000, guid: ebcf6abcb3e35314ba8bf1dae9ff4a56, type: 3}
+    - {fileID: 8300000, guid: 9b9079c1d5fb69e488e6496cb059f363, type: 3}
+    - {fileID: 8300000, guid: dd3960f9194c4bb4e92559e1909158a9, type: 3}
+    metalAndGlassClipSet:
+    - {fileID: 8300000, guid: 28051965e425cdb43a06229cbfa9ee96, type: 3}
+    - {fileID: 8300000, guid: bb56ff9258d87494d8a70b821e6125ff, type: 3}
+    - {fileID: 8300000, guid: 909ce067fbf8aeb48a1996a663e1dd7b, type: 3}
+    - {fileID: 8300000, guid: 42e768093c441374ab019ffa2c9a9d42, type: 3}
+    - {fileID: 8300000, guid: 9a3aeb5e7cce97f4189b2d805584d247, type: 3}
     grassClipSet:
     - {fileID: 8300000, guid: e70c5fa5ed6b97f41aa555d63ca56d42, type: 3}
     - {fileID: 8300000, guid: d3947cf2c6783a447bd0dae10cd8bb21, type: 3}
@@ -444,17 +454,17 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 965861ab37dcd9549912eca505055b63, type: 3}
     mudClipSet: []
     customClipSet:
-    - {fileID: 8300000, guid: fb6839219f2c6674996d76c7d9626311, type: 3}
-    - {fileID: 8300000, guid: a2cf935dcad44514894bf910c443d507, type: 3}
-    - {fileID: 8300000, guid: 0b36ebf0a6b6c234c89643b5bb83ec59, type: 3}
-    - {fileID: 8300000, guid: f556827165c098547be10e15323aa490, type: 3}
-    - {fileID: 8300000, guid: 5a1e73ebb16d027419df7efded694efa, type: 3}
-    - {fileID: 8300000, guid: 884f1d42e7a5e98478d53bfc4b98aada, type: 3}
-    - {fileID: 8300000, guid: 8bbd5871530ec774ebef27eaea21e860, type: 3}
-    - {fileID: 8300000, guid: 8742d0ca3e03b034fb383ae7aba7d4a6, type: 3}
-    - {fileID: 8300000, guid: fef61cddf814a2c49bf7a6c33791c766, type: 3}
-    - {fileID: 8300000, guid: 73f938638097f8042ad7842aa5b04ac5, type: 3}
-    - {fileID: 8300000, guid: e06c6ae1948cafd45a952ab85ebe4fa7, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
 --- !u!114 &6136271799823135893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,4 +477,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d139c041f8ac60b40855278424b4065f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxDistance: 3
   focus: {fileID: 0}
