@@ -14,6 +14,7 @@ public class Interactable : MonoBehaviour {
         Debug.Log("Interacting with " + transform.name);
     }
 
+
     void Update() {
         if (isFocus && !hasInteracted) {
             float distance = Vector3.Distance(player.position, interactionTransform.position);

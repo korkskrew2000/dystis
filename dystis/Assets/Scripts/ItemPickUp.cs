@@ -11,29 +11,12 @@ public class ItemPickUp : Interactable
 
     public override void Interact() {
         print(item.name + " added to inventory");
+        PickUp();
+    }
+
+    void PickUp()
+    {
         bool wasPickedUp = Inventory.instance.Add(item);
         if (wasPickedUp) Destroy(gameObject);
-    }
-
-    public void OnTriggerEnter(Collider other) {
-        if(other.CompareTag("Player")) {
-            pressKeyPanel.SetActive(true);
-            interactable = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other) {
-        if (other.CompareTag("Player")) {
-            pressKeyPanel.SetActive(false);
-            interactable = false;
-        }
-    }
-
-    private void Update() {
-        if (interactable) {
-            if (Input.GetKeyDown(KeyCode.E)) {
-                Interact();
-            }
-        }
     }
 }
