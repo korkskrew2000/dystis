@@ -15,7 +15,7 @@ public class TeleportActivation : Interactable {
         //Transform player = GameObject.FindGameObjectWithTag("Player").transform;
     }
     void TeleportActivate() {
-        Debug.Log("Activating teleport." + transform.name);
+        Debug.Log("Activating teleport: " + transform.name);
         //bool wasPickedUp = Inventory.instance.Add(item);
         //if (wasPickedUp) {
         //    Destroy(gameObject);
