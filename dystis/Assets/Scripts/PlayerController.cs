@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour {
 
     Camera cam;
 
+    public float maxDistance = 3;
     public Interactable focus;
 
     void Start() {
@@ -13,9 +14,9 @@ public class PlayerController : MonoBehaviour {
 
     void Update() {
 
-        if (EventSystem.current.IsPointerOverGameObject()) {
-            return;
-        }
+        //if (EventSystem.current.IsPointerOverGameObject()) {
+        //    return;
+        //}
 
         // If we press left mouse button
         if (Input.GetMouseButtonDown(0)) {
@@ -23,7 +24,7 @@ public class PlayerController : MonoBehaviour {
             RaycastHit hit;
 
                 //if (Physics.Raycast(ray, out hit, 100, movementMask)) {
-                if (Physics.Raycast(ray, out hit, 100)) {
+                if (Physics.Raycast(ray, out hit, maxDistance)) {
 
                     Debug.Log("We hit: " + hit.collider.name + " " + hit.point);
 
@@ -36,7 +37,7 @@ public class PlayerController : MonoBehaviour {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 100)) {
+            if (Physics.Raycast(ray, out hit, maxDistance)) {
 
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
                 if (interactable != null) {

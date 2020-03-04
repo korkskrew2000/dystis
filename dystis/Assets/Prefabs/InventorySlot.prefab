@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 4026217065919456852}
+  itemButton: {fileID: 4026217064984724228}
   removeButton: {fileID: 4026217065140578928}
 --- !u!1 &4026217064984724232
 GameObject:
@@ -165,7 +166,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 4026217064984724234}
   m_OnClick:
     m_PersistentCalls:
