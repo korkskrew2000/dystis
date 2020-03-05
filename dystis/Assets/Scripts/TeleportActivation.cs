@@ -4,6 +4,11 @@ public class TeleportActivation : Interactable {
     
     public Transform tpDestination;
 
+    Transform player;
+
+    //PlayerController playerController;
+
+
     public override void Interact() {
 
         base.Interact();
@@ -11,16 +16,20 @@ public class TeleportActivation : Interactable {
         TeleportActivate();
     }
 
-    private void Start() {
-        //Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+    void Awake() {
+        //GetComponent<MeshRenderer>().enabled = false;
     }
+
+    void Start() {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
     void TeleportActivate() {
         Debug.Log("Activating teleport: " + transform.name);
-        //bool wasPickedUp = Inventory.instance.Add(item);
-        //if (wasPickedUp) {
-        //    Destroy(gameObject);
-        //}
         //player.position = tpDestination.position + new Vector3(0, 2, 0);
-        
+
+        player.GetComponent<PlayerController>().tpDestination = tpDestination;
+        player.GetComponent<PlayerController>().teleportStarting = true;
+
     }
 }

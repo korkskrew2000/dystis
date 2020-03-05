@@ -46,7 +46,7 @@ public class Teleporter : MonoBehaviour {
 
                     Debug.Log("Teleport destination:" + teleportDestination.name);
                     //Debug.Log("Teleport destination:" + hit.transform.GetComponentInParent<Transform>().Find("TeleporterExit").GetComponent<Transform>().name);
-                    player.transform.position = tpDest + new Vector3(0, 2, 0);
+                    player.transform.position = tpDest + new Vector3(0, 0.2f, 0);
 
                 //}
             }

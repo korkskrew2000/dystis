@@ -14,15 +14,19 @@ public class Interactable : MonoBehaviour {
         Debug.Log("Interacting with " + transform.name);
     }
 
+    private void Awake() {
+        // Set layer to "Interactables".
+        gameObject.layer = 9;
+    }
 
     void Update() {
         if (isFocus && !hasInteracted) {
-            float distance = Vector3.Distance(player.position, interactionTransform.position);
-            if (distance <= radius) {
+            //float distance = Vector3.Distance(player.position, interactionTransform.position);
+            //if (distance <= radius) {
                 //Debug.Log("INTERACT");
                 Interact();
                 hasInteracted = true;
-            }
+            //}
         }
     }
     public void OnFocused(Transform playerTransform) {
