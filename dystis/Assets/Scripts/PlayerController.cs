@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
     public bool teleportStarting = false;
     public bool teleportOnGoing = false;
     public bool teleportEnding = false;
+    bool teleportAudioPlaying = false;
     CanvasGroup fadeOverlay;
     // ============================
 
@@ -112,9 +113,13 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-
+        // === Teleporting ==================================
 
         if (teleportStarting) {
+            if (!teleportAudioPlaying) {
+                AudioFW.Play("dooropen");
+                teleportAudioPlaying = true;
+            }
             DisablePlayerMovement(false);
             fadeOverlay.alpha += Time.deltaTime * teleportFadespeed;
             Debug.Log("Faderoverlay Alpha: " + fadeOverlay.alpha);
@@ -123,28 +128,31 @@ public class PlayerController : MonoBehaviour {
                 teleportStarting = false;
                 teleportOnGoing = true;
                 teleportEnding = false;
-
+                teleportAudioPlaying = false;
                 //Debug.Log("Faderoverlay Alpha: " + fadeOverlay.alpha);
             }
         }
 
-        // === Teleporting ==================================
-
         if (teleportOnGoing) {
             Debug.Log("Teleport destination:" + tpDestination.name);
-            AudioFW.Play("teleport");
             transform.position = tpDestination.transform.position + new Vector3(0, 0.2f, 0);
             teleportStarting = false;
             teleportOnGoing = false;
             teleportEnding = true;
+            AudioFW.Play("doorclose");
         }
 
         if (teleportEnding) {
+            if (!teleportAudioPlaying) {
+                AudioFW.Play("doorclose");
+                teleportAudioPlaying = true;
+            }
             fadeOverlay.alpha -= Time.deltaTime * teleportFadespeed;
             if (fadeOverlay.alpha <= 0f) {
                 teleportStarting = false;
                 teleportOnGoing = false;
                 teleportEnding = false;
+                teleportAudioPlaying = false;
                 EnablePlayerMovement(false);
             }
         }
