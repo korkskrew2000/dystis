@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Kumisaappaat
   m_EditorClassIdentifier: 
   name: Kumisaappaat
-  icon: {fileID: 21300006, guid: 6fe35ef24b6ca481494e3fcef8f39aa0, type: 3}
+  icon: {fileID: 21300010, guid: 6fe35ef24b6ca481494e3fcef8f39aa0, type: 3}
   isDefaultItem: 0
-  equipSlot: 4
+  equipSlot: 5
   armorModifier: 1
   damageModifier: 0

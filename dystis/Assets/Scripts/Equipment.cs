@@ -17,4 +17,4 @@ public class Equipment : Item {
     }
 }
 
-public enum EquipmentSlot { Head, Torso, Legs, Hand, Feet }
+public enum EquipmentSlot { Head, Torso, Legs, RightHand, LeftHand, Feet }

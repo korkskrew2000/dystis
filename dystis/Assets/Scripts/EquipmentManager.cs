@@ -69,4 +69,13 @@ public class EquipmentManager : MonoBehaviour {
             UnequipAll();
         }
     }
+
+    public void Remove(int slotIndex)
+    {
+        if (currentEquipment[slotIndex] != null)
+        {
+            if (onEquipmentChanged != null) onEquipmentChanged.Invoke(null, currentEquipment[slotIndex]);
+        }
+        currentEquipment[slotIndex] = null;
+    }
 }
