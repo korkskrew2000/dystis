@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Takki
   m_EditorClassIdentifier: 
   name: Takki
-  icon: {fileID: 21300000, guid: 6fe35ef24b6ca481494e3fcef8f39aa0, type: 3}
+  icon: {fileID: 21300000, guid: 49961263f04508a4cb51623a3a5e65e3, type: 3}
   isDefaultItem: 0
   equipSlot: 1
   armorModifier: 1

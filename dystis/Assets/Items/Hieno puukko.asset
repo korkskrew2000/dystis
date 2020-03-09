@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hieno puukko
   m_EditorClassIdentifier: 
   name: Hieno puukko
-  icon: {fileID: 21300006, guid: 6fe35ef24b6ca481494e3fcef8f39aa0, type: 3}
+  icon: {fileID: 21300000, guid: e1d8c135820562544840240d4330b993, type: 3}
   isDefaultItem: 0
   equipSlot: 3
   armorModifier: 0

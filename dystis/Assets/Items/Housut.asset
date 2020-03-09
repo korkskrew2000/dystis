@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Housut
   m_EditorClassIdentifier: 
   name: Housut
-  icon: {fileID: 21300002, guid: 6fe35ef24b6ca481494e3fcef8f39aa0, type: 3}
+  icon: {fileID: 21300000, guid: d208c393a8425b6429866fcd0ccad164, type: 3}
   isDefaultItem: 0
   equipSlot: 2
   armorModifier: 1
