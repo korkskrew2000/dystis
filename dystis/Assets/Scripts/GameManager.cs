@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
 
     void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
-        AudioFW.PlayLoop("ambience");
+        //AudioFW.PlayLoop("ambience");
     }
 
     
