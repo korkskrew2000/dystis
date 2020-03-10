@@ -22,13 +22,13 @@ public class PlayerController : MonoBehaviour {
     public bool teleportOnGoing = false;
     public bool teleportEnding = false;
     bool teleportAudioPlaying = false;
-    CanvasGroup fadeOverlay;
+    public CanvasGroup fadeOverlay;
     // ============================
 
     void Start() {
         cam = Camera.main;
         // For fading... CanvasGroup is in the PlayerFadeCanvas
-        fadeOverlay = GameManager.FindObjectOfType<CanvasGroup>();
+        //fadeOverlay = GameManager.FindObjectOfType<CanvasGroup>();
     }
 
     public void DisablePlayerMovement(bool visibleCursor) {
