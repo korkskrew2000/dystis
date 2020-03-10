@@ -1,13 +1,20 @@
 ﻿using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
-
+public class PlayerController : MonoBehaviour
+{
     Camera cam;
+    EquipmentManager equipmentMg;
+    Gun currentGun;
 
     int interactablesMask = 1 << 9; // To check if we are looking at interactable thing.
+    int ignoreRayMask = ~(1 << 2);
     bool interactableNotification = false; // Notify user about interactable thing.
     bool lookingAtInteractable = false;
+    bool canShoot = true;
+    int weaponDamage;
+    int weaponFireRate;
+
     public float maxDistance = 2; // Max interaction distance.
     public Interactable focus;
     public GameManager gameManager;
@@ -22,45 +29,70 @@ public class PlayerController : MonoBehaviour {
     public bool teleportOnGoing = false;
     public bool teleportEnding = false;
     bool teleportAudioPlaying = false;
-    public CanvasGroup fadeOverlay;
+    CanvasGroup fadeOverlay;
     // ============================
 
-    void Start() {
+    void Start()
+    {
+        equipmentMg = EquipmentManager.instance;
+        equipmentMg.onEquipmentChanged += UpdateWeapon;
         cam = Camera.main;
         // For fading... CanvasGroup is in the PlayerFadeCanvas
-        //fadeOverlay = GameManager.FindObjectOfType<CanvasGroup>();
+        fadeOverlay = GameManager.FindObjectOfType<CanvasGroup>();
     }
 
-    public void DisablePlayerMovement(bool visibleCursor) {
+    void UpdateWeapon(Equipment newItem, Equipment oldItem)
+    {
+        if (newItem == null) currentGun = null;
+
+        if (newItem is Gun)
+        {
+            currentGun = (Gun)newItem;
+            weaponDamage = currentGun.damageModifier;
+            weaponFireRate = currentGun.fireRate;
+        }
+    }
+
+    public void DisablePlayerMovement(bool visibleCursor)
+    {
         //player.GetComponent<FirstPersonAIO>().lockAndHideCursor = false;
         GetComponent<FirstPersonAIO>().playerCanMove = false;
         GetComponent<FirstPersonAIO>().enableCameraMovement = false;
         GetComponent<FirstPersonAIO>().autoCrosshair = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = visibleCursor;
+        canShoot = false;
     }
 
-    public void EnablePlayerMovement(bool visibleCursor) {
+    public void EnablePlayerMovement(bool visibleCursor)
+    {
         GetComponent<FirstPersonAIO>().playerCanMove = true;
         GetComponent<FirstPersonAIO>().enableCameraMovement = true;
         GetComponent<FirstPersonAIO>().autoCrosshair = true;
         //player.GetComponent<FirstPersonAIO>().lockAndHideCursor = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = visibleCursor;
+        canShoot = true;
     }
 
-    void SwitchState(GameObject gO) {
-        if (gO.activeSelf == true) {
+    void SwitchState(GameObject gO)
+    {
+        if (gO.activeSelf == true)
+        {
             gO.SetActive(false);
             EnablePlayerMovement(false);
-        } else {
+        }
+        else
+        {
             gO.SetActive(true);
             DisablePlayerMovement(true);
         }
     }
 
-    void Update() {
-        if (Input.GetButtonDown("Inventory")) {
+    void Update()
+    {
+        if (Input.GetButtonDown("Inventory"))
+        {
             SwitchState(inventoryPanel);
         }
         //if (EventSystem.current.IsPointerOverGameObject()) {
@@ -69,44 +101,58 @@ public class PlayerController : MonoBehaviour {
 
         var rayz = new Ray(cam.transform.position, cam.transform.forward);
         RaycastHit hitz;
-        if (Physics.Raycast(rayz, out hitz, maxDistance, interactablesMask)) {
+        if (Physics.Raycast(rayz, out hitz, maxDistance, interactablesMask))
+        {
             lookingAtInteractable = true;
-            if (!interactableNotification && lookingAtInteractable) {
+            if (!interactableNotification && lookingAtInteractable)
+            {
                 interactableNotification = true;
                 Debug.Log("You can do something here...");
                 interactableInfo.SetActive(true);
                 Debug.DrawLine(rayz.origin, hitz.point, Color.red, 0.5f);
             }
-            
-        } else {
+
+        }
+        else
+        {
             interactableInfo.SetActive(false);
             lookingAtInteractable = false;
             interactableNotification = false;
         }
 
         // If we press left mouse button
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) && currentGun != null && canShoot)
+        {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             //if (Physics.Raycast(ray, out hit, 100, movementMask)) {
-            if (Physics.Raycast(ray, out hit, maxDistance)) {
+            if (Physics.Raycast(ray, out hit, 1000, ignoreRayMask))
+            {
 
                 Debug.Log("We hit: " + hit.collider.name + " " + hit.point);
 
-                RemoveFocus();
+                NPCControllerV2 npc = hit.transform.GetComponent<NPCControllerV2>();
+                if (npc != null)
+                {
+                    npc.DamageIt(weaponDamage);
+                }
+                //RemoveFocus();
             }
         }
 
         // If we press right mouse button
-        if (Input.GetMouseButtonDown(1)) {
+        if (Input.GetMouseButtonDown(1))
+        {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, maxDistance)) {
+            if (Physics.Raycast(ray, out hit, maxDistance))
+            {
 
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
-                if (interactable != null) {
+                if (interactable != null)
+                {
                     SetFocus(interactable);
                     Debug.Log("We hit interactable: " + interactable.name + " " + hit.point);
                 }
@@ -115,8 +161,10 @@ public class PlayerController : MonoBehaviour {
 
         // === Teleporting ==================================
 
-        if (teleportStarting) {
-            if (!teleportAudioPlaying) {
+        if (teleportStarting)
+        {
+            if (!teleportAudioPlaying)
+            {
                 AudioFW.Play("dooropen");
                 teleportAudioPlaying = true;
             }
@@ -133,7 +181,8 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        if (teleportOnGoing) {
+        if (teleportOnGoing)
+        {
             Debug.Log("Teleport destination:" + tpDestination.name);
             transform.position = tpDestination.transform.position + new Vector3(0, 0.2f, 0);
             teleportStarting = false;
@@ -142,13 +191,16 @@ public class PlayerController : MonoBehaviour {
             AudioFW.Play("doorclose");
         }
 
-        if (teleportEnding) {
-            if (!teleportAudioPlaying) {
+        if (teleportEnding)
+        {
+            if (!teleportAudioPlaying)
+            {
                 AudioFW.Play("doorclose");
                 teleportAudioPlaying = true;
             }
             fadeOverlay.alpha -= Time.deltaTime * teleportFadespeed;
-            if (fadeOverlay.alpha <= 0f) {
+            if (fadeOverlay.alpha <= 0f)
+            {
                 teleportStarting = false;
                 teleportOnGoing = false;
                 teleportEnding = false;
@@ -161,26 +213,26 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-    void SetFocus(Interactable newFocus) {
-        if (newFocus != focus) {
-            if (focus != null) {
+    void SetFocus(Interactable newFocus)
+    {
+        if (newFocus != focus)
+        {
+            if (focus != null)
+            {
                 focus.OnDefocused();
             }
 
             focus = newFocus;
         }
-
         newFocus.OnFocused(transform);
     }
 
-    void RemoveFocus() {
-        if (focus != null) {
+    void RemoveFocus()
+    {
+        if (focus != null)
+        {
             focus.OnDefocused();
         }
-
         focus = null;
     }
-
-
 }
-
