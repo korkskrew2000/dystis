@@ -8,7 +8,7 @@ public class QuickAudioTest : MonoBehaviour {
     void Start() {
         bindings.Add(KeyCode.C, "hyppy");
         bindings.Add(KeyCode.V, "gunshot");
-        bindings.Add(KeyCode.X, "doesntexist");
+        bindings.Add(KeyCode.X, "shotgun");
 
     }
 
