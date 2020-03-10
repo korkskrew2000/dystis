@@ -501,6 +501,16 @@ PrefabInstance:
       propertyPath: inventoryPanel
       value: 
       objectReference: {fileID: 2054984628}
+    - target: {fileID: 6136271799823135893, guid: 2e62f5703e5f8d2488a5e1bc8433be41,
+        type: 3}
+      propertyPath: fadeOverlay
+      value: 
+      objectReference: {fileID: 398865029}
+    - target: {fileID: 6340062177057986593, guid: 2e62f5703e5f8d2488a5e1bc8433be41,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e62f5703e5f8d2488a5e1bc8433be41, type: 3}
 --- !u!1001 &338255744
@@ -646,6 +656,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2573118185183933955, guid: ce7e8b72f14f7e8419fa3af28d4df61b,
     type: 3}
   m_PrefabInstance: {fileID: 354557450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &398865029 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 1746618703, guid: 2e62f5703e5f8d2488a5e1bc8433be41,
+    type: 3}
+  m_PrefabInstance: {fileID: 249900273}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &404366079
 GameObject:
