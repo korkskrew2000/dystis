@@ -11,6 +11,11 @@ public class EquipmentHolder : MonoBehaviour
     public void AddEquipment(Equipment newEquipment)
     {
         equipment = newEquipment;
+        if (equipment.name == "Shotgun")
+        {
+            Debug.Log(equipment.name);
+            AudioFW.Play("shotgunequip");
+        }
         icon.sprite = equipment.icon;
         icon.enabled = true;
         unquipmentButton.interactable = true;

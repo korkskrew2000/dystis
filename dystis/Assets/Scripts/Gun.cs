@@ -7,7 +7,7 @@ public class Gun : Equipment
 {
     public int fireRate;
 
-    void Awake()
+    void Reset()
     {
         equipSlot = EquipmentSlot.RightHand;
     }
