@@ -11,7 +11,7 @@ public class Equipment : Item {
     public int damageModifier;
 
     public override void Use() {
-        base.Use();
+        //base.Use();
         EquipmentManager.instance.Equip(this);
         RemoveFromInventory();
     }
