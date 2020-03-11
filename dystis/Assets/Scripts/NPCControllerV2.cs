@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum NPCGender { female, male }
+
 public class NPCControllerV2 : MonoBehaviour, ITalkable {
 
+    [Header("Player gender")]
+    public NPCGender npcGender;
     [Header("NPC Health:")]
     [Range(0f, 100f), Tooltip("Health")]
     public float npcHealth = 100f;
@@ -27,6 +31,10 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
 
     GameObject player;
 
+    //void Reset() {
+    //    var npcGender = NPCGender.male;
+    //}
+
     void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
         npcOriginalRot = transform.rotation;
@@ -34,7 +42,7 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
 
     void Update() {
 
-        if(player == null) {
+        if (player == null) {
             print("No Player Found!");
             return;
         }
@@ -64,8 +72,7 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
                 var dir = (player.transform.position - transform.position).normalized;
                 Quaternion lookRot = Quaternion.LookRotation(new Vector3(dir.x, 0f, dir.z));
                 transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, Time.deltaTime * npcTurningSpeed);
-            }
-            else {
+            } else {
                 transform.rotation = Quaternion.Slerp(transform.rotation, npcOriginalRot, Time.deltaTime * npcTurningSpeed);
             }
         }
@@ -76,8 +83,12 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
     }
 
     public void DamageIt(float damageAmount) {
-        AudioFW.Play("npctakeshit");
-        Debug.Log("You damaged it.");
+        if (npcGender == NPCGender.female) {
+            AudioFW.Play("npctakeshitfemale");
+        } else {
+            AudioFW.Play("npctakeshitmale");
+        }
+        //Debug.Log("You damaged it.");
         npcHealth -= damageAmount;
         isNPCDestroyed(npcHealth);
     }
@@ -88,7 +99,11 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
 
     void isNPCDestroyed(float health) {
         if (health <= 0) {
-            AudioFW.Play("npcdies");
+            if (npcGender == NPCGender.female) {
+                AudioFW.Play("npcdiesfemale");
+            } else {
+                AudioFW.Play("npcdiesmale");
+            }
             Destroy(gameObject, 0.5f);
         }
     }
