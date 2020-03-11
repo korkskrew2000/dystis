@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class Interactable : MonoBehaviour {
-    public float radius = 3f;
+    //public float radius = 3f;
     public Transform interactionTransform;
 
     bool isFocus = false;
@@ -40,11 +40,11 @@ public class Interactable : MonoBehaviour {
         player = null;
         hasInteracted = false;
     }
-    private void OnDrawGizmosSelected() {
-        if (interactionTransform == null) {
-            interactionTransform = transform;
-        }
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(interactionTransform.position, radius);
-    }
+    //private void OnDrawGizmosSelected() {
+    //    if (interactionTransform == null) {
+    //        interactionTransform = transform;
+    //    }
+    //    Gizmos.color = Color.yellow;
+    //    Gizmos.DrawWireSphere(interactionTransform.position, radius);
+    //}
 }
