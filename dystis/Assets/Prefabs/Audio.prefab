@@ -1057,7 +1057,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 79ca47a05b11f634691862dfe5abb239, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 686adc1e1ece1f74ca32f1fb394fe5d5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1438,7 +1438,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1b187b243f7a6d047aa89960bdda7323, type: 3}
+  m_audioClip: {fileID: 8300000, guid: dde1f1f624b7137489527ffb532e4ed0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.75
   m_Pitch: 1
@@ -1596,7 +1596,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 79ca47a05b11f634691862dfe5abb239, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c7da721e0624fbf43929a1a5baad7d9c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2552,7 +2552,7 @@ GameObject:
   - component: {fileID: 7612335439511788741}
   - component: {fileID: 1848580499614372275}
   m_Layer: 0
-  m_Name: npctakeshitman
+  m_Name: npctakeshitmale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2582,7 +2582,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 79ca47a05b11f634691862dfe5abb239, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c7da721e0624fbf43929a1a5baad7d9c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2836,7 +2836,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cc06b6906db2d0e49bd5fd420899a54a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2d55a3b2d40009e4d878aee042e06976, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
