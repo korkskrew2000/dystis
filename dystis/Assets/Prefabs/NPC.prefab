@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d105a3d5b9988840a59ba6a639550f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcGender: 0
+  npcGender: 1
   npcHealth: 100
   npcFollows: 0
   npcFollowSpeed: 8
