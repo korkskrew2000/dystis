@@ -76,6 +76,7 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
     }
 
     public void DamageIt(float damageAmount) {
+        AudioFW.Play("npctakeshit");
         Debug.Log("You damaged it.");
         npcHealth -= damageAmount;
         isNPCDestroyed(npcHealth);
@@ -87,6 +88,7 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
 
     void isNPCDestroyed(float health) {
         if (health <= 0) {
+            AudioFW.Play("npcdies");
             Destroy(gameObject, 0.5f);
         }
     }

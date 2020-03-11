@@ -120,9 +120,14 @@ public class PlayerController : MonoBehaviour
             interactableNotification = false;
         }
 
-        // If we press left mouse button
+        // If we press left mouse button and we have gun and we can shoot
         if (Input.GetMouseButtonDown(0) && currentGun != null && canShoot)
         {
+            Debug.Log("We just shot with a gun!");
+            //if (currentGun == "shotgun") {
+                AudioFW.Play("shotgunshot");
+            //}
+
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
