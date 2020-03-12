@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     Camera cam;
     EquipmentManager equipmentMg;
     Gun currentGun;
+    Equipment rightHand;
 
     int interactablesMask = 1 << 9; // To check if we are looking at interactable thing.
     int ignoreRayMask = ~(1 << 2);
@@ -14,12 +15,17 @@ public class PlayerController : MonoBehaviour
     bool canShoot = true;
     int weaponDamage;
     int weaponFireRate;
+    int weaponIndex = -1;
+    ParticleSystem weaponMuzzle;
+    Transform[] weapons; // lista kamerassa näkyivstä aseista WeaponHolderin alla
 
-    public float maxDistance = 2; // Max interaction distance.
+    public float interactionDistance = 2; // Max interaction distance.
     public Interactable focus;
-    public GameManager gameManager;
     public GameObject interactableInfo;
     public GameObject inventoryPanel;
+    public GameObject impactEffectConcrete;
+    public GameObject impactEffectBlood;
+    public GameObject weaponHolder;
 
     // == Teleport ================
     public Transform tpDestination;
@@ -37,19 +43,50 @@ public class PlayerController : MonoBehaviour
         equipmentMg = EquipmentManager.instance;
         equipmentMg.onEquipmentChanged += UpdateWeapon;
         cam = Camera.main;
+
         // For fading... CanvasGroup is in the PlayerFadeCanvas
         fadeOverlay = GameManager.FindObjectOfType<CanvasGroup>();
+
+        // alustetaan kameraan näkyvien aseiden lista WeaponHolderin lapsiobjekteilla
+        weapons = new Transform[weaponHolder.transform.childCount];
+        for (int i = 0; i < weaponHolder.transform.childCount; i++)
+        {
+            weapons[i] = weaponHolder.transform.GetChild(i);
+        }
+
+        Debug.Log("weapons length " + weapons.Length);
     }
 
     void UpdateWeapon(Equipment newItem, Equipment oldItem)
     {
-        if (newItem == null) currentGun = null;
+        rightHand = equipmentMg.currentEquipment[3];
 
-        if (newItem is Gun)
+        // päivitetään tieto pelaajan tämänhetkisestä aseesta
+        if(rightHand is Gun)
         {
-            currentGun = (Gun)newItem;
+            currentGun = (Gun)rightHand;
             weaponDamage = currentGun.damageModifier;
             weaponFireRate = currentGun.fireRate;
+            weaponIndex = currentGun.holderIndex;
+        } else
+        {
+            currentGun = null;
+            weaponIndex = -1;
+        }
+
+        // asetetaan oikea ase näkymään kamerassa
+        for (int i = 0; i < weapons.Length; i++)
+        {
+            if(weaponIndex == i)
+            {
+                GameObject weapon = weaponHolder.transform.GetChild(i).gameObject;
+                weapon.SetActive(true);
+                weaponMuzzle = weapon.transform.GetComponentInChildren<ParticleSystem>();
+            }
+            else
+            {
+                weaponHolder.transform.GetChild(i).gameObject.SetActive(false);
+            }
         }
     }
 
@@ -101,7 +138,7 @@ public class PlayerController : MonoBehaviour
 
         var rayz = new Ray(cam.transform.position, cam.transform.forward);
         RaycastHit hitz;
-        if (Physics.Raycast(rayz, out hitz, maxDistance, interactablesMask))
+        if (Physics.Raycast(rayz, out hitz, interactionDistance, interactablesMask))
         {
             lookingAtInteractable = true;
             if (!interactableNotification && lookingAtInteractable)
@@ -127,7 +164,8 @@ public class PlayerController : MonoBehaviour
             //if (currentGun == "shotgun") {
                 AudioFW.Play("shotgunshot");
             //}
-
+            weaponMuzzle.Play();
+            Debug.Log("Muzzle: " + weaponMuzzle);
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
@@ -141,7 +179,22 @@ public class PlayerController : MonoBehaviour
                 if (npc != null)
                 {
                     npc.DamageIt(weaponDamage);
+                    GameObject holeNPC = Instantiate(impactEffectBlood, hit.point, Quaternion.LookRotation(hit.normal));
+                    holeNPC.transform.parent = hit.transform;
                 }
+                else
+                {
+                    GameObject hole = Instantiate(impactEffectConcrete, hit.point, Quaternion.LookRotation(hit.normal));
+                    hole.transform.parent = hit.transform;
+                }
+
+                if(hit.rigidbody != null)
+                {
+                    hit.rigidbody.AddForce(-hit.normal * weaponDamage * 3);
+                }
+
+                //GameObject hole = Instantiate(impactEffectConcrete, hit.point, Quaternion.LookRotation(hit.normal));
+                //hole.transform.parent = hit.transform;
                 //RemoveFocus();
             }
         }
@@ -152,7 +205,7 @@ public class PlayerController : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, maxDistance))
+            if (Physics.Raycast(ray, out hit, interactionDistance))
             {
 
                 Interactable interactable = hit.collider.GetComponent<Interactable>();

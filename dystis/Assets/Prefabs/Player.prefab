@@ -246,7 +246,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1600040140}
   m_Father: {fileID: 4204582120663750}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -692,16 +693,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d139c041f8ac60b40855278424b4065f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 2
+  interactionDistance: 2
   focus: {fileID: 0}
-  gameManager: {fileID: 0}
   interactableInfo: {fileID: 0}
   inventoryPanel: {fileID: 0}
+  impactEffectConcrete: {fileID: 100006, guid: 94a130fb17f1cae4388a8fe1d8bd3055, type: 3}
+  impactEffectBlood: {fileID: 100006, guid: e540530e6edfaee44976942950d39621, type: 3}
+  weaponHolder: {fileID: 1600040139}
   tpDestination: {fileID: 0}
   teleportStarting: 0
   teleportOnGoing: 0
   teleportEnding: 0
-  fadeOverlay: {fileID: 0}
 --- !u!1 &6277801397830604903
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,3 +889,104 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!1001 &864379565331738037
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4288335847994348}
+    m_Modifications:
+    - target: {fileID: 864379566231362256, guid: deb00f5e3770e0442a6fe01b4f69e9cd,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 864379566231362260, guid: deb00f5e3770e0442a6fe01b4f69e9cd,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 864379566231362262, guid: deb00f5e3770e0442a6fe01b4f69e9cd,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 864379566459371897, guid: deb00f5e3770e0442a6fe01b4f69e9cd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 864379566459371897, guid: deb00f5e3770e0442a6fe01b4f69e9cd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 864379566459371897, guid: deb00f5e3770e0442a6fe01b4f69e9cd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 864379566459371897, guid: deb00f5e3770e0442a6fe01b4f69e9cd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 864379566459371897, guid: deb00f5e3770e0442a6fe01b4f69e9cd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 864379566459371897, guid: deb00f5e3770e0442a6fe01b4f69e9cd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 864379566459371897, guid: deb00f5e3770e0442a6fe01b4f69e9cd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 864379566459371897, guid: deb00f5e3770e0442a6fe01b4f69e9cd,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 864379566459371897, guid: deb00f5e3770e0442a6fe01b4f69e9cd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 864379566459371897, guid: deb00f5e3770e0442a6fe01b4f69e9cd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 864379566459371897, guid: deb00f5e3770e0442a6fe01b4f69e9cd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 864379566459371902, guid: deb00f5e3770e0442a6fe01b4f69e9cd,
+        type: 3}
+      propertyPath: m_Name
+      value: WeaponHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 864379566822402262, guid: deb00f5e3770e0442a6fe01b4f69e9cd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: deb00f5e3770e0442a6fe01b4f69e9cd, type: 3}
+--- !u!4 &1600040140 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 864379566459371897, guid: deb00f5e3770e0442a6fe01b4f69e9cd,
+    type: 3}
+  m_PrefabInstance: {fileID: 864379565331738037}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1600040139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 864379566459371902, guid: deb00f5e3770e0442a6fe01b4f69e9cd,
+    type: 3}
+  m_PrefabInstance: {fileID: 864379565331738037}
+  m_PrefabAsset: {fileID: 0}

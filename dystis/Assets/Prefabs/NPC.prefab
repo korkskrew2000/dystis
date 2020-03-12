@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7436685231532020833}
   - component: {fileID: 1242243173674007056}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,8 +93,8 @@ GameObject:
   - component: {fileID: 5636199141554949041}
   - component: {fileID: 2291126768024513827}
   - component: {fileID: 1770941938760013963}
-  - component: {fileID: 116018486}
-  m_Layer: 0
+  - component: {fileID: 583987709}
+  m_Layer: 11
   m_Name: NPC
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -174,8 +174,8 @@ MonoBehaviour:
   sector: 0
   nowMoving: 0
   animSector: 0
---- !u!136 &116018486
-CapsuleCollider:
+--- !u!65 &583987709
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -184,10 +184,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.49642298
-  m_Height: 2.1800957
-  m_Direction: 1
-  m_Center: {x: -0.0024864078, y: 1.0173426, z: 0.0034384727}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 0.01}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &5721422749491680219
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Gun : Equipment
 {
     public int fireRate;
+    public int holderIndex;
 
     void Reset()
     {

@@ -19,3 +19,4 @@ MonoBehaviour:
   armorModifier: 0
   damageModifier: 50
   fireRate: 0
+  holderIndex: 1

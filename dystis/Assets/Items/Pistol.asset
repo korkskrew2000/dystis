@@ -19,3 +19,4 @@ MonoBehaviour:
   armorModifier: 0
   damageModifier: 20
   fireRate: 0
+  muzzleFlash: {fileID: 19800000, guid: 03a4a1935a9f4454c861dfa0aa6df562, type: 3}
