@@ -693,9 +693,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d139c041f8ac60b40855278424b4065f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quest:
+    isActive: 0
+    title: 
+    description: 
+    experienceReward: 0
   interactionDistance: 2
   focus: {fileID: 0}
   interactableInfo: {fileID: 0}
+  menuPanel: {fileID: 0}
   inventoryPanel: {fileID: 0}
   impactEffectConcrete: {fileID: 100006, guid: 94a130fb17f1cae4388a8fe1d8bd3055, type: 3}
   impactEffectBlood: {fileID: 100006, guid: e540530e6edfaee44976942950d39621, type: 3}

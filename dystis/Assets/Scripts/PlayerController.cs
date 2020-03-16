@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     Gun currentGun;
     Equipment rightHand;
 
+    public Quest quest;
+
     int interactablesMask = 1 << 9; // To check if we are looking at interactable thing.
     int ignoreRayMask = ~(1 << 2);
     bool interactableNotification = false; // Notify user about interactable thing.
@@ -22,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public float interactionDistance = 2; // Max interaction distance.
     public Interactable focus;
     public GameObject interactableInfo;
+    public GameObject menuPanel;
     public GameObject inventoryPanel;
     public GameObject impactEffectConcrete;
     public GameObject impactEffectBlood;
@@ -35,7 +38,10 @@ public class PlayerController : MonoBehaviour
     public bool teleportOnGoing = false;
     public bool teleportEnding = false;
     bool teleportAudioPlaying = false;
-    CanvasGroup fadeOverlay;
+    //CanvasGroup fadeOverlay;
+    public GameObject fadeOverlay;
+    CanvasGroup fadeOverlayCG;
+
     // ============================
 
     void Start()
@@ -45,7 +51,8 @@ public class PlayerController : MonoBehaviour
         cam = Camera.main;
 
         // For fading... CanvasGroup is in the PlayerFadeCanvas
-        fadeOverlay = GameManager.FindObjectOfType<CanvasGroup>();
+        //fadeOverlay = GameManager.FindObjectOfType<CanvasGroup>();
+        fadeOverlayCG = fadeOverlay.GetComponent<CanvasGroup>();
 
         // alustetaan kameraan näkyvien aseiden lista WeaponHolderin lapsiobjekteilla
         weapons = new Transform[weaponHolder.transform.childCount];
@@ -128,6 +135,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // Menu button is now temporarily "y" (Project Settings/Input)
+        if (Input.GetButtonDown("Menu")) {
+            SwitchState(menuPanel);
+        }
+
         if (Input.GetButtonDown("Inventory"))
         {
             SwitchState(inventoryPanel);
@@ -227,9 +239,9 @@ public class PlayerController : MonoBehaviour
                 teleportAudioPlaying = true;
             }
             DisablePlayerMovement(false);
-            fadeOverlay.alpha += Time.deltaTime * teleportFadespeed;
-            Debug.Log("Faderoverlay Alpha: " + fadeOverlay.alpha);
-            if (fadeOverlay.alpha >= 1f) // when the screen is fully Black
+            fadeOverlayCG.alpha += Time.deltaTime * teleportFadespeed;
+            Debug.Log("Faderoverlay Alpha: " + fadeOverlayCG.alpha);
+            if (fadeOverlayCG.alpha >= 1f) // when the screen is fully Black
             {
                 teleportStarting = false;
                 teleportOnGoing = true;
@@ -256,8 +268,8 @@ public class PlayerController : MonoBehaviour
                 AudioFW.Play("doorclose");
                 teleportAudioPlaying = true;
             }
-            fadeOverlay.alpha -= Time.deltaTime * teleportFadespeed;
-            if (fadeOverlay.alpha <= 0f)
+            fadeOverlayCG.alpha -= Time.deltaTime * teleportFadespeed;
+            if (fadeOverlayCG.alpha <= 0f)
             {
                 teleportStarting = false;
                 teleportOnGoing = false;
