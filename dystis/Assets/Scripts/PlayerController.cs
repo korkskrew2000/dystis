@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     Equipment rightHand;
 
     public Quest quest;
+    public int health = 100;
+    public int experience = 0;
+    public float money = 0.95f;
 
     int interactablesMask = 1 << 9; // To check if we are looking at interactable thing.
     int ignoreRayMask = ~(1 << 2);
@@ -305,4 +308,34 @@ public class PlayerController : MonoBehaviour
         }
         focus = null;
     }
+
+
+
+    // Quest related below...
+    
+    // Very basic item...
+    public void QuestTransferItem() {
+        experience += 1;
+    }
+
+    public void QuestDeliverMysteriousLetter() {
+        experience += 10;
+        money += 50;
+    }
+
+    public void QuestDeliverPizza() {
+        experience += 5;
+        money += 5;
+    }
+
+    public void QuestKillNPCHuman() {
+        experience += 10;
+        health -= 10;
+    }
+
+    public void QuestKillNPCSnake() {
+        experience += 1;
+        health -= 1;
+    }
+
 }

@@ -7,25 +7,26 @@ public class QuestGiver : MonoBehaviour
 {
     public Quest quest;
 
-    Player player;
+    public PlayerController playerController;
     
-    public GameObject questWindows;
+    //public GameObject questWindows;
     public Text titleText;
     public Text descriptionText;
     public Text experienceText;
+    public Text moneyText;
 
     public void OpenQuestWindow() {
-        questWindows.SetActive(true);
+        //questWindows.SetActive(true);
         titleText.text = quest.title;
         descriptionText.text = quest.description;
         experienceText.text = quest.experienceReward.ToString();
-
+        moneyText.text = quest.moneyReward.ToString();
     }
     
     public void AcceptQuest() {
-        questWindows.SetActive(false);
+        //questWindows.SetActive(false);
         quest.isActive = true;
-        //player.quest = quest;
+        playerController.quest = quest;
 
     }
 }
