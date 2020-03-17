@@ -51,7 +51,11 @@ public class EightWayMovingAnimation : MonoBehaviour {
         //int sector = ((int)(clockwiseAngle + 22.5f) % 360) / 45;
         //bool nowMoving = Vector3.Distance(transform.position, lastPosition) > Mathf.Epsilon;
 
-        var v = transform.forward;
+        // Transform.InverseTransformDirection
+        // https://docs.unity3d.com/ScriptReference/Transform.InverseTransformDirection.html
+
+
+        var v = transform.InverseTransformDirection(Vector3.forward);
         var pv = player.transform.forward;
         shortestAngle = Vector3.Angle(pv, v);
         clockwiseAngle = v.x >= 0 ? shortestAngle : 360 - shortestAngle;
@@ -59,16 +63,17 @@ public class EightWayMovingAnimation : MonoBehaviour {
         sector = ((int)(clockwiseAngle + 22.5f) % 360) / 45;
         nowMoving = Vector3.Distance(transform.position, lastPosition) > Mathf.Epsilon;
 
+
         animSector = mapSectorToFlipped[sector];
         SetSpriteFlip(sector != animSector);
 
-        //if (lastAnimSector != animSector) {
-        //    animator.Play(animationNames[animSector * 2 + (nowMoving ? 1 : 0)]);
-        //} else if (wasMoving && !nowMoving) {
-        //    animator.Play(animationNames[animSector * 2]);
-        //} else if (!wasMoving && nowMoving) {
-        //    animator.Play(animationNames[animSector * 2 + 1]);
-        //}
+        if (lastAnimSector != animSector) {
+            animator.Play(animationNames[animSector * 2 + (nowMoving ? 1 : 0)]);
+        } else if (wasMoving && !nowMoving) {
+            animator.Play(animationNames[animSector * 2]);
+        } else if (!wasMoving && nowMoving) {
+            animator.Play(animationNames[animSector * 2 + 1]);
+        }
 
         lastAnimSector = animSector;
         lastPosition = transform.position;
