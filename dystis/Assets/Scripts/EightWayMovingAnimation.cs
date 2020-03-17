@@ -12,6 +12,7 @@ public class EightWayMovingAnimation : MonoBehaviour {
 
     GameObject player;
 
+    GameObject tempGO;
 
     public float shortestAngle;
     public float clockwiseAngle;
@@ -40,6 +41,7 @@ public class EightWayMovingAnimation : MonoBehaviour {
         if (sprite != null) {
             //Debug.Log("Sprite found!" + sprite.name);
         }
+        tempGO = new GameObject();
     }
 
     void FixedUpdate() {
@@ -54,10 +56,12 @@ public class EightWayMovingAnimation : MonoBehaviour {
         // Transform.InverseTransformDirection
         // https://docs.unity3d.com/ScriptReference/Transform.InverseTransformDirection.html
 
+        var t = tempGO.transform;
+        t.position = player.transform.position;
+        t.LookAt(transform.position);
 
-        var v = transform.InverseTransformDirection(Vector3.forward);
-        var pv = player.transform.forward;
-        shortestAngle = Vector3.Angle(pv, v);
+        var v = t.InverseTransformDirection(transform.forward);
+        shortestAngle = Vector3.Angle(Vector3.forward, v);
         clockwiseAngle = v.x >= 0 ? shortestAngle : 360 - shortestAngle;
         //Debug.Log("v.x : " + v.x);
         sector = ((int)(clockwiseAngle + 22.5f) % 360) / 45;
