@@ -6,6 +6,8 @@ public class TeleportActivation : Interactable {
 
     Transform player;
 
+    public bool tpShowDuringPlay = false;
+
     public override void Interact() {
 
         base.Interact();
@@ -14,7 +16,10 @@ public class TeleportActivation : Interactable {
     }
 
     void Awake() {
-        //GetComponent<MeshRenderer>().enabled = false;
+        if (!tpShowDuringPlay) {
+            GetComponent<MeshRenderer>().enabled = false;
+            transform.parent.Find("TeleporterExit").GetComponent<MeshRenderer>().enabled = false;
+        }
     }
 
     void Start() {
