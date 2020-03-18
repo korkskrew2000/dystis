@@ -120,14 +120,17 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = visibleCursor;
         canShoot = true;
-        if (teleportDoneRecently){
-            transform.LookAt(new Vector3(0, 0, 0));
-            teleportDoneRecently = false;
-        }
+        //if (teleportDoneRecently){
+        //    transform.position += new Vector3(0.001f, 0.001f, 0.001f);
+        //    transform.LookAt(Vector3.zero);
+        //    cam.transform.LookAt(Vector3.zero);
+        //    teleportDoneRecently = false;
+        //}
     }
 
     void SwitchState(GameObject gO)
     {
+        Debug.Log("Switch State Occured!)");
         if (gO.activeSelf == true)
         {
             gO.SetActive(false);
@@ -245,9 +248,10 @@ public class PlayerController : MonoBehaviour
                 AudioFW.Play("dooropen");
                 teleportAudioPlaying = true;
             }
+
             DisablePlayerMovement(false);
             fadeOverlayCG.alpha += Time.deltaTime * teleportFadespeed;
-            Debug.Log("Faderoverlay Alpha: " + fadeOverlayCG.alpha);
+            //Debug.Log("Faderoverlay Alpha: " + fadeOverlayCG.alpha);
             if (fadeOverlayCG.alpha >= 1f) // when the screen is fully Black
             {
                 teleportStarting = false;
@@ -260,9 +264,10 @@ public class PlayerController : MonoBehaviour
         if (teleportOnGoing)
         {
             focus = null;
-            //Debug.Log("Teleport destination:" + tpDestination.name);
+            Debug.Log("Teleport ongoing to destination:" + tpDestination.parent.name);
             transform.position = tpDestination.transform.position + new Vector3(0, 0.2f, 0);
-            transform.LookAt(Vector3.zero);
+            transform.Rotate(0, 180f,0);
+            //cam.transform.LookAt(Vector3.zero);
             //var playerRot = tpDestination.transform.parent.Find("TeleportActivator").rotation;
             //transform.rotation = playerRot;
             //transform.LookAt(tpDestination.transform.position);
