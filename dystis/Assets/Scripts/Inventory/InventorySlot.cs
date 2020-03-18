@@ -25,7 +25,8 @@ public class InventorySlot : MonoBehaviour
     }
 
     public void OnRemoveButton() {
-        Inventory.instance.Remove(item);
+        bool shouldBeDropped = true;
+        Inventory.instance.Remove(item, shouldBeDropped);
     }
 
     public void UseItem() {

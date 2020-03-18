@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    Camera cam;
     public List<Item> items = new List<Item>();
     public int inventorySpace = 20;
+    public GameObject itemPrefab;
 
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallBack;
@@ -13,6 +15,8 @@ public class Inventory : MonoBehaviour
     public static Inventory instance;
 
     private void Awake() {
+        cam = Camera.main;
+
         if(instance != null) {
             Debug.LogWarning("More than one instance of Inventory found!");
             return;
@@ -33,7 +37,21 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
-    public void Remove(Item item) {
+    //toinen argumentti kertoo, pudotetaanko item fyysisesti pelikentälle (esim.
+    //equipmenttia puettaessa item poistetaan inventorysta, mutta EI pudoteta)
+    public void Remove(Item item, bool shouldBeDropped) {
+        //instantioidaan pudotettava item pelaajan eteen
+        if (shouldBeDropped)
+        {
+            Vector3 playerTransform = cam.transform.position + cam.transform.forward;
+            GameObject droppedItem = Instantiate(itemPrefab, playerTransform, Quaternion.identity);
+            ItemPickUp droppedItemPickUp = droppedItem.GetComponent<ItemPickUp>();
+            if (droppedItemPickUp != null)
+            {
+                droppedItemPickUp.item = item;
+            }
+        }
+        //poistetaan item inventorysta
         items.Remove(item);
         if (onItemChangedCallBack != null) onItemChangedCallBack.Invoke();
     }

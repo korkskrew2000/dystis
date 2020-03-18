@@ -17,6 +17,7 @@ public class Gun : Equipment
     {
         //base.Use();
         EquipmentManager.instance.Equip(this);
-        RemoveFromInventory();
+        bool shouldBeDropped = false;
+        RemoveFromInventory(shouldBeDropped);
     }
 }
