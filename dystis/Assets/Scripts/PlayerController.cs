@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     public bool teleportOnGoing = false;
     public bool teleportEnding = false;
     bool teleportAudioPlaying = false;
+    bool teleportDoneRecently = false; // .. to notify Player movement enable/disable that we just teleported
     //CanvasGroup fadeOverlay;
     public GameObject fadeOverlay;
     CanvasGroup fadeOverlayCG;
@@ -54,7 +55,6 @@ public class PlayerController : MonoBehaviour
         cam = Camera.main;
 
         // For fading... CanvasGroup is in the PlayerFadeCanvas
-        //fadeOverlay = GameManager.FindObjectOfType<CanvasGroup>();
         fadeOverlayCG = fadeOverlay.GetComponent<CanvasGroup>();
 
         // alustetaan kameraan näkyvien aseiden lista WeaponHolderin lapsiobjekteilla
@@ -120,6 +120,10 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = visibleCursor;
         canShoot = true;
+        if (teleportDoneRecently){
+            transform.LookAt(new Vector3(0, 0, 0));
+            teleportDoneRecently = false;
+        }
     }
 
     void SwitchState(GameObject gO)
@@ -247,21 +251,23 @@ public class PlayerController : MonoBehaviour
             if (fadeOverlayCG.alpha >= 1f) // when the screen is fully Black
             {
                 teleportStarting = false;
-                teleportOnGoing = true;
-                teleportEnding = false;
                 teleportAudioPlaying = false;
+                teleportOnGoing = true;
                 //Debug.Log("Faderoverlay Alpha: " + fadeOverlay.alpha);
             }
         }
 
         if (teleportOnGoing)
         {
-            Debug.Log("Teleport destination:" + tpDestination.name);
+            focus = null;
+            //Debug.Log("Teleport destination:" + tpDestination.name);
             transform.position = tpDestination.transform.position + new Vector3(0, 0.2f, 0);
-            teleportStarting = false;
+            transform.LookAt(Vector3.zero);
+            //var playerRot = tpDestination.transform.parent.Find("TeleportActivator").rotation;
+            //transform.rotation = playerRot;
+            //transform.LookAt(tpDestination.transform.position);
             teleportOnGoing = false;
             teleportEnding = true;
-            AudioFW.Play("doorclose");
         }
 
         if (teleportEnding)
@@ -274,10 +280,9 @@ public class PlayerController : MonoBehaviour
             fadeOverlayCG.alpha -= Time.deltaTime * teleportFadespeed;
             if (fadeOverlayCG.alpha <= 0f)
             {
-                teleportStarting = false;
-                teleportOnGoing = false;
                 teleportEnding = false;
                 teleportAudioPlaying = false;
+                teleportDoneRecently = true;
                 EnablePlayerMovement(false);
             }
         }
