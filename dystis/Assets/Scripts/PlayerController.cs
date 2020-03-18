@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     Camera cam;
     EquipmentManager equipmentMg;
+    //Inventory inventory;
     Gun currentGun;
     Equipment rightHand;
 
@@ -52,6 +53,9 @@ public class PlayerController : MonoBehaviour
     {
         equipmentMg = EquipmentManager.instance;
         equipmentMg.onEquipmentChanged += UpdateWeapon;
+        //inventory = Inventory.instance;
+
+
         cam = Camera.main;
 
         // For fading... CanvasGroup is in the PlayerFadeCanvas
@@ -69,7 +73,7 @@ public class PlayerController : MonoBehaviour
 
     void UpdateWeapon(Equipment newItem, Equipment oldItem)
     {
-        rightHand = equipmentMg.currentEquipment[3];
+        rightHand = newItem;
 
         // päivitetään tieto pelaajan tämänhetkisestä aseesta
         if(rightHand is Gun)
