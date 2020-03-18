@@ -11,7 +11,9 @@ public class Item : ScriptableObject
         Debug.Log("Using " + name);
     }
 
-    public void RemoveFromInventory() {
-        Inventory.instance.Remove(this);
+    //bool argumentti kertoo, pudotetaanko item fyysisesti pelikentälle (esim.
+    //equipmenttia puettaessa item poistetaan inventorysta, mutta EI pudoteta)
+    public void RemoveFromInventory(bool shouldBeDropped) {
+        Inventory.instance.Remove(this, shouldBeDropped);
     }
 }

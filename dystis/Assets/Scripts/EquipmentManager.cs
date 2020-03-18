@@ -15,13 +15,15 @@ public class EquipmentManager : MonoBehaviour {
     #endregion
 
     public Equipment[] currentEquipment;
+    public GameObject itemPrefab;
 
     public delegate void OnEquipmentChanged(Equipment newitem, Equipment olditem);
     public OnEquipmentChanged onEquipmentChanged;
     Inventory inventory;
+    Camera cam;
 
     void Start() {
-
+        cam = Camera.main;
         inventory = Inventory.instance;
 
         int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
@@ -72,8 +74,16 @@ public class EquipmentManager : MonoBehaviour {
 
     public void Remove(int slotIndex)
     {
+        Vector3 playerTransform = cam.transform.position + cam.transform.forward;
+        GameObject droppedItem = Instantiate(itemPrefab, playerTransform, Quaternion.identity);
+        ItemPickUp droppedItemPickUp = droppedItem.GetComponent<ItemPickUp>();
+        
         if (currentEquipment[slotIndex] != null)
         {
+            if (droppedItemPickUp != null)
+            {
+                droppedItemPickUp.item = currentEquipment[slotIndex];
+            }
             if (onEquipmentChanged != null) onEquipmentChanged.Invoke(null, currentEquipment[slotIndex]);
         }
         currentEquipment[slotIndex] = null;
