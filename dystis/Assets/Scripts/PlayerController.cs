@@ -269,8 +269,16 @@ public class PlayerController : MonoBehaviour
         {
             focus = null;
             Debug.Log("Teleport ongoing to destination:" + tpDestination.parent.name);
-            transform.position = tpDestination.transform.position + new Vector3(0, 0.2f, 0);
-            transform.Rotate(0, 180f,0);
+            Debug.Log("Player angles before teleportOngoing: " + transform.eulerAngles);
+            Debug.Log("Camera angles before teleportOngoing: " + cam.transform.eulerAngles);
+            
+            teleportDoneRecently = true; // Causes the LateUpdate to do the transform...
+
+            //transform.position = tpDestination.transform.position + new Vector3(0, 0.2f, 0);
+            //transform.Rotate(0f, 180f,0f);
+            
+            Debug.Log("Player angles after teleportOngoing: " + transform.eulerAngles);
+            Debug.Log("Camera angles after teleportOngoing: " + cam.transform.eulerAngles);
             //cam.transform.LookAt(Vector3.zero);
             //var playerRot = tpDestination.transform.parent.Find("TeleportActivator").rotation;
             //transform.rotation = playerRot;
@@ -289,10 +297,11 @@ public class PlayerController : MonoBehaviour
             fadeOverlayCG.alpha -= Time.deltaTime * teleportFadespeed;
             if (fadeOverlayCG.alpha <= 0f)
             {
+                EnablePlayerMovement(false);
+                Debug.Log("Player angles after teleportEnding: " + transform.eulerAngles);
+                Debug.Log("Camera angles after teleportEnding: " + cam.transform.eulerAngles);
                 teleportEnding = false;
                 teleportAudioPlaying = false;
-                teleportDoneRecently = true;
-                EnablePlayerMovement(false);
             }
         }
 
@@ -323,10 +332,17 @@ public class PlayerController : MonoBehaviour
         focus = null;
     }
 
+    void LateUpdate() {
+        if (teleportDoneRecently) {
+            transform.position = tpDestination.transform.position + new Vector3(0, 0.2f, 0);
+            transform.Rotate(0f, 180f, 0f);
+            teleportDoneRecently = false;
+        }
+    }
 
 
     // Quest related below...
-    
+
     // Very basic item...
     public void QuestTransferItem() {
         experience += 1;
