@@ -42,7 +42,6 @@ public class PlayerController : MonoBehaviour
     public bool teleportOnGoing = false;
     public bool teleportEnding = false;
     bool teleportAudioPlaying = false;
-    bool teleportDoneRecently = false; // .. to notify Player movement enable/disable that we just teleported
     //CanvasGroup fadeOverlay;
     public GameObject fadeOverlay;
     CanvasGroup fadeOverlayCG;
@@ -124,12 +123,6 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = visibleCursor;
         canShoot = true;
-        //if (teleportDoneRecently){
-        //    transform.position += new Vector3(0.001f, 0.001f, 0.001f);
-        //    transform.LookAt(Vector3.zero);
-        //    cam.transform.LookAt(Vector3.zero);
-        //    teleportDoneRecently = false;
-        //}
     }
 
     void SwitchState(GameObject gO)
@@ -269,23 +262,13 @@ public class PlayerController : MonoBehaviour
         {
             focus = null;
             
-            Debug.Log("Teleport ongoing to destination:" + tpDestination.parent.name);
-            Debug.Log("Player angles before teleportOngoing: " + transform.eulerAngles);
-            Debug.Log("Camera angles before teleportOngoing: " + cam.transform.eulerAngles);
+            //Debug.Log("Teleport ongoing to destination:" + tpDestination.parent.name);
+            //Debug.Log("Player angles before teleportOngoing: " + transform.eulerAngles);
+            //Debug.Log("Camera angles before teleportOngoing: " + cam.transform.eulerAngles);
 
-            //teleportDoneRecently = true; // Causes the LateUpdate to do the transform...
-
-            //transform.position = tpDestination.transform.position + new Vector3(0, 0.2f, 0);
-            //transform.Rotate(0f, 180f,0f);
-
-            // Rotate player to look away from TeleportActivator when arriving at destination.
+            // Rotate player to look exit direction (tpDestination.forward) when arriving at destination.
             // tpDestination = TeleporterExit object.
-            var destActivator = tpDestination.transform.parent.Find("TeleportActivator").transform;
-            Debug.Log("destActivator: " + destActivator.parent.name);
-            var destDirection = transform.TransformDirection(destActivator.forward);
-            Debug.Log("destDirection: " + destDirection);
-            Quaternion playerRot = Quaternion.LookRotation(destDirection);
-            transform.rotation = playerRot;
+
             transform.position = tpDestination.transform.position + new Vector3(0, 0.2f, 0);
 
             //Debug.Log("Player angles after teleportOngoing: " + transform.eulerAngles);
@@ -305,11 +288,12 @@ public class PlayerController : MonoBehaviour
             fadeOverlayCG.alpha -= Time.deltaTime * teleportFadespeed;
             if (fadeOverlayCG.alpha <= 0f)
             {
-                EnablePlayerMovement(false);
-                Debug.Log("Player angles after teleportEnding: " + transform.eulerAngles);
-                Debug.Log("Camera angles after teleportEnding: " + cam.transform.eulerAngles);
                 teleportEnding = false;
                 teleportAudioPlaying = false;
+                EnablePlayerMovement(false);
+                //Debug.Log("Player angles after teleportEnding: " + transform.eulerAngles);
+                //Debug.Log("Camera angles after teleportEnding: " + cam.transform.eulerAngles);
+                
             }
         }
 
@@ -340,15 +324,8 @@ public class PlayerController : MonoBehaviour
         focus = null;
     }
 
-    void LateUpdate() {
-        //if (teleportDoneRecently) {
-        //    transform.position = tpDestination.transform.position + new Vector3(0, 0.2f, 0);
-        //    transform.rotation = Quaternion.LookRotation(Vector3.back);
-        //    teleportDoneRecently = false;
-        //}
-    }
-
-
+    
+    
     // Quest related below...
 
     // Very basic item...
