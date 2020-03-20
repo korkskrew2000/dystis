@@ -268,21 +268,29 @@ public class PlayerController : MonoBehaviour
         if (teleportOnGoing)
         {
             focus = null;
+            
             Debug.Log("Teleport ongoing to destination:" + tpDestination.parent.name);
             Debug.Log("Player angles before teleportOngoing: " + transform.eulerAngles);
             Debug.Log("Camera angles before teleportOngoing: " + cam.transform.eulerAngles);
-            
-            teleportDoneRecently = true; // Causes the LateUpdate to do the transform...
+
+            //teleportDoneRecently = true; // Causes the LateUpdate to do the transform...
 
             //transform.position = tpDestination.transform.position + new Vector3(0, 0.2f, 0);
             //transform.Rotate(0f, 180f,0f);
-            
-            Debug.Log("Player angles after teleportOngoing: " + transform.eulerAngles);
-            Debug.Log("Camera angles after teleportOngoing: " + cam.transform.eulerAngles);
-            //cam.transform.LookAt(Vector3.zero);
-            //var playerRot = tpDestination.transform.parent.Find("TeleportActivator").rotation;
-            //transform.rotation = playerRot;
-            //transform.LookAt(tpDestination.transform.position);
+
+            // Rotate player to look away from TeleportActivator when arriving at destination.
+            // tpDestination = TeleporterExit object.
+            var destActivator = tpDestination.transform.parent.Find("TeleportActivator").transform;
+            Debug.Log("destActivator: " + destActivator.parent.name);
+            var destDirection = transform.TransformDirection(destActivator.forward);
+            Debug.Log("destDirection: " + destDirection);
+            Quaternion playerRot = Quaternion.LookRotation(destDirection);
+            transform.rotation = playerRot;
+            transform.position = tpDestination.transform.position + new Vector3(0, 0.2f, 0);
+
+            //Debug.Log("Player angles after teleportOngoing: " + transform.eulerAngles);
+            //Debug.Log("Camera angles after teleportOngoing: " + cam.transform.eulerAngles);
+  
             teleportOnGoing = false;
             teleportEnding = true;
         }
@@ -333,11 +341,11 @@ public class PlayerController : MonoBehaviour
     }
 
     void LateUpdate() {
-        if (teleportDoneRecently) {
-            transform.position = tpDestination.transform.position + new Vector3(0, 0.2f, 0);
-            transform.Rotate(0f, 180f, 0f);
-            teleportDoneRecently = false;
-        }
+        //if (teleportDoneRecently) {
+        //    transform.position = tpDestination.transform.position + new Vector3(0, 0.2f, 0);
+        //    transform.rotation = Quaternion.LookRotation(Vector3.back);
+        //    teleportDoneRecently = false;
+        //}
     }
 
 
