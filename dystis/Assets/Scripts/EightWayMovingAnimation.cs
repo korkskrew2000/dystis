@@ -6,7 +6,7 @@ public class EightWayMovingAnimation : MonoBehaviour {
     int lastAnimSector;
 
     Animator animator;
-    Transform sprite;
+    public Transform sprite;
 
     Vector3 lastPosition;
 
@@ -25,22 +25,29 @@ public class EightWayMovingAnimation : MonoBehaviour {
     }
 
     int[] mapSectorToFlipped = new int[] { 0, 1, 2, 3, 4, 3, 2, 1 };
+
     string[] animationNames =
         new string[] {"StoppedUp", "WalkUp", "StoppedUpRight", "WalkUpRight", "StoppedRight", "WalkRight",
                         "StoppedDownRight", "WalkDownRight", "StoppedDown", "WalkDown"};
 
     void SetSpriteFlip(bool flipped) {
+        Debug.Log("SetSpriteFlip: " + flipped);
         var scale = sprite.localScale;
         scale.x = (flipped ? -1 : 1) * Mathf.Abs(scale.x);
         sprite.localScale = scale;
     }
 
     void Awake() {
-        animator = GetComponent<Animator>();
+        //alkup.
+        //animator = GetComponent<Animator>();
+        //sprite = transform.Find("Sprite");
+
         sprite = transform.Find("Sprite");
-        if (sprite != null) {
-            //Debug.Log("Sprite found!" + sprite.name);
-        }
+        animator = sprite.GetComponent<Animator>();
+
+        //if (sprite != null) {
+        //    Debug.Log("Sprite found!" + sprite.name);
+        //}
         tempGO = new GameObject();
     }
 

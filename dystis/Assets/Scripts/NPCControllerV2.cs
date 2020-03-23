@@ -104,7 +104,7 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
             } else {
                 AudioFW.Play("npcdiesmale");
             }
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject, 1.0f);
         }
     }
 }
