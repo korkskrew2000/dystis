@@ -1,0 +1,745 @@
+fileFormatVersion: 2
+guid: a5c0a3ee6a6ca2440a4aaff2608f83e0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7983236794064533417
+    second: NPCPlaceholder_0
+  - first:
+      213: 879525671796562077
+    second: NPCPlaceholder_1
+  - first:
+      213: -5257351779316031975
+    second: NPCPlaceholder_2
+  - first:
+      213: -8356779563020395707
+    second: NPCPlaceholder_3
+  - first:
+      213: -4721755492737344169
+    second: NPCPlaceholder_4
+  - first:
+      213: 2087998933061846772
+    second: NPCPlaceholder_5
+  - first:
+      213: 5776921832499123695
+    second: NPCPlaceholder_6
+  - first:
+      213: 7842790235202670366
+    second: NPCPlaceholder_7
+  - first:
+      213: -3854453465646564862
+    second: NPCPlaceholder_8
+  - first:
+      213: -2859774082929699274
+    second: NPCPlaceholder_9
+  - first:
+      213: -5020568909656665786
+    second: NPCPlaceholder_10
+  - first:
+      213: 2613553291398050387
+    second: NPCPlaceholder_11
+  - first:
+      213: 5618577375733003878
+    second: NPCPlaceholder_12
+  - first:
+      213: 2942897787846622783
+    second: NPCPlaceholder_13
+  - first:
+      213: -6145526423407250043
+    second: NPCPlaceholder_14
+  - first:
+      213: -4726337976461000692
+    second: NPCPlaceholder_15
+  - first:
+      213: -4930465427717645648
+    second: NPCPlaceholder_16
+  - first:
+      213: 688393824172901058
+    second: NPCPlaceholder_17
+  - first:
+      213: -139987169387148514
+    second: NPCPlaceholder_18
+  - first:
+      213: -1593350473359646221
+    second: NPCPlaceholder_19
+  - first:
+      213: 1621280128265276407
+    second: NPCPlaceholder_20
+  - first:
+      213: 8478426960563164471
+    second: NPCPlaceholder_21
+  - first:
+      213: -2160169491322020809
+    second: NPCPlaceholder_22
+  - first:
+      213: -1513919167109288788
+    second: NPCPlaceholder_23
+  - first:
+      213: 7538405898487679026
+    second: NPCPlaceholder_24
+  - first:
+      213: 3425285517374116401
+    second: NPCPlaceholder_25
+  - first:
+      213: 3648716558726723533
+    second: NPCPlaceholder_26
+  - first:
+      213: -5990195978953847649
+    second: NPCPlaceholder_27
+  - first:
+      213: -1682924336105248653
+    second: NPCPlaceholder_28
+  - first:
+      213: -7017864679477270308
+    second: NPCPlaceholder_29
+  - first:
+      213: -8161683682864985194
+    second: NPCPlaceholder_30
+  - first:
+      213: -1980375260524354341
+    second: NPCPlaceholder_31
+  - first:
+      213: -7013055715000498276
+    second: NPCPlaceholder_32
+  - first:
+      213: 663291465811428970
+    second: NPCPlaceholder_33
+  - first:
+      213: 2894352203337789591
+    second: NPCPlaceholder_34
+  - first:
+      213: -8039368244916253226
+    second: NPCPlaceholder_35
+  - first:
+      213: -2096590072172890499
+    second: NPCPlaceholder_36
+  - first:
+      213: 3072363098607144347
+    second: NPCPlaceholder_37
+  - first:
+      213: 6977604128956831663
+    second: NPCPlaceholder_38
+  - first:
+      213: 6649417185822619976
+    second: NPCPlaceholder_39
+  - first:
+      213: 1472921614379817175
+    second: NPCPlaceholder_40
+  - first:
+      213: -4806988977739374623
+    second: NPCPlaceholder_41
+  - first:
+      213: 5877401187683980918
+    second: NPCPlaceholder_42
+  - first:
+      213: -4799305337180944180
+    second: NPCPlaceholder_43
+  - first:
+      213: -3685050620758465897
+    second: NPCPlaceholder_44
+  - first:
+      213: 569369317130378353
+    second: NPCPlaceholder_45
+  - first:
+      213: -4575161229772617964
+    second: NPCPlaceholder_46
+  - first:
+      213: -5903621057985509236
+    second: NPCPlaceholder_47
+  - first:
+      213: -7296041660708861105
+    second: NPCPlaceholder_48
+  - first:
+      213: 2487555890327884515
+    second: NPCPlaceholder_49
+  - first:
+      213: -8971891864357977420
+    second: NPCPlaceholder_50
+  - first:
+      213: -5074376925947480784
+    second: NPCPlaceholder_51
+  - first:
+      213: 160895377876819166
+    second: NPCPlaceholder_52
+  - first:
+      213: -1392095445092307567
+    second: NPCPlaceholder_53
+  - first:
+      213: 5098987406858628806
+    second: NPCPlaceholder_54
+  - first:
+      213: -7726787425615940515
+    second: NPCPlaceholder_55
+  - first:
+      213: -6800170599452543920
+    second: NPCPlaceholder_56
+  - first:
+      213: -7031687040583483103
+    second: NPCPlaceholder_57
+  - first:
+      213: 2370352071621859043
+    second: NPCPlaceholder_58
+  - first:
+      213: 6615445150086833457
+    second: NPCPlaceholder_59
+  - first:
+      213: 6420879380959307555
+    second: NPCPlaceholder_60
+  - first:
+      213: 7176569439264436063
+    second: NPCPlaceholder_61
+  - first:
+      213: -280432849142157713
+    second: NPCPlaceholder_62
+  - first:
+      213: 7880490435482345378
+    second: NPCPlaceholder_63
+  - first:
+      213: -6266671316487990997
+    second: NPCPlaceholder_64
+  - first:
+      213: 6685762471844916131
+    second: NPCPlaceholder_65
+  - first:
+      213: 121401578545065611
+    second: NPCPlaceholder_66
+  - first:
+      213: -7518148555454583904
+    second: NPCPlaceholder_67
+  - first:
+      213: -4852420271356802539
+    second: NPCPlaceholder_68
+  - first:
+      213: -4447953747269574871
+    second: NPCPlaceholder_69
+  - first:
+      213: 1369155676465890965
+    second: NPCPlaceholder_70
+  - first:
+      213: 8631099220715326924
+    second: NPCPlaceholder_71
+  - first:
+      213: -3905273851473538843
+    second: NPCPlaceholder_72
+  - first:
+      213: -4097871566953898544
+    second: NPCPlaceholder_73
+  - first:
+      213: -1361685481773285437
+    second: NPCPlaceholder_74
+  - first:
+      213: -6591325114343251421
+    second: NPCPlaceholder_75
+  - first:
+      213: 5770903616509223677
+    second: NPCPlaceholder_76
+  - first:
+      213: 860188188487126888
+    second: NPCPlaceholder_77
+  - first:
+      213: -4602200344806543661
+    second: NPCPlaceholder_78
+  - first:
+      213: -6468341767085958257
+    second: NPCPlaceholder_79
+  - first:
+      213: 4590978476010034416
+    second: NPCPlaceholder_80
+  - first:
+      213: -550561589810183399
+    second: NPCPlaceholder_81
+  - first:
+      213: -6890862170947428033
+    second: NPCPlaceholder_82
+  - first:
+      213: -6168741884824054113
+    second: NPCPlaceholder_83
+  - first:
+      213: 2727245016600571863
+    second: NPCPlaceholder_84
+  - first:
+      213: 8199008883701751812
+    second: NPCPlaceholder_85
+  - first:
+      213: 2859664907971603394
+    second: NPCPlaceholder_86
+  - first:
+      213: 4616033606883426381
+    second: NPCPlaceholder_87
+  - first:
+      213: 6141821877021229670
+    second: NPCPlaceholder_88
+  - first:
+      213: -1718301584047603969
+    second: NPCPlaceholder_89
+  - first:
+      213: -7273618470325875703
+    second: NPCPlaceholder_90
+  - first:
+      213: -400695808278828895
+    second: NPCPlaceholder_91
+  - first:
+      213: 6680940488370487800
+    second: NPCPlaceholder_92
+  - first:
+      213: -5717411087959044309
+    second: NPCPlaceholder_93
+  - first:
+      213: -8115525990057865558
+    second: NPCPlaceholder_94
+  - first:
+      213: -6153662634731476825
+    second: NPCPlaceholder_95
+  - first:
+      213: -7258181128637517672
+    second: NPCPlaceholder_96
+  - first:
+      213: -3499423788856581861
+    second: NPCPlaceholder_97
+  - first:
+      213: 5888229602952118228
+    second: NPCPlaceholder_98
+  - first:
+      213: 7626047097270955758
+    second: NPCPlaceholder_99
+  - first:
+      213: 9159590237200082010
+    second: NPCPlaceholder_100
+  - first:
+      213: -2727361344288504816
+    second: NPCPlaceholder_101
+  - first:
+      213: 7400064390125490035
+    second: NPCPlaceholder_102
+  - first:
+      213: -1576153203152873224
+    second: NPCPlaceholder_103
+  - first:
+      213: 307599502302430184
+    second: NPCPlaceholder_104
+  - first:
+      213: -3720413348676163382
+    second: NPCPlaceholder_105
+  - first:
+      213: 3086277162606153366
+    second: NPCPlaceholder_106
+  - first:
+      213: 7372860079986905238
+    second: NPCPlaceholder_107
+  - first:
+      213: 1504108789863749099
+    second: NPCPlaceholder_108
+  - first:
+      213: -5152291444531422053
+    second: NPCPlaceholder_109
+  - first:
+      213: -3620606832087782015
+    second: NPCPlaceholder_110
+  - first:
+      213: 6542365632314858953
+    second: NPCPlaceholder_111
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NPCPlaceholder_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a77b0431972ace60800000000000000
+      internalID: 7983236794064533417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPCPlaceholder_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d98554640f3b43c00800000000000000
+      internalID: 879525671796562077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPCPlaceholder_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91e999e49622a07b0800000000000000
+      internalID: -5257351779316031975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPCPlaceholder_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54bdce77341c60c80800000000000000
+      internalID: -8356779563020395707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPCPlaceholder_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75d14237564f87eb0800000000000000
+      internalID: -4721755492737344169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPCPlaceholder_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f6cb8887ff0afc10800000000000000
+      internalID: 2087998933061846772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPCPlaceholder_6
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe51f499ccfbb2050800000000000000
+      internalID: 5776921832499123695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPCPlaceholder_7
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1f48218a2037dc60800000000000000
+      internalID: 7842790235202670366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPCPlaceholder_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20afcd8aefa328ac0800000000000000
+      internalID: -3854453465646564862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPCPlaceholder_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6365b119f9a0058d0800000000000000
+      internalID: -2859774082929699274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPCPlaceholder_10
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6415b814d2b535ab0800000000000000
+      internalID: -5020568909656665786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPCPlaceholder_11
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 352755f0fd4354420800000000000000
+      internalID: 2613553291398050387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPCPlaceholder_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 666bc9fca5239fd40800000000000000
+      internalID: 5618577375733003878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPCPlaceholder_13
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e71e622f547d820800000000000000
+      internalID: 2942897787846622783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
