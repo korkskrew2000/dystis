@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2573118185183933955}
   - component: {fileID: 2573118185183933954}
   m_Layer: 10
-  m_Name: EnvFX04-WeirdNoises
+  m_Name: EnvFX05-AirConditioner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 774fc51c6c5fd8e42afc6803050d2b30, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6dc2bf19104b22042ba6f9f783a3a7db, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.75
   m_Pitch: 1
@@ -89,8 +89,8 @@ AudioSource:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.6857117
-      value: 0.08268738
+      time: 0.7028473
+      value: 0.08270264
       inSlope: -0.15631224
       outSlope: -0.15631224
       tangentMode: 0
