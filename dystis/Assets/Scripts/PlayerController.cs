@@ -34,6 +34,9 @@ public class PlayerController : MonoBehaviour
     public GameObject impactEffectBlood;
     public GameObject weaponHolder;
 
+    //Jonin testiä
+    public GameObject questPanel;
+
     // == Teleport ================
     public Transform tpDestination;
     TeleportActivation tpActivation;
@@ -125,7 +128,7 @@ public class PlayerController : MonoBehaviour
         canShoot = true;
     }
 
-    void SwitchState(GameObject gO)
+   public void SwitchStateAndMovement(GameObject gO)
     {
         Debug.Log("Switch State Occured!)");
         if (gO.activeSelf == true)
@@ -144,13 +147,19 @@ public class PlayerController : MonoBehaviour
     {
         // Menu button is now temporarily "y" (Project Settings/Input)
         if (Input.GetButtonDown("Menu")) {
-            SwitchState(menuPanel);
+            SwitchStateAndMovement(menuPanel);
         }
 
         if (Input.GetButtonDown("Inventory"))
         {
-            SwitchState(inventoryPanel);
+            SwitchStateAndMovement(inventoryPanel);
         }
+
+        //Jonin testiä
+        if (questPanel != null && Input.GetKeyDown(KeyCode.U)) {
+            SwitchStateAndMovement(questPanel);
+        }
+
         //if (EventSystem.current.IsPointerOverGameObject()) {
         //    return;
         //}

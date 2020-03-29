@@ -7,6 +7,9 @@ public class QuestGiver : MonoBehaviour
 {
     public Quest quest;
 
+    //Jonin testiä
+    public GameObject questPanel;
+
     public PlayerController playerController;
     
     //public GameObject questWindows;
@@ -28,5 +31,11 @@ public class QuestGiver : MonoBehaviour
         quest.isActive = true;
         playerController.quest = quest;
 
+        //Jonin testiä
+        if (questPanel != null)
+        {
+            playerController.SwitchStateAndMovement(questPanel);
+            playerController.questPanel = questPanel;
+        }
     }
 }
