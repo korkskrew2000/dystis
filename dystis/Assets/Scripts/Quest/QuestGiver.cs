@@ -32,10 +32,17 @@ public class QuestGiver : MonoBehaviour
         playerController.quest = quest;
 
         //Jonin testiä
-        if (questPanel != null)
-        {
-            playerController.SwitchStateAndMovement(questPanel);
-            playerController.questPanel = questPanel;
-        }
+        playerController.SwitchStateAndMovement(playerController.menuPanel);
+        playerController.questPanel.SetActive(true);
+        titleText.text = quest.title;
+        descriptionText.text = quest.description;
+
+        //Text playerTitleText = playerController.questPanel.transform.GetChild(0).GetComponent<Text>();
+        //Debug.Log(playerTitleText.text);
+        //playerTitleText.text = titleText.text;
+        //Debug.Log(playerTitleText.text);
+        //Debug.Log(titleText.text);
+        //Text playerDescriptionText = playerController.questPanel.transform.GetChild(1).GetComponent<Text>();
+        //playerDescriptionText = descriptionText;
     }
 }

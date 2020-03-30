@@ -164,12 +164,6 @@ public class PlayerController : MonoBehaviour
         //    SwitchStateAndMovement(inventoryPanel);
         //}
 
-        //Jonin testiä
-        //if (questPanel != null && Input.GetKeyDown(KeyCode.U)) {
-        //    Debug.Log("Key U Pressed");
-        //    SwitchStateAndMovement(questPanel);
-        //}
-
         //if (EventSystem.current.IsPointerOverGameObject()) {
         //    return;
         //}
