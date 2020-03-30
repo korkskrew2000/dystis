@@ -31,7 +31,7 @@ public class EightWayMovingAnimation : MonoBehaviour {
                         "StoppedDownRight", "WalkDownRight", "StoppedDown", "WalkDown"};
 
     void SetSpriteFlip(bool flipped) {
-        Debug.Log("SetSpriteFlip: " + flipped);
+        //Debug.Log("SetSpriteFlip: " + flipped);
         var scale = sprite.localScale;
         scale.x = (flipped ? -1 : 1) * Mathf.Abs(scale.x);
         sprite.localScale = scale;

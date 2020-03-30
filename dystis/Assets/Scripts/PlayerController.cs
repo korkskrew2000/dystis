@@ -28,14 +28,14 @@ public class PlayerController : MonoBehaviour
     public float interactionDistance = 2; // Max interaction distance.
     public Interactable focus;
     public GameObject interactableInfo;
-    public GameObject menuPanel;
-    public GameObject inventoryPanel;
     public GameObject impactEffectConcrete;
     public GameObject impactEffectBlood;
     public GameObject weaponHolder;
-
-    //Jonin testiä
+    public GameObject menuPanel;
+    public GameObject inventoryPanel;
+    public GameObject equipmentPanel;
     public GameObject questPanel;
+    public GameObject settingsPanel;
 
     // == Teleport ================
     public Transform tpDestination;
@@ -145,20 +145,30 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Menu button is now temporarily "y" (Project Settings/Input)
-        if (Input.GetButtonDown("Menu")) {
+        // Button "i" opens menu + inventory.
+        if (Input.GetKeyDown(KeyCode.I) && !menuPanel.activeSelf) {
+            Debug.Log("Menu Button Pressed");
+            SwitchStateAndMovement(menuPanel);
+            inventoryPanel.SetActive(true);
+        // If menu is already open close it and all panels.
+        } else if(Input.GetKeyDown(KeyCode.I) && menuPanel.activeSelf) {
+            inventoryPanel.SetActive(false);
+            equipmentPanel.SetActive(false);
+            questPanel.SetActive(false);
+            settingsPanel.SetActive(false);
             SwitchStateAndMovement(menuPanel);
         }
 
-        if (Input.GetButtonDown("Inventory"))
-        {
-            SwitchStateAndMovement(inventoryPanel);
-        }
+        //if (Input.GetKeyDown(KeyCode.I))
+        //{
+        //    SwitchStateAndMovement(inventoryPanel);
+        //}
 
         //Jonin testiä
-        if (questPanel != null && Input.GetKeyDown(KeyCode.U)) {
-            SwitchStateAndMovement(questPanel);
-        }
+        //if (questPanel != null && Input.GetKeyDown(KeyCode.U)) {
+        //    Debug.Log("Key U Pressed");
+        //    SwitchStateAndMovement(questPanel);
+        //}
 
         //if (EventSystem.current.IsPointerOverGameObject()) {
         //    return;
