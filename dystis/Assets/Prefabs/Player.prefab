@@ -698,18 +698,26 @@ MonoBehaviour:
     title: 
     description: 
     experienceReward: 0
+    moneyReward: 0
+  health: 100
+  experience: 0
+  money: 0.95
   interactionDistance: 2
   focus: {fileID: 0}
   interactableInfo: {fileID: 0}
-  menuPanel: {fileID: 0}
-  inventoryPanel: {fileID: 0}
   impactEffectConcrete: {fileID: 100006, guid: 94a130fb17f1cae4388a8fe1d8bd3055, type: 3}
   impactEffectBlood: {fileID: 100006, guid: e540530e6edfaee44976942950d39621, type: 3}
   weaponHolder: {fileID: 1600040139}
+  menuPanel: {fileID: 0}
+  inventoryPanel: {fileID: 0}
+  equipmentPanel: {fileID: 0}
+  questPanel: {fileID: 0}
+  settingsPanel: {fileID: 0}
   tpDestination: {fileID: 0}
   teleportStarting: 0
   teleportOnGoing: 0
   teleportEnding: 0
+  fadeOverlay: {fileID: 1746618701}
 --- !u!1 &6277801397830604903
 GameObject:
   m_ObjectHideFlags: 0
