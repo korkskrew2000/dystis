@@ -239,7 +239,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 582619398697844968}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: -0.0000001872535}
+  m_LocalRotation: {x: -0, y: -1, z: 0, w: -0.0000001872535}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -580,8 +580,8 @@ MonoBehaviour:
   weaponHolder: {fileID: 582619399872910748}
   menuPanel: {fileID: 0}
   inventoryPanel: {fileID: 0}
-  equipmentPanel: {fileID: 0}
   questPanel: {fileID: 0}
+  placeholderPanel: {fileID: 0}
   settingsPanel: {fileID: 0}
   tpDestination: {fileID: 0}
   teleportStarting: 0

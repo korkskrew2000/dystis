@@ -865,6 +865,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 778b89ad0e32652418d49c35a8656a10, type: 3}
+--- !u!1 &415732075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8133024353344379367, guid: 778b89ad0e32652418d49c35a8656a10,
+    type: 3}
+  m_PrefabInstance: {fileID: 415732074}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &415732076 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4653792587354416947, guid: 778b89ad0e32652418d49c35a8656a10,
+    type: 3}
+  m_PrefabInstance: {fileID: 415732074}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &415732077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1873219107494102930, guid: 778b89ad0e32652418d49c35a8656a10,
+    type: 3}
+  m_PrefabInstance: {fileID: 415732074}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &415732078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2454462716061313699, guid: 778b89ad0e32652418d49c35a8656a10,
+    type: 3}
+  m_PrefabInstance: {fileID: 415732074}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &415732079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6956383318626371978, guid: 778b89ad0e32652418d49c35a8656a10,
+    type: 3}
+  m_PrefabInstance: {fileID: 415732074}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &415732080 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4121733404573000836, guid: 778b89ad0e32652418d49c35a8656a10,
+    type: 3}
+  m_PrefabInstance: {fileID: 415732074}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &441416123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3228,6 +3264,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 582619398697844969, guid: 2e62f5703e5f8d2488a5e1bc8433be41,
+        type: 3}
+      propertyPath: interactableInfo
+      value: 
+      objectReference: {fileID: 415732080}
+    - target: {fileID: 582619398697844969, guid: 2e62f5703e5f8d2488a5e1bc8433be41,
+        type: 3}
+      propertyPath: menuPanel
+      value: 
+      objectReference: {fileID: 415732079}
+    - target: {fileID: 582619398697844969, guid: 2e62f5703e5f8d2488a5e1bc8433be41,
+        type: 3}
+      propertyPath: inventoryPanel
+      value: 
+      objectReference: {fileID: 415732078}
+    - target: {fileID: 582619398697844969, guid: 2e62f5703e5f8d2488a5e1bc8433be41,
+        type: 3}
+      propertyPath: questPanel
+      value: 
+      objectReference: {fileID: 415732076}
+    - target: {fileID: 582619398697844969, guid: 2e62f5703e5f8d2488a5e1bc8433be41,
+        type: 3}
+      propertyPath: placeholderPanel
+      value: 
+      objectReference: {fileID: 415732077}
+    - target: {fileID: 582619398697844969, guid: 2e62f5703e5f8d2488a5e1bc8433be41,
+        type: 3}
+      propertyPath: settingsPanel
+      value: 
+      objectReference: {fileID: 415732075}
     - target: {fileID: 582619398697844974, guid: 2e62f5703e5f8d2488a5e1bc8433be41,
         type: 3}
       propertyPath: m_LocalPosition.x

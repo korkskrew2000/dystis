@@ -33,8 +33,8 @@ public class PlayerController : MonoBehaviour
     public GameObject weaponHolder;
     public GameObject menuPanel;
     public GameObject inventoryPanel;
-    public GameObject equipmentPanel;
     public GameObject questPanel;
+    public GameObject placeholderPanel;
     public GameObject settingsPanel;
 
     // == Teleport ================
@@ -153,8 +153,8 @@ public class PlayerController : MonoBehaviour
         // If menu is already open close it and all panels.
         } else if(Input.GetKeyDown(KeyCode.I) && menuPanel.activeSelf) {
             inventoryPanel.SetActive(false);
-            equipmentPanel.SetActive(false);
             questPanel.SetActive(false);
+            placeholderPanel.SetActive(false);
             settingsPanel.SetActive(false);
             SwitchStateAndMovement(menuPanel);
         }
