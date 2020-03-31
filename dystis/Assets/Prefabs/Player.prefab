@@ -717,7 +717,11 @@ MonoBehaviour:
   teleportStarting: 0
   teleportOnGoing: 0
   teleportEnding: 0
+<<<<<<< HEAD
   fadeOverlay: {fileID: 0}
+=======
+  fadeOverlay: {fileID: 1746618701}
+>>>>>>> 14314a364a42b260245721148ab8e90f32437548
 --- !u!1 &6277801397830604903
 GameObject:
   m_ObjectHideFlags: 0
