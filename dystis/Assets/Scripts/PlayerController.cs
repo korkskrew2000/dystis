@@ -1,5 +1,6 @@
 ﻿using UnityEngine.EventSystems;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -130,7 +131,7 @@ public class PlayerController : MonoBehaviour
 
    public void SwitchStateAndMovement(GameObject gO)
     {
-        Debug.Log("Switch State Occured!)");
+        //Debug.Log("Switch State Occured!)");
         if (gO.activeSelf == true)
         {
             gO.SetActive(false);
@@ -175,10 +176,17 @@ public class PlayerController : MonoBehaviour
             lookingAtInteractable = true;
             if (!interactableNotification && lookingAtInteractable)
             {
+                Debug.Log("Interactable is: " + hitz.transform.name);
+                //Debug.Log("You can do something here...");
+                //if(hitz.transform.tag == "Teleporter") {
+                //    Debug.Log("Teleporter here...");
+                //    interactableInfo.GetComponent<Text>().text = "Teleporter";
+                //} else {
+                //    interactableInfo.GetComponent<Text>().text = "something else here";
+                //}
                 interactableNotification = true;
-                Debug.Log("You can do something here...");
                 interactableInfo.SetActive(true);
-                Debug.DrawLine(rayz.origin, hitz.point, Color.red, 0.5f);
+                //Debug.DrawLine(rayz.origin, hitz.point, Color.red, 0.5f);
             }
 
         }
