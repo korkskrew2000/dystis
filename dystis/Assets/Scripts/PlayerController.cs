@@ -176,14 +176,19 @@ public class PlayerController : MonoBehaviour
             lookingAtInteractable = true;
             if (!interactableNotification && lookingAtInteractable)
             {
-                Debug.Log("Interactable is: " + hitz.transform.name);
-                //Debug.Log("You can do something here...");
-                //if(hitz.transform.tag == "Teleporter") {
-                //    Debug.Log("Teleporter here...");
-                //    interactableInfo.GetComponent<Text>().text = "Teleporter";
-                //} else {
-                //    interactableInfo.GetComponent<Text>().text = "something else here";
-                //}
+                //Debug.Log("Interactable is: " + hitz.transform.name);
+                if (hitz.transform.tag == "Teleporter") {
+                    //Debug.Log("Teleporter here...");
+                    interactableInfo.transform.Find("InfoText").GetComponent<Text>().text = "Teleporter";
+                } else if (hitz.transform.tag == "NPC") {
+                    //Debug.Log("Teleporter here...");
+                    interactableInfo.transform.Find("InfoText").GetComponent<Text>().text = "NPC";
+                } else if (hitz.transform.tag == "Item") {
+                    //Debug.Log("Teleporter here...");
+                    interactableInfo.transform.Find("InfoText").GetComponent<Text>().text = "Item";
+                } else {
+                    interactableInfo.transform.Find("InfoText").GetComponent<Text>().text = "Unknown...!?";
+                }
                 interactableNotification = true;
                 interactableInfo.SetActive(true);
                 //Debug.DrawLine(rayz.origin, hitz.point, Color.red, 0.5f);
