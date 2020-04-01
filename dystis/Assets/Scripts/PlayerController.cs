@@ -176,14 +176,32 @@ public class PlayerController : MonoBehaviour
             lookingAtInteractable = true;
             if (!interactableNotification && lookingAtInteractable)
             {
-                Debug.Log("Interactable is: " + hitz.transform.name);
-                //Debug.Log("You can do something here...");
-                //if(hitz.transform.tag == "Teleporter") {
-                //    Debug.Log("Teleporter here...");
-                //    interactableInfo.GetComponent<Text>().text = "Teleporter";
+                // Vanhaa turhaa koodia testien jälkeen, korvattu InteractionImagella -kari-
+                //Debug.Log("Interactable is: " + hitz.transform.name);
+                //if (hitz.transform.tag == "Teleporter") {
+                //    //Debug.Log("Teleporter here...");
+                //    interactableInfo.transform.Find("InfoText").GetComponent<Text>().text = "Teleporter";
+                //    
+                //} else if (hitz.transform.tag == "NPC") {
+                //    //Debug.Log("Teleporter here...");
+                //    interactableInfo.transform.Find("InfoText").GetComponent<Text>().text = "NPC";
+                //} else if (hitz.transform.tag == "Item") {
+                //    //Debug.Log("Teleporter here...");
+                //    interactableInfo.transform.Find("InfoText").GetComponent<Text>().text = "Item";
                 //} else {
-                //    interactableInfo.GetComponent<Text>().text = "something else here";
+                //    interactableInfo.transform.Find("InfoText").GetComponent<Text>().text = "Unknown...!?";
                 //}
+
+                // If GameObject has an InteractionImage then the image will be shown on the screen.
+                // If image is not available then default one will be shown ( = magnifying glass).
+                if(hitz.transform.Find("InteractionImage") != null) {
+                    interactableInfo.transform.Find("InteractionImage").GetComponent<Image>().sprite = 
+                        hitz.transform.Find("InteractionImage").GetComponent<Image>().sprite;
+                } else {
+                    interactableInfo.transform.Find("InteractionImage").GetComponent<Image>().sprite =
+                        interactableInfo.transform.Find("DefaultInteractionImage").GetComponent<Image>().sprite;
+                }
+                
                 interactableNotification = true;
                 interactableInfo.SetActive(true);
                 //Debug.DrawLine(rayz.origin, hitz.point, Color.red, 0.5f);
