@@ -7,6 +7,7 @@ public class QuestGiver : MonoBehaviour
 {
     public RPGTalk rpgTalk;
     public Quest quest;
+    public int questAcceptingChoice;
 
     //Jonin testiä
     public GameObject questPanel;
@@ -28,13 +29,17 @@ public class QuestGiver : MonoBehaviour
     }
 
 
-
+    //RPG-talk valintoihin liittyvää asiaa:
+    //quest-kysymykseen myöntävästi vastaaminen käynnistää
+    //questin. ChoiceID on kysymykseen vastaamis -näppäimen
+    //indeksi (0 on ensimmäinen vastausvaihtoehto, 1 toinen,
+    //jne.)
     void OnMadeChoice(string questionID, int choiceID)
     {
         Debug.Log("Aha! In the question " + questionID + " you choosed the option " + choiceID);
-        if(questionID == "quest" && choiceID == 0)
+        if(questionID == "quest" && choiceID == questAcceptingChoice)
         {
-            AcceptQuest();
+            AcceptQuest(true);
         }
     }
 
@@ -46,16 +51,23 @@ public class QuestGiver : MonoBehaviour
         moneyText.text = quest.moneyReward.ToString();
     }
     
-    public void AcceptQuest() {
+
+    //if quest is accepted from NPC in a conversation
+    //bool questFromTalk == true and quest window doesn't
+    //pop up in middle of conversation
+    public void AcceptQuest(bool questFromTalk) {
         //questWindows.SetActive(false);
         quest.isActive = true;
         playerController.quest = quest;
-
-        //Jonin testiä
-        playerController.SwitchStateAndMovement(playerController.menuPanel);
-        playerController.questPanel.SetActive(true);
         titleText.text = quest.title;
         descriptionText.text = quest.description;
+
+        //Jonin testiä
+        if (!questFromTalk)
+        {
+            playerController.SwitchStateAndMovement(playerController.menuPanel);
+            playerController.questPanel.SetActive(true);
+        }
 
         //Text playerTitleText = playerController.questPanel.transform.GetChild(0).GetComponent<Text>();
         //Debug.Log(playerTitleText.text);

@@ -26,7 +26,7 @@ public class ItemPickUp : Interactable
         // If item has a quest giver script, then accept the quest in it.
         var questGiverScript = this.GetComponent<QuestGiver>();
         if (questGiverScript != null) {
-            questGiverScript.AcceptQuest();
+            questGiverScript.AcceptQuest(false);
         }
     }
 }
