@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class QuestGiver : MonoBehaviour
 {
+    public RPGTalk rpgTalk;
     public Quest quest;
 
     //Jonin testiä
@@ -17,6 +18,25 @@ public class QuestGiver : MonoBehaviour
     public Text descriptionText;
     public Text experienceText;
     public Text moneyText;
+
+    void Start()
+    {
+        if (rpgTalk != null)
+        {
+            rpgTalk.OnMadeChoice += OnMadeChoice;
+        }
+    }
+
+
+
+    void OnMadeChoice(string questionID, int choiceID)
+    {
+        Debug.Log("Aha! In the question " + questionID + " you choosed the option " + choiceID);
+        if(questionID == "quest" && choiceID == 0)
+        {
+            AcceptQuest();
+        }
+    }
 
     public void OpenQuestWindow() {
         //questWindows.SetActive(true);

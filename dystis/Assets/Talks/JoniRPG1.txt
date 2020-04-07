@@ -1,7 +1,44 @@
-Masa: Moi! Tässä jotain juttua
-Masa: Tässäpä vähän lisää puhetta
-Masa: Joo
-Masa: [question=0] Miten menee?
-[choice]Hyvin!
-[choice]Ei kovin hyvin..
-Masa: Selvä peli!
+[title=MyTitle]
+Masa: Moi! Olen Masa.
+Masa: Asun täällä Kouvolassa.
+Masa: [question=mitenMenee] Mitenkäs sinulla menee?
+[choice]Hyvin! [newtalk start=answeredHyvin_begin break=answeredHyvin_end]
+[choice]Ei kovin hyvin.. [newtalk start=answeredHuonosti_begin break=answeredHuonosti_end]
+[title=MyTitleEnd]
+
+[title=answeredHyvin_begin]
+Masa: Mukava kuulla!
+Masa: [question=quest] Haluaisitko auttaa minua yhdessä asiassa?
+[choice]Toki! [newtalk start=answeredQuestYes_begin break=answeredQuestYes_end]
+[choice]Valitettavasti en... [newtalk start=answeredQuestNo_begin break=answeredQuestNo_end]
+[title=answeredHyvin_end]
+[title=answeredHuonosti_begin]
+Masa: Ikävä kuulla.. Parempaa jatkoa!
+[title=answeredHuonosti_end]
+
+[title=answeredQuestYes_begin]
+Masa: Mahtavaa!
+Masa: Olen kadottanut kotiavaimeni.. Tarvitsisin apua niiden etsimisessä.
+Masa: Kerrothan jos näet niitä! Kiitos jo etukäteen!
+[title=answeredQuestYes_end]
+
+[title=answeredQuestNo_begin]
+Masa: No jaa.. Ei sitten mitään..
+[title=answeredQuestNo_end]
+
+
+
+*************testejä***************
+
+[title=answeredHyvinSave_begin]
+Masa: Toivottavasti olet edelleen voinut hyvin!
+[title=answeredHyvinSave_end]
+[title=answeredHuonostiSave_begin]
+Masa: Toivottavasti menee jo paremmin...
+[title=answeredHuonostiSave_end]
+
+[save start=answeredHyvinSaved_begin break=answeredHyvinSaved_end data=0 mod=0]
+[save start=answeredHuonostiSaved_begin break=answeredHuonostiSaved_end data=0 mod=1]
+
+[choice]Hyvin! [newtalk start=answeredHyvin_begin break=answeredHyvin_end]
+[choice]Ei kovin hyvin.. [newtalk start=answeredHuonosti_begin break=answeredHuonosti_end]

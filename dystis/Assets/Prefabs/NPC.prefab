@@ -269,8 +269,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  lineToStart: 1
-  lineToBreak: -1
+  lineToStart: MyTitle
+  lineToBreak: MyTitleEnd
   txtToParse: {fileID: 4900000, guid: 1506b591d6e25f54aafde705e8cd854b, type: 3}
   overwriteCallbackAfterTalk:
     m_PersistentCalls:
@@ -284,7 +284,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
   happenOnlyOnce: 0
   alreadyHappened: 0
