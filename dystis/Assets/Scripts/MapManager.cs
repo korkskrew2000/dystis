@@ -2,20 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapManager : MonoBehaviour
-{
-    public Camera MapCamera;
+public class MapManager : MonoBehaviour {
+    public Camera miniMapCamera;
     public Transform player;
+    public float mapUpdateWaitTime = 0.05f;
+    public bool rotateMapCamera = false;
+    float timer = 0.0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        MapCamera.transform.position = player.transform.position;
+    void Update() {
+
+        // https://docs.unity3d.com/ScriptReference/Time-deltaTime.html
+
+        timer += Time.deltaTime;
+
+        if (timer > mapUpdateWaitTime) {
+            if (rotateMapCamera) {
+                float mapCameraY = player.transform.eulerAngles.y;
+                transform.eulerAngles = new Vector3(0, mapCameraY, 0);
+            }
+            miniMapCamera.transform.position = player.transform.position;
+            timer -= mapUpdateWaitTime;
+            Debug.Log("Tick...");
+        }
+
+
+
     }
 }
