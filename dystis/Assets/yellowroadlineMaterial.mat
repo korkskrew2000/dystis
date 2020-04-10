@@ -22,7 +22,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: yellowroadlineMaterial
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ENVIRONMENTREFLECTIONS_OFF _SPECULARHIGHLIGHTS_OFF
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ENVIRONMENTREFLECTIONS_OFF _RECEIVE_SHADOWS_OFF
+    _SPECULARHIGHLIGHTS_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -76,7 +77,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _QueueOffset: 0
-    - _ReceiveShadows: 1
+    - _ReceiveShadows: 0
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 0
