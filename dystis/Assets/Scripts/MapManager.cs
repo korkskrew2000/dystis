@@ -24,7 +24,7 @@ public class MapManager : MonoBehaviour {
                 float mapCameraY = player.transform.eulerAngles.y;
                 transform.eulerAngles = new Vector3(0, mapCameraY, 0);
             }
-            miniMapCamera.transform.position = player.transform.position;
+            miniMapCamera.transform.position = new Vector3(player.transform.position.x,miniMapCamera.transform.position.y, player.transform.position.z);
             timer -= mapUpdateWaitTime;
             Debug.Log("Tick...");
         }
