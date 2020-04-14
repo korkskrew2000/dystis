@@ -7,6 +7,11 @@ public class QuestGiver : MonoBehaviour
 {
     public RPGTalk rpgTalk;
     public Quest quest;
+
+    //questin hyväksyvän valinnan indeksi "käsikirjoituksessa"
+    //esim. vaihtoehdoilla KYLLÄ / EI ensimmäinen vaihtoehto
+    //(eli KYLLÄ) vastaa indeksiä 0 (joka on myös tämän
+    //muuttujan oletusarvo)
     public int questAcceptingChoice;
 
     //Jonin testiä
@@ -36,7 +41,6 @@ public class QuestGiver : MonoBehaviour
     //jne.)
     void OnMadeChoice(string questionID, int choiceID)
     {
-        Debug.Log("Aha! In the question " + questionID + " you choosed the option " + choiceID);
         if(questionID == "quest" && choiceID == questAcceptingChoice)
         {
             AcceptQuest(true);

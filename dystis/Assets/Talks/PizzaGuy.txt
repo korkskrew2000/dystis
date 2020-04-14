@@ -1,0 +1,36 @@
+[title=MyTitle]
+Weird guy: Hey kid!
+[save start=firstMeeting_begin break=firstMeeting_end data=quest mod=-1]
+[save start=questStarted_begin break=questStarted_end data=quest mod=0]
+[save start=questNotStarted_begin break=questNotStarted_end data=quest mod=1]
+[title=MyTitleEnd]
+
+[title=firstMeeting_begin]
+Weird guy: blah blah blah telling about the quest
+Weird guy: [question=quest] Could you do the quest?
+[choice]Yes! [newtalk start=answeredQuestYes_begin break=answeredQuestYes_end]
+[choice]No [newtalk start=answeredQuestNo_begin break=answeredQuestNo_end]
+[title=firstMeeting_end]
+
+[title=answeredQuestYes_begin]
+Weird guy: Wow great now you have the quest
+Weird guy: omg omg
+[title=answeredQuestYes_end]
+
+[title=answeredQuestNo_begin]
+Weird guy: Ok.. Fuck off then!
+[title=answeredQuestNo_end]
+
+[title=questStarted_begin]
+Weird guy: You done it...? If not, get outta here..
+[title=questStarted_end]
+
+[title=questNotStarted_begin]
+Weird guy: [question=quest] Have you changed your mind? Could you just deliver the pizza???
+[choice]Yes! [newtalk start=answeredQuestYes_begin break=answeredQuestYes_end]
+[choice]No... [newtalk start=answeredQuestNo2_begin break=answeredQuestNo2_end]
+[title=questNotStarted_end]
+
+[title=answeredQuestNo2_begin]
+Weird guy: Stop wasting my time kid!
+[title=answeredQuestNo2_end]

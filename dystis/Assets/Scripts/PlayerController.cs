@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     bool interactableNotification = false; // Notify user about interactable thing.
     bool lookingAtInteractable = false;
     bool canShoot = true;
+    bool duringTalkQuest = false;
     int weaponDamage;
     int weaponFireRate;
     int weaponIndex = -1;
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
     public GameObject questPanel;
     public GameObject placeholderPanel;
     public GameObject settingsPanel;
+    public GameObject questPopUp;
 
     // == Teleport ================
     public Transform tpDestination;
@@ -105,6 +107,30 @@ public class PlayerController : MonoBehaviour
                 weaponHolder.transform.GetChild(i).gameObject.SetActive(false);
             }
         }
+    }
+
+    public void BeforeTalkCallBack()
+    {
+        //If player doesn't already have an active quest
+        //duringTalkQuest changes to true. That is needed
+        //for checking if player has gotten a new quest during
+        //talking at AfterTalkCallBack function
+        if (!quest.isActive) duringTalkQuest = true;
+        //Disable players movement and set cursor visibility to true
+        DisablePlayerMovement(true);
+    }
+
+    public void AfterTalkCallBack()
+    {
+        //If player got a new quest during talking, make quest pop up window show up
+        if (quest.isActive && duringTalkQuest)
+        {
+            questPopUp.SetActive(true);
+            Debug.Log("Quest POP UP");
+        }
+        duringTalkQuest = false;
+        //Enable players movement and set cursor visibility to false
+        EnablePlayerMovement(false);
     }
 
     public void DisablePlayerMovement(bool visibleCursor)
