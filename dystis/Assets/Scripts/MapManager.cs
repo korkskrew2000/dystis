@@ -6,8 +6,11 @@ public class MapManager : MonoBehaviour {
     public Camera miniMapCamera;
     public Transform player;
     public float mapUpdateWaitTime = 0.05f;
-    public bool rotateMapCamera = false;
+    public bool rotateMiniMapCamera = false;
     float timer = 0.0f;
+
+    public int worldWidth = 1000;   // x
+    public int worldLength = 1000;  // z
 
     void Start() {
 
@@ -20,16 +23,16 @@ public class MapManager : MonoBehaviour {
         timer += Time.deltaTime;
 
         if (timer > mapUpdateWaitTime) {
-            if (rotateMapCamera) {
-                float mapCameraY = player.transform.eulerAngles.y;
-                transform.eulerAngles = new Vector3(0, mapCameraY, 0);
+            if (rotateMiniMapCamera) {
+                float playerCameraRotY = player.transform.eulerAngles.y;
+                miniMapCamera.transform.eulerAngles = new Vector3(90, playerCameraRotY, 0);
             }
             miniMapCamera.transform.position = new Vector3(player.transform.position.x,miniMapCamera.transform.position.y, player.transform.position.z);
             timer -= mapUpdateWaitTime;
-            //Debug.Log("Tick...");
+            //Debug.Log("Timer: " + timer);
         }
 
-
+        // transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 0);
 
     }
 }
