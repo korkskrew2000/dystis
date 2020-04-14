@@ -148,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionTransform: {fileID: 5434854038060318623}
   tpDestination: {fileID: 0}
+  tpLocked: 0
   tpShowDuringPlay: 0
 --- !u!222 &307870820698762312
 CanvasRenderer:

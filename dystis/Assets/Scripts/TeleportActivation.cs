@@ -6,6 +6,7 @@ public class TeleportActivation : Interactable {
 
     Transform player;
 
+    public bool tpLocked = false;
     public bool tpShowDuringPlay = false;
 
     public override void Interact() {
@@ -27,9 +28,14 @@ public class TeleportActivation : Interactable {
     }
 
     void TeleportActivate() {
-        //Debug.Log("Activating teleport: " + transform.name);
-        player.GetComponent<PlayerController>().tpDestination = tpDestination;
-        player.GetComponent<PlayerController>().teleportStarting = true;
+        if (!tpLocked) {
+            //Debug.Log("Activating teleport: " + transform.name);
+            player.GetComponent<PlayerController>().tpDestination = tpDestination;
+            player.GetComponent<PlayerController>().teleportStarting = true;
+        } else {
+            Debug.Log("Teleport locked: " + transform.name);
+            AudioFW.Play("doorlocked");
+        }
 
     }
 }

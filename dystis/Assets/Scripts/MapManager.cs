@@ -26,7 +26,7 @@ public class MapManager : MonoBehaviour {
             }
             miniMapCamera.transform.position = new Vector3(player.transform.position.x,miniMapCamera.transform.position.y, player.transform.position.z);
             timer -= mapUpdateWaitTime;
-            Debug.Log("Tick...");
+            //Debug.Log("Tick...");
         }
 
 
