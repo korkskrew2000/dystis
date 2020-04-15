@@ -3,21 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class QuestGiver : MonoBehaviour
+public class QuestGiver : ChoiceEvent
 {
-    public RPGTalk rpgTalk;
     public Quest quest;
-
-    //questin hyväksyvän valinnan indeksi "käsikirjoituksessa"
-    //esim. vaihtoehdoilla KYLLÄ / EI ensimmäinen vaihtoehto
-    //(eli KYLLÄ) vastaa indeksiä 0 (joka on myös tämän
-    //muuttujan oletusarvo)
-    public int questAcceptingChoice;
 
     //Jonin testiä
     public GameObject questPanel;
 
-    public PlayerController playerController;
+    PlayerController playerController;
     
     //public GameObject questWindows;
     public Text titleText;
@@ -25,23 +18,20 @@ public class QuestGiver : MonoBehaviour
     public Text experienceText;
     public Text moneyText;
 
-    void Start()
+    public override void Start()
     {
-        if (rpgTalk != null)
-        {
-            rpgTalk.OnMadeChoice += OnMadeChoice;
-        }
+        base.Start();
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
-
 
     //RPG-talk valintoihin liittyvää asiaa:
     //quest-kysymykseen myöntävästi vastaaminen käynnistää
     //questin. ChoiceID on kysymykseen vastaamis -näppäimen
     //indeksi (0 on ensimmäinen vastausvaihtoehto, 1 toinen,
     //jne.)
-    void OnMadeChoice(string questionID, int choiceID)
+    public override void OnMadeChoice(string questionID, int choiceID)
     {
-        if(questionID == "quest" && choiceID == questAcceptingChoice)
+        if(questionID == questKeyword && choiceID == questAcceptingChoice)
         {
             AcceptQuest(true);
         }
@@ -60,6 +50,7 @@ public class QuestGiver : MonoBehaviour
     //bool questFromTalk == true and quest window doesn't
     //pop up in middle of conversation
     public void AcceptQuest(bool questFromTalk) {
+        Debug.Log("accepting quest");
         //questWindows.SetActive(false);
         quest.isActive = true;
         playerController.quest = quest;

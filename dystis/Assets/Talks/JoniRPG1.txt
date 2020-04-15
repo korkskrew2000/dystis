@@ -2,7 +2,7 @@
 Masa: Moi!
 [save start=ekaTapaaminen_begin break=ekaTapaaminen_end data=quest mod=-1]
 [save start=questSaatu_begin break=questSaatu_end data=quest mod=0]
-[save start=questiaEiSaatu_begin break=questiaEiSaatu_end data=quest mod=1]
+[save start=questiaEiSaatu_begin break=questiaEiSaatu_end data=masaQuest mod=1]
 [title=MyTitleEnd]
 
 [title=ekaTapaaminen_begin]
@@ -15,7 +15,7 @@ Masa: [question=mitenMenee] Mitenkäs sinulla menee?
 
 [title=answeredHyvin_begin]
 Masa: Mukava kuulla!
-Masa: [question=quest] Haluaisitko auttaa minua yhdessä asiassa?
+Masa: [question=masaQuest] Haluaisitko auttaa minua yhdessä asiassa?
 [choice]Toki! [newtalk start=answeredQuestYes_begin break=answeredQuestYes_end]
 [choice]Valitettavasti en... [newtalk start=answeredQuestNo_begin break=answeredQuestNo_end]
 [title=answeredHyvin_end]
@@ -38,7 +38,7 @@ Masa: Onko avaimiani näkynyt?
 [title=questSaatu_end]
 
 [title=questiaEiSaatu_begin]
-Masa: [question=quest] Haluaisitko auttaa minua yhdessä asiassa?
+Masa: [question=masaQuest] Haluaisitko auttaa minua yhdessä asiassa?
 [choice]Toki! [newtalk start=answeredQuestYes_begin break=answeredQuestYes_end]
 [choice]Valitettavasti en... [newtalk start=answeredQuestNo_begin break=answeredQuestNo_end]
 [title=questiaEiSaatu_end]

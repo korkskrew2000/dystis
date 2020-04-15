@@ -1,0 +1,36 @@
+[title=MyTitle]
+Mike: What the..
+[save start=firstMeeting_begin break=firstMeeting_end data=questCompletion mod=-1]
+[save start=questCompleted_begin break=questCompleted_end data=questCompletion mod=0]
+[save start=questNotCompleted_begin break=questNotCompleted_end data=questCompletion mod=1]
+[title=MyTitleEnd]
+
+[title=firstMeeting_begin]
+Mike: blah blah blah asking about the quest
+Mike: [question=questCompletion] Give me that box?
+[choice]Yes! [newtalk start=answeredQuestYes_begin break=answeredQuestYes_end]
+[choice]No.. [newtalk start=answeredQuestNo_begin break=answeredQuestNo_end]
+[title=firstMeeting_end]
+
+[title=answeredQuestYes_begin]
+Mike: Wow great now you have completed the quest
+Mike: omg omg
+[title=answeredQuestYes_end]
+
+[title=answeredQuestNo_begin]
+Mike: Ok.. Fuck off then!
+[title=answeredQuestNo_end]
+
+[title=questCompleted_begin]
+Mike: MOVE YOUR ASS
+[title=questCompleted_end]
+
+[title=questNotCompleted_begin]
+Mike: [question=questCompletion] Have you changed your mind? Could you just deliver the pizza???
+[choice]Yes! [newtalk start=answeredQuestYes_begin break=answeredQuestYes_end]
+[choice]No... [newtalk start=answeredQuestNo2_begin break=answeredQuestNo2_end]
+[title=questNotCompleted_end]
+
+[title=answeredQuestNo2_begin]
+Weird guy: And now you die!
+[title=answeredQuestNo2_end]
