@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MapMarkerQuest : MonoBehaviour {
     
-    public void enableMarker() {
+    public void EnableMarker() {
         transform.Find("Marker").GetComponent<SpriteRenderer>().enabled = true;
     }
 
-    public void disableMarker() {
+    public void DisableMarker() {
         transform.Find("Marker").GetComponent<SpriteRenderer>().enabled = false;
     }
 
