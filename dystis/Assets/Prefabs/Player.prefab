@@ -168,7 +168,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 582619399618421450}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -584,6 +584,7 @@ MonoBehaviour:
   questPanel: {fileID: 0}
   placeholderPanel: {fileID: 0}
   settingsPanel: {fileID: 0}
+  questPopUp: {fileID: 0}
   tpDestination: {fileID: 0}
   teleportStarting: 0
   teleportOnGoing: 0
@@ -15385,8 +15386,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1756862740587804185}
   - {fileID: 582619398492169785}
-  - {fileID: 7909079556500334722}
   m_Father: {fileID: 582619398697844974}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15423,7 +15424,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 582619399618421449}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
@@ -30482,7 +30483,7 @@ Transform:
   m_GameObject: {fileID: 1978582492105753220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 250, y: 250, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 8574996540208026027}
   m_RootOrder: 0
@@ -30537,7 +30538,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &8506211300088725485
+--- !u!1 &5902286244646598690
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30545,9 +30546,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7909079556500334722}
-  - component: {fileID: 5623427399062749079}
-  - component: {fileID: 2729182370383100257}
+  - component: {fileID: 1756862740587804185}
+  - component: {fileID: 3115281313336924724}
+  - component: {fileID: 5594045799654512279}
   m_Layer: 5
   m_Name: MiniMapImage
   m_TagString: Untagged
@@ -30555,40 +30556,40 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &7909079556500334722
+--- !u!224 &1756862740587804185
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8506211300088725485}
+  m_GameObject: {fileID: 5902286244646598690}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0.43425998}
   m_Children: []
   m_Father: {fileID: 582619399618421450}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -64, y: 64}
-  m_SizeDelta: {x: 150, y: 150}
+  m_AnchoredPosition: {x: -128, y: 122}
+  m_SizeDelta: {x: 350, y: 256}
   m_Pivot: {x: 1, y: 0}
---- !u!222 &5623427399062749079
+--- !u!222 &3115281313336924724
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8506211300088725485}
+  m_GameObject: {fileID: 5902286244646598690}
   m_CullTransparentMesh: 0
---- !u!114 &2729182370383100257
+--- !u!114 &5594045799654512279
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8506211300088725485}
+  m_GameObject: {fileID: 5902286244646598690}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
@@ -30600,7 +30601,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: 321332dafa0ab8044b3fa0751fa57e01, type: 2}
+  m_Texture: {fileID: 8400000, guid: 6ca70e5fe37d1aa4b9d4077b1579cf36, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0

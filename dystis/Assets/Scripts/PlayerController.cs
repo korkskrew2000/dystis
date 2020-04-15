@@ -186,6 +186,20 @@ public class PlayerController : MonoBehaviour
             SwitchStateAndMovement(menuPanel);
         }
 
+        // Button "m" opens menu + placeholder (has a map now... must be changed !? also key presses are not logical yet...).
+        if (Input.GetKeyDown(KeyCode.M) && !menuPanel.activeSelf) {
+            Debug.Log("Menu Button Pressed");
+            SwitchStateAndMovement(menuPanel);
+            placeholderPanel.SetActive(true);
+            // If menu is already open close it and all panels.
+        } else if (Input.GetKeyDown(KeyCode.M) && menuPanel.activeSelf) {
+            inventoryPanel.SetActive(false);
+            questPanel.SetActive(false);
+            placeholderPanel.SetActive(false);
+            settingsPanel.SetActive(false);
+            SwitchStateAndMovement(menuPanel);
+        }
+
         //if (Input.GetKeyDown(KeyCode.I))
         //{
         //    SwitchStateAndMovement(inventoryPanel);

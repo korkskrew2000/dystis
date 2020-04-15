@@ -1121,11 +1121,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 6046393664613078273, guid: 778b89ad0e32652418d49c35a8656a10,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 778b89ad0e32652418d49c35a8656a10, type: 3}
 --- !u!1 &415732075 stripped
@@ -4986,7 +4981,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &230357624842416121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5330,11 +5325,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 582619398697844968, guid: 2e62f5703e5f8d2488a5e1bc8433be41,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 582619398697844969, guid: 2e62f5703e5f8d2488a5e1bc8433be41,
         type: 3}
@@ -40051,7 +40041,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &5916413427657990779
 MonoBehaviour:
   m_ObjectHideFlags: 0
