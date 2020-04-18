@@ -7,6 +7,10 @@ TagManager:
   - NPC
   - Teleporter
   - Item
+  - PlayerMapMarker
+  - PlayerOverlayCanvas
+  - MiniMapImage
+  - MiniMapOff
   layers:
   - Default
   - TransparentFX

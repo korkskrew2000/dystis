@@ -10803,11 +10803,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1854243514563703318, guid: b0cc5038236ad80458659cd7d861418f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5830352161421880844, guid: b0cc5038236ad80458659cd7d861418f,
         type: 3}
       propertyPath: player
@@ -10872,11 +10867,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MapManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 5830352161421880847, guid: b0cc5038236ad80458659cd7d861418f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0cc5038236ad80458659cd7d861418f, type: 3}

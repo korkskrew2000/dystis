@@ -259,6 +259,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   miniMapCamera: {fileID: 5333817523890475825}
   player: {fileID: 0}
+  playerMapMarker: {fileID: 0}
+  playerOverlayCanvas: {fileID: 0}
+  miniMapImage: {fileID: 0}
+  miniMapOff: {fileID: 0}
   mapUpdateWaitTime: 0.05
   rotateMiniMapCamera: 0
   worldWidth: 1000
