@@ -9,18 +9,19 @@ public class CompleteQuestByTalk : ChoiceEvent
     //Kyseisen questin otsikko jonka aktiivisuus halutaan tarkistaa pelaajasta
     public string questTitle;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
-    public virtual void OnMadeChoice(string questionID, int choiceID)
+    public override void OnMadeChoice(string questionID, int choiceID)
     {
         if (questionID == questKeyword
             && choiceID == questAcceptingChoice
             && playerController.quest.title == questTitle) {
             Debug.Log("Quest " + questTitle + " completed!");
-            playerController.quest = null;
+            playerController.quest.isActive = false;
         }
     }
 }
