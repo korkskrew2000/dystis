@@ -6,7 +6,8 @@ public class TeleportActivation : Interactable {
 
     Transform player;
 
-    public bool tpLocked = false;
+    public bool tpLocked = false;   // Player is not allowed to use this tp.
+    public bool tpSubway = false;   // Is this teleport actually tp for subway fast travel?
     public bool tpShowDuringPlay = false;
 
     public override void Interact() {
