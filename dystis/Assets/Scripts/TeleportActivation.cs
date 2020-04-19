@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class TeleportActivation : Interactable {
     
@@ -22,6 +23,10 @@ public class TeleportActivation : Interactable {
             GetComponent<MeshRenderer>().enabled = false;
             transform.parent.Find("TeleporterExit").GetComponent<MeshRenderer>().enabled = false;
         }
+        if (tpSubway) {
+            transform.Find("InteractionImage").GetComponent<Image>().sprite = 
+                transform.Find("InteractionImageSubway").GetComponent<Image>().sprite;
+        }
     }
 
     void Start() {
@@ -29,6 +34,9 @@ public class TeleportActivation : Interactable {
     }
 
     void TeleportActivate() {
+        if (tpSubway == true) {
+            player.GetComponent<PlayerController>().tpUsingSubway = true;
+        }
         if (!tpLocked) {
             //Debug.Log("Activating teleport: " + transform.name);
             player.GetComponent<PlayerController>().tpDestination = tpDestination;
