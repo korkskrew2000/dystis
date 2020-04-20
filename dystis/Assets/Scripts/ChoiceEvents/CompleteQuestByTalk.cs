@@ -5,6 +5,7 @@ using UnityEngine;
 public class CompleteQuestByTalk : ChoiceEvent
 {
     PlayerController playerController;
+    GameObject questCompletePanel;
 
     //Kyseisen questin otsikko jonka aktiivisuus halutaan tarkistaa pelaajasta
     public string questTitle;
@@ -13,6 +14,7 @@ public class CompleteQuestByTalk : ChoiceEvent
     {
         base.Start();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        questCompletePanel = GameObject.Find("QuestCompletePanel");
     }
 
     public override void OnMadeChoice(string questionID, int choiceID)
