@@ -18,6 +18,8 @@ public class QuestGiver : ChoiceEvent
     public Text experienceText;
     public Text moneyText;
 
+    public Text questPanelText;
+
     public override void Start()
     {
         base.Start();
@@ -59,6 +61,7 @@ public class QuestGiver : ChoiceEvent
         playerController.quest = quest;
         titleText.text = quest.title;
         descriptionText.text = quest.description;
+        questPanelText.text = ("New quest started: " + quest.title);
 
         //Jonin testiä
         if (!questFromTalk)

@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CompleteQuestByTalk : ChoiceEvent
 {
     PlayerController playerController;
     GameObject questCompletePanel;
+    public Text questPanelTitle;
 
     //Kyseisen questin otsikko jonka aktiivisuus halutaan tarkistaa pelaajasta
     public string questTitle;
@@ -23,6 +25,7 @@ public class CompleteQuestByTalk : ChoiceEvent
             && choiceID == questAcceptingChoice
             && playerController.quest.title == questTitle) {
             Debug.Log("Quest " + questTitle + " completed!");
+            questPanelTitle.text = questTitle;
             playerController.quest.Complete();
         }
     }
