@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum NPCGender { female, male }
+public enum NPCMood { aggressive, peaceful };
 
 public class NPCControllerV2 : MonoBehaviour, ITalkable {
 
     [Header("Player gender")]
     public NPCGender npcGender;
+    [Header("NPC mood/behaviour")]
+    public NPCMood npcMood;
     [Header("NPC Health:")]
     [Range(0f, 100f), Tooltip("Health")]
     public float npcHealth = 100f;
@@ -19,13 +22,23 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
     [Tooltip("What is the closest distance between NPC and player.")]
     public float npcFollowDistance = 4f;
     [Header("NPC look/turn parameters:")]
-    public bool npcLooksAtPlayer = true;
+    bool npcLooksAtPlayer = true;
     [Tooltip("How fast NPC turns towards player.")]
-    public float npcTurningSpeed = 1f;
+    float npcTurningSpeed = 10f;
     [Tooltip("When NPC sees the player.")]
-    public float npcLookDistance = 5f;
+    float npcLookDistance = 500f;
     [Tooltip("NPC turns back to it's original direction after discussion")]
     public bool npcLookReset = true;
+
+    public bool npcReadyToShoot = true;
+    public float npcShootingDelayTime = 3f;
+    public float npcShootingTimer = 0;
+    public float npcShootingDistance = 20f;
+    public float npcDistanceToPlayer = 0f;
+
+    Ray npcShootingRay;
+    RaycastHit npcShootingHit;
+    //public LayerMask sightBlockingStructure;
 
     Quaternion npcOriginalRot;
 
@@ -34,6 +47,14 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
     //void Reset() {
     //    var npcGender = NPCGender.male;
     //}
+
+    public void SetNPCMoodAggressive() {
+        npcMood = NPCMood.aggressive;
+    }
+
+    public void SetNPCMoodPeaceful() {
+        npcMood = NPCMood.peaceful;
+    }
 
     void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -47,8 +68,50 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
             return;
         }
 
+        //NPC Shoots at player
+
+        if (npcHealth > 0 && npcMood == NPCMood.aggressive) {
+
+            npcDistanceToPlayer = (player.transform.position - transform.position).magnitude;
+
+            if(!npcReadyToShoot)
+                npcShootingTimer += Time.deltaTime;
+
+            if (!npcReadyToShoot && npcShootingTimer > npcShootingDelayTime) {
+                npcShootingTimer = 0f;
+                npcReadyToShoot = true;
+                Debug.Log("NPC reloading done.");
+                AudioFW.Play("shotgunequip");
+            }
+
+            // PS. NPC Eyes are at 1.8 meters (Vector3.up * 1.8f).
+            var playerHeading = (player.transform.position - transform.position).normalized;
+            //playerHeading = transform.forward;
+
+            // Some randomness for NPC shooting.
+            Vector3 dir = Random.insideUnitCircle * 1f;
+            dir.z = npcDistanceToPlayer; 
+            dir = transform.TransformDirection(dir.normalized);
+            playerHeading = playerHeading + dir;
+
+            npcShootingRay = new Ray(transform.position + Vector3.up * 1.5f, playerHeading);
+
+            //If NPC actually sees the player...
+            if (Physics.Raycast(npcShootingRay, out npcShootingHit, npcShootingDistance)) {
+                Debug.DrawLine(npcShootingRay.origin, npcShootingHit.point, Color.green, 0.1f);
+                if (npcReadyToShoot && npcShootingHit.transform.name == "Player") {
+                    Debug.DrawLine(npcShootingRay.origin, npcShootingHit.point, Color.red, 2f);
+                    Debug.Log("Raycast from NPC to Player got a hit!");
+                    player.GetComponent<PlayerController>().health -= 1;
+                    AudioFW.Play("shotgunshot");
+                    npcReadyToShoot = false;
+                    npcShootingTimer = 0f;
+                }
+            }
+        }
+
         // NPC follows player if npcFollow is true.
-        if (npcFollows) {
+        if (npcHealth > 0 && npcFollows) {
             Vector3 distance = player.transform.position - transform.position;
             Vector3 direction = distance.normalized;
             Vector3 velocity = direction * npcFollowSpeed;
@@ -93,10 +156,6 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
         isNPCDestroyed(npcHealth);
     }
 
-    //void OnMouseDown() {
-    //    ClickIt();
-    //}
-
     void isNPCDestroyed(float health) {
         if (health <= 0) {
             if (npcGender == NPCGender.female) {
@@ -104,7 +163,9 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
             } else {
                 AudioFW.Play("npcdiesmale");
             }
+            // Dead NPC sprite change here...
             Destroy(gameObject, 1.0f);
+
         }
     }
 }

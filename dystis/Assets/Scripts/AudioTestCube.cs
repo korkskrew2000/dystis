@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class AudioTestCube : MonoBehaviour
 {
+    public UnityEvent myEventWhenPlayerCollides;
 
-    private void OnCollisionEnter(Collision collision) {
+    public void OnCollisionEnter(Collision collision) {
         Debug.Log("Collision Detected.");
         TestAudio();
-
+        //Some additional event here... like making NPC aggressive...
+        myEventWhenPlayerCollides.Invoke();
     }
 
     void TestAudio() {

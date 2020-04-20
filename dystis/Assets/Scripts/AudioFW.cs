@@ -84,10 +84,10 @@ public class AudioFW : MonoBehaviour {
         FindAudioSources();
     }
 
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.A))
-            DebugPrint();
-    }
+    //void Update() {
+    //    if (Input.GetKeyDown(KeyCode.A))
+    //        DebugPrint();
+    //}
 
     void DebugPrint() {
         string s = "Audio loaded: ";

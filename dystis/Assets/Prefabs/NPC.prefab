@@ -154,10 +154,13 @@ MonoBehaviour:
   npcFollows: 0
   npcFollowSpeed: 8
   npcFollowDistance: 4
-  npcLooksAtPlayer: 1
-  npcTurningSpeed: 1
-  npcLookDistance: 3
   npcLookReset: 1
+  npcMood: peaceful
+  npcReadyToShoot: 1
+  npcShootingDelayTime: 3
+  npcShootingTimer: 0
+  npcShootingDistance: 20
+  npcDistanceToPlayer: 0
 --- !u!114 &1770941938760013963
 MonoBehaviour:
   m_ObjectHideFlags: 0
