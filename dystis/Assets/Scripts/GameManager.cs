@@ -5,14 +5,19 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     GameObject player;
+    PlayerController playerController;
     public CanvasGroup overlay; // Screen fade Overlay
 
     void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
         AudioFW.PlayLoop("ambience");
     }
 
-    
+    public void OkButton()
+    {
+        playerController.EnablePlayerMovement(false);
+    }
 
     // Update is called once per frame
     void Update() {      

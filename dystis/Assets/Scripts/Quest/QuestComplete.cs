@@ -20,7 +20,7 @@ public class QuestComplete : MonoBehaviour
                 questCompletePanel.transform.Find("Title").GetComponent<Text>().text = quest.title;
                 playerController.SwitchStateAndMovement(questCompletePanel);
 
-                playerController.quest = null;
+                playerController.quest.Complete();
             }
         }
     }
