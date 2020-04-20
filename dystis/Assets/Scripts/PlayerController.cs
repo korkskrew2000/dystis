@@ -133,6 +133,7 @@ public class PlayerController : MonoBehaviour
         {
             questPopUp.SetActive(true);
             Debug.Log("Quest POP UP");
+            //DisablePlayerMovement(true);
         }
         duringTalkQuest = false;
         //Enable players movement and set cursor visibility to false

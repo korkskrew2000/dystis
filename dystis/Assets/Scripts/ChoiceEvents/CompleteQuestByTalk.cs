@@ -21,7 +21,7 @@ public class CompleteQuestByTalk : ChoiceEvent
             && choiceID == questAcceptingChoice
             && playerController.quest.title == questTitle) {
             Debug.Log("Quest " + questTitle + " completed!");
-            playerController.quest.isActive = false;
+            playerController.quest.Complete();
         }
     }
 }

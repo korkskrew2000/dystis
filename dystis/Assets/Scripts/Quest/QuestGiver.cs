@@ -8,7 +8,7 @@ public class QuestGiver : ChoiceEvent
     public Quest quest;
 
     //Jonin testiä
-    public GameObject questPanel;
+    GameObject questPanel;
 
     PlayerController playerController;
     
@@ -22,6 +22,9 @@ public class QuestGiver : ChoiceEvent
     {
         base.Start();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        questPanel = GameObject.Find("QuestPanel");
+        //titleText = questPanel.transform.Find("Title").GetComponent<Text>();
+        //descriptionText = questPanel.transform.Find("Description").GetComponent<Text>();
     }
 
     //RPG-talk valintoihin liittyvää asiaa:
