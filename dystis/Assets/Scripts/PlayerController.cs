@@ -42,12 +42,18 @@ public class PlayerController : MonoBehaviour
 
     // == Teleport ================
     public Transform tpDestination;
+    public bool tpUsingSubway;
     TeleportActivation tpActivation;
     float teleportFadespeed = 0.5f;
     public bool teleportStarting = false;
     public bool teleportOnGoing = false;
     public bool teleportEnding = false;
-    bool teleportAudioPlaying = false;
+    public bool teleportAudioPlaying = false;
+    public bool subwayAudioPlaying = false;
+    float subwayRunTime = 10f;
+    public float subwayTimer = 0f;
+    public bool subwayTimerReached = false;
+
     //CanvasGroup fadeOverlay;
     public GameObject fadeOverlay;
     CanvasGroup fadeOverlayCG;
@@ -319,7 +325,7 @@ public class PlayerController : MonoBehaviour
 
         if (teleportStarting)
         {
-            if (!teleportAudioPlaying)
+            if (!teleportAudioPlaying && !tpUsingSubway)
             {
                 AudioFW.Play("dooropen");
                 teleportAudioPlaying = true;
@@ -339,27 +345,61 @@ public class PlayerController : MonoBehaviour
 
         if (teleportOnGoing)
         {
-            focus = null;
-            
-            //Debug.Log("Teleport ongoing to destination:" + tpDestination.parent.name);
-            //Debug.Log("Player angles before teleportOngoing: " + transform.eulerAngles);
-            //Debug.Log("Camera angles before teleportOngoing: " + cam.transform.eulerAngles);
+            // Wait for subway...
+            if (tpUsingSubway == true) {
 
-            // Rotate player to look exit direction (tpDestination.forward) when arriving at destination.
-            // tpDestination = TeleporterExit object.
+                focus = null;
 
-            transform.position = tpDestination.transform.position + new Vector3(0, 0.2f, 0);
+                
+                if (!subwayAudioPlaying) {
+                    AudioFW.Play("subwaytrip");
+                    subwayAudioPlaying = true;
+                    Debug.Log("Subway travel starts...");
+                }
 
-            //Debug.Log("Player angles after teleportOngoing: " + transform.eulerAngles);
-            //Debug.Log("Camera angles after teleportOngoing: " + cam.transform.eulerAngles);
-  
-            teleportOnGoing = false;
-            teleportEnding = true;
+                if (!subwayTimerReached)
+                    subwayTimer += Time.deltaTime;
+
+                if (!subwayTimerReached && subwayTimer > subwayRunTime) {
+                    Debug.Log("...and Subway travel ends.");
+                    //AudioFW.Play("subwayend");
+
+                    transform.position = tpDestination.transform.position + new Vector3(0, 0.2f, 0);
+
+                    subwayTimerReached = true;
+                    subwayTimer = 0f;
+                    teleportOnGoing = false;
+                    teleportEnding = true;
+                }
+
+            } else {
+
+                // Normal teleport (happens between open/close door).
+
+                focus = null;
+
+                //Debug.Log("Teleport ongoing to destination:" + tpDestination.parent.name);
+                //Debug.Log("Player angles before teleportOngoing: " + transform.eulerAngles);
+                //Debug.Log("Camera angles before teleportOngoing: " + cam.transform.eulerAngles);
+
+                // Rotate player to look exit direction (tpDestination.forward) when arriving at destination.
+                // tpDestination = TeleporterExit object.
+
+                transform.position = tpDestination.transform.position + new Vector3(0, 0.2f, 0);
+
+                //Debug.Log("Player angles after teleportOngoing: " + transform.eulerAngles);
+                //Debug.Log("Camera angles after teleportOngoing: " + cam.transform.eulerAngles);
+
+                teleportOnGoing = false;
+                teleportEnding = true;
+
+            }
+
         }
 
         if (teleportEnding)
         {
-            if (!teleportAudioPlaying)
+            if (!teleportAudioPlaying && !tpUsingSubway)
             {
                 AudioFW.Play("doorclose");
                 teleportAudioPlaying = true;
@@ -367,6 +407,9 @@ public class PlayerController : MonoBehaviour
             fadeOverlayCG.alpha -= Time.deltaTime * teleportFadespeed;
             if (fadeOverlayCG.alpha <= 0f)
             {
+                tpUsingSubway = false;
+                subwayTimerReached = false;
+                subwayAudioPlaying = false;
                 teleportEnding = false;
                 teleportAudioPlaying = false;
                 EnablePlayerMovement(false);

@@ -586,9 +586,14 @@ MonoBehaviour:
   settingsPanel: {fileID: 0}
   questPopUp: {fileID: 0}
   tpDestination: {fileID: 0}
+  tpUsingSubway: 0
   teleportStarting: 0
   teleportOnGoing: 0
   teleportEnding: 0
+  teleportAudioPlaying: 0
+  subwayAudioPlaying: 0
+  subwayTimer: 0
+  subwayTimerReached: 0
   fadeOverlay: {fileID: 582619399912684649}
 --- !u!1 &582619398723386000
 GameObject:
