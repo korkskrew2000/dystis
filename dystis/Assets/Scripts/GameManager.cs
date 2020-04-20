@@ -14,9 +14,9 @@ public class GameManager : MonoBehaviour {
         AudioFW.PlayLoop("ambience");
     }
 
-    public void OkButton()
+    public void OkButton(GameObject gameObject)
     {
-        playerController.EnablePlayerMovement(false);
+        playerController.SwitchStateAndMovement(gameObject);
     }
 
     // Update is called once per frame

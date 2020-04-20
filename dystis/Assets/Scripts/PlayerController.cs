@@ -20,12 +20,14 @@ public class PlayerController : MonoBehaviour
     bool interactableNotification = false; // Notify user about interactable thing.
     bool lookingAtInteractable = false;
     bool canShoot = true;
-    bool duringTalkQuest = false;
+    bool questAcceptedDuringTalk = false;
+    bool questCompletedDuringTalk = false;
     int weaponDamage;
     int weaponFireRate;
     int weaponIndex = -1;
     ParticleSystem weaponMuzzle;
     Transform[] weapons; // lista kamerassa näkyivstä aseista WeaponHolderin alla
+    public GameObject questCompletePanel;
 
     public float interactionDistance = 2; // Max interaction distance.
     public Interactable focus;
@@ -62,6 +64,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        //questCompletePanel = GameObject.Find("QuestCompletePanel");
+
         equipmentMg = EquipmentManager.instance;
         equipmentMg.onEquipmentChanged += UpdateWeapon;
         //inventory = Inventory.instance;
@@ -120,24 +124,32 @@ public class PlayerController : MonoBehaviour
         //If player doesn't already have an active quest
         //duringTalkQuest changes to true. That is needed
         //for checking if player has gotten a new quest during
-        //talking at AfterTalkCallBack function
-        if (!quest.isActive) duringTalkQuest = true;
+        //talking at AfterTalkCallBack function. Same thing with
+        //completing quests during talks.
+        if (!quest.isActive) questAcceptedDuringTalk = true;
+        if (quest.isActive) questCompletedDuringTalk = true;
         //Disable players movement and set cursor visibility to true
         DisablePlayerMovement(true);
     }
 
     public void AfterTalkCallBack()
     {
-        //If player got a new quest during talking, make quest pop up window show up
-        if (quest.isActive && duringTalkQuest)
+        if(!quest.isActive && questCompletedDuringTalk)
         {
-            questPopUp.SetActive(true);
-            Debug.Log("Quest POP UP");
-            //DisablePlayerMovement(true);
+            SwitchStateAndMovement(questCompletePanel);
         }
-        duringTalkQuest = false;
-        //Enable players movement and set cursor visibility to false
-        EnablePlayerMovement(false);
+        //If player got a new quest during talking, make quest pop up window show up
+        else if (quest.isActive && questAcceptedDuringTalk)
+        {
+            SwitchStateAndMovement(questPopUp);
+        } 
+        else
+        {
+            //Enable players movement and set cursor visibility to false
+            EnablePlayerMovement(false);
+        }
+        questAcceptedDuringTalk = false;
+        questCompletedDuringTalk = false;
     }
 
     public void DisablePlayerMovement(bool visibleCursor)
@@ -164,7 +176,6 @@ public class PlayerController : MonoBehaviour
 
    public void SwitchStateAndMovement(GameObject gO)
     {
-        //Debug.Log("Switch State Occured!)");
         if (gO.activeSelf == true)
         {
             gO.SetActive(false);
