@@ -43,6 +43,8 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
     Quaternion npcOriginalRot;
 
     GameObject player;
+    Animator animator;
+    Transform sprite;
 
     //void Reset() {
     //    var npcGender = NPCGender.male;
@@ -54,6 +56,11 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
 
     public void SetNPCMoodPeaceful() {
         npcMood = NPCMood.peaceful;
+    }
+
+    void Awake() {
+        sprite = transform.Find("Sprite");
+        animator = sprite.GetComponent<Animator>();
     }
 
     void Start() {
@@ -142,7 +149,7 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
     }
 
     public void TalkWith() {
-        print(" :: Blah Blah :: ");
+        //print(" :: Blah Blah :: ");
     }
 
     public void DamageIt(float damageAmount) {
@@ -153,10 +160,10 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
         }
         //Debug.Log("You damaged it.");
         npcHealth -= damageAmount;
-        isNPCDestroyed(npcHealth);
+        IsNPCDestroyed(npcHealth);
     }
 
-    void isNPCDestroyed(float health) {
+    void IsNPCDestroyed(float health) {
         if (health <= 0) {
             if (npcGender == NPCGender.female) {
                 AudioFW.Play("npcdiesfemale");
@@ -164,8 +171,9 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
                 AudioFW.Play("npcdiesmale");
             }
             // Dead NPC sprite change here...
-            Destroy(gameObject, 1.0f);
-
+            //Destroy(gameObject, 1.0f);
+            animator.Play("Dead");
+            
         }
     }
 }

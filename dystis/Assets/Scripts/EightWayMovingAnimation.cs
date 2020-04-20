@@ -14,6 +14,8 @@ public class EightWayMovingAnimation : MonoBehaviour {
 
     GameObject tempGO;
 
+    float npcHealth;
+
     public float shortestAngle;
     public float clockwiseAngle;
     public int sector;
@@ -33,7 +35,8 @@ public class EightWayMovingAnimation : MonoBehaviour {
     void SetSpriteFlip(bool flipped) {
         //Debug.Log("SetSpriteFlip: " + flipped);
         var scale = sprite.localScale;
-        scale.x = (flipped ? -1 : 1) * Mathf.Abs(scale.x);
+        //scale.x = (flipped ? -1 : 1) * Mathf.Abs(scale.x);
+        scale.x = (flipped ? 1 : -1) * Mathf.Abs(scale.x);
         sprite.localScale = scale;
     }
 
@@ -52,6 +55,9 @@ public class EightWayMovingAnimation : MonoBehaviour {
     }
 
     void FixedUpdate() {
+
+        npcHealth = player.GetComponent<NPCControllerV2>().npcHealth;
+        if (npcHealth < 0) return;
 
         //alkup.
         //var v = transform.forward;
@@ -77,7 +83,7 @@ public class EightWayMovingAnimation : MonoBehaviour {
 
         animSector = mapSectorToFlipped[sector];
         SetSpriteFlip(sector != animSector);
-
+                
         if (lastAnimSector != animSector) {
             animator.Play(animationNames[animSector * 2 + (nowMoving ? 1 : 0)]);
         } else if (wasMoving && !nowMoving) {
