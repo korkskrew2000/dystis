@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   name: Pistol
-  icon: {fileID: 21300000, guid: acc3252d2ced34346a4fb935f95286e3, type: 3}
+  icon: {fileID: 21300000, guid: f5014dd6e65a95b4190f6cf9d42c5fbd, type: 3}
   isDefaultItem: 0
+  isQuestItem: 0
+  model: {fileID: 2982592673443139967, guid: 66048ca85b8ed1d46b2b4a504848179d, type: 3}
   equipSlot: 3
   armorModifier: 0
   damageModifier: 20
   fireRate: 0
-  muzzleFlash: {fileID: 19800000, guid: 03a4a1935a9f4454c861dfa0aa6df562, type: 3}
+  holderIndex: 0

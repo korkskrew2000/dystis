@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour
     public List<Item> items = new List<Item>();
     public int inventorySpace = 20;
     public GameObject itemPrefab;
+    public GameObject questItemPanel;
 
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallBack;
@@ -40,19 +41,31 @@ public class Inventory : MonoBehaviour
     //toinen argumentti kertoo, pudotetaanko item fyysisesti pelikentälle (esim.
     //equipmenttia puettaessa item poistetaan inventorysta, mutta EI pudoteta)
     public void Remove(Item item, bool shouldBeDropped) {
-        //instantioidaan pudotettava item pelaajan eteen
-        if (shouldBeDropped)
+        if (!item.isQuestItem)
         {
-            Vector3 playerTransform = cam.transform.position + cam.transform.forward;
-            GameObject droppedItem = Instantiate(itemPrefab, playerTransform, Quaternion.identity);
-            ItemPickUp droppedItemPickUp = droppedItem.GetComponent<ItemPickUp>();
-            if (droppedItemPickUp != null)
+            //instantioidaan pudotettava item pelaajan eteen
+            if (shouldBeDropped)
             {
-                droppedItemPickUp.item = item;
+                Vector3 playerTransform = cam.transform.position + cam.transform.forward;
+                GameObject prefabToInstantiate = itemPrefab;
+                if (item.model != null)
+                {
+                    prefabToInstantiate = item.model;
+                }
+                GameObject droppedItem = Instantiate(prefabToInstantiate, playerTransform, Quaternion.identity);
+                ItemPickUp droppedItemPickUp = droppedItem.GetComponent<ItemPickUp>();
+                if (droppedItemPickUp != null)
+                {
+                    droppedItemPickUp.item = item;
+                }
             }
+            //poistetaan item inventorysta
+            items.Remove(item);
+            if (onItemChangedCallBack != null) onItemChangedCallBack.Invoke();
         }
-        //poistetaan item inventorysta
-        items.Remove(item);
-        if (onItemChangedCallBack != null) onItemChangedCallBack.Invoke();
+        else
+        {
+            questItemPanel.SetActive(true);
+        }
     }
 }

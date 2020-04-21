@@ -36,6 +36,7 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
     public float npcShootingTimer = 0;
     public float npcShootingDistance = 20f;
     public float npcDistanceToPlayer = 0f;
+    public bool getAngry = false;
 
     Ray npcShootingRay;
     RaycastHit npcShootingHit;
@@ -44,6 +45,7 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
     Quaternion npcOriginalRot;
 
     GameObject player;
+    PlayerController playerController;
     Animator animator;
     Transform sprite;
 
@@ -66,6 +68,7 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
 
     void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
         npcOriginalRot = transform.rotation;
     }
 
@@ -107,7 +110,7 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
                 if (npcReadyToShoot && npcShootingHit.transform.name == "Player") {
                     Debug.DrawLine(npcShootingRay.origin, npcShootingHit.point, Color.red, 2f);
                     Debug.Log("Raycast from NPC to Player got a hit!");
-                    player.GetComponent<PlayerController>().health -= npcDamagePower;
+                    playerController.health -= npcDamagePower;
                     animator.Play("FireGun");
                     AudioFW.Play("shotgunshot");
                     npcReadyToShoot = false;
@@ -145,6 +148,18 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
                 transform.rotation = Quaternion.Slerp(transform.rotation, npcOriginalRot, Time.deltaTime * npcTurningSpeed);
             }
         }
+    }
+
+    public void BeforeTalkCallBack()
+    {
+        playerController.BeforeTalkCallBack();
+    }
+
+    public void AfterTalkCallBack()
+    {
+        if (getAngry) SetNPCMoodAggressive();
+        getAngry = false;
+        playerController.AfterTalkCallBack();
     }
 
     public void TalkWith() {

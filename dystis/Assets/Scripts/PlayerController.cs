@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     public GameObject questPanel;
     public GameObject placeholderPanel;
     public GameObject settingsPanel;
-    public GameObject questPopUp;
+    public GameObject questActivationPanel;
 
     // == Teleport ================
     public Transform tpDestination;
@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
         //If player got a new quest during talking, make quest pop up window show up
         else if (quest.isActive && questAcceptedDuringTalk)
         {
-            SwitchStateAndMovement(questPopUp);
+            SwitchStateAndMovement(questActivationPanel);
         } 
         else
         {

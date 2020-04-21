@@ -587,7 +587,7 @@ MonoBehaviour:
   questPanel: {fileID: 0}
   placeholderPanel: {fileID: 0}
   settingsPanel: {fileID: 0}
-  questPopUp: {fileID: 0}
+  questActivationPanel: {fileID: 0}
   tpDestination: {fileID: 0}
   tpUsingSubway: 0
   teleportStarting: 0

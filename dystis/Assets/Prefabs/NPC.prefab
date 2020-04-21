@@ -114,13 +114,16 @@ GameObject:
   - component: {fileID: 5636199141554949041}
   - component: {fileID: 1770941938760013963}
   - component: {fileID: 583987709}
+  - component: {fileID: 1304012504}
+  - component: {fileID: 1304012505}
+  - component: {fileID: 1304012506}
   m_Layer: 11
   m_Name: NPC
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2443180999149192193
 Transform:
   m_ObjectHideFlags: 0
@@ -150,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d105a3d5b9988840a59ba6a639550f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcGender: 0
+  npcGender: 1
   npcMood: 1
   npcHealth: 100
   npcFollows: 0
@@ -163,6 +166,7 @@ MonoBehaviour:
   npcShootingTimer: 0
   npcShootingDistance: 20
   npcDistanceToPlayer: 0
+  getAngry: 0
 --- !u!114 &1770941938760013963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +198,58 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 0.01}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1304012504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2443180999149192223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86f0d5be9bc3d441a2c0d7308fd32cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rpgTalk: {fileID: 0}
+  questAcceptingChoice: 0
+  questKeyword: questCompletion
+  questPanelTitle: {fileID: 0}
+  questItemName: Pizza
+  questTitle: Pizza delivery
+--- !u!114 &1304012505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2443180999149192223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f773f4684799abc4b932d885694ce29f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rpgTalk: {fileID: 0}
+  questAcceptingChoice: 0
+  questKeyword: questCompletion
+  objectsToSetActive:
+  - {fileID: 0}
+--- !u!114 &1304012506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2443180999149192223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff30d6d3816e32489c4372bae4ae347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rpgTalk: {fileID: 0}
+  questAcceptingChoice: 1
+  questKeyword: questCompletion
+  npcToChangeMood: {fileID: 2443180999149192223}
+  mood: 0
 --- !u!1 &5721422749491680219
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,9 +319,9 @@ MonoBehaviour:
   callbackBeforeTalk:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: DisablePlayerMovement
-        m_Mode: 6
+      - m_Target: {fileID: 5636199141554949041}
+        m_MethodName: BeforeTalkCallBack
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -276,13 +332,13 @@ MonoBehaviour:
         m_CallState: 2
   lineToStart: MyTitle
   lineToBreak: MyTitleEnd
-  txtToParse: {fileID: 4900000, guid: 1506b591d6e25f54aafde705e8cd854b, type: 3}
+  txtToParse: {fileID: 4900000, guid: 60c3742bc8609d340bac25d0e491a762, type: 3}
   overwriteCallbackAfterTalk:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: EnablePlayerMovement
-        m_Mode: 6
+      - m_Target: {fileID: 5636199141554949041}
+        m_MethodName: AfterTalkCallBack
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

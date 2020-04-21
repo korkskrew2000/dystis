@@ -75,7 +75,12 @@ public class EquipmentManager : MonoBehaviour {
     public void Remove(int slotIndex)
     {
         Vector3 playerTransform = cam.transform.position + cam.transform.forward;
-        GameObject droppedItem = Instantiate(itemPrefab, playerTransform, Quaternion.identity);
+        GameObject prefabToInstantiate = itemPrefab;
+        if (currentEquipment[slotIndex].model != null)
+        {
+            prefabToInstantiate = currentEquipment[slotIndex].model;
+        }
+        GameObject droppedItem = Instantiate(prefabToInstantiate, playerTransform, Quaternion.identity);
         ItemPickUp droppedItemPickUp = droppedItem.GetComponent<ItemPickUp>();
         
         if (currentEquipment[slotIndex] != null)

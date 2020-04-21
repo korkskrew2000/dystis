@@ -15,6 +15,8 @@ MonoBehaviour:
   name: Shotgun
   icon: {fileID: 21300000, guid: 7013279dd6b38b24fa8f17dcd98474f8, type: 3}
   isDefaultItem: 0
+  isQuestItem: 0
+  model: {fileID: 5164324609977372942, guid: ece488232f475ee439039b92451a761c, type: 3}
   equipSlot: 3
   armorModifier: 0
   damageModifier: 50

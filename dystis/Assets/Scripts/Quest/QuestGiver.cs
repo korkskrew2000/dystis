@@ -20,6 +20,10 @@ public class QuestGiver : ChoiceEvent
 
     public Text questPanelText;
 
+    //Questiin liittyvä item joka esim. annetaan pelaajalle
+    //questin alkaessa
+    public Item questItem;
+
     public override void Start()
     {
         base.Start();
@@ -62,6 +66,11 @@ public class QuestGiver : ChoiceEvent
         titleText.text = quest.title;
         descriptionText.text = quest.description;
         questPanelText.text = ("New quest started: " + quest.title);
+
+        if(questItem != null)
+        {
+            Inventory.instance.Add(questItem);
+        }
 
         //Jonin testiä
         if (!questFromTalk)

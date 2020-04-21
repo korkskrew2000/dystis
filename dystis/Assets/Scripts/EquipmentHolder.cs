@@ -11,7 +11,7 @@ public class EquipmentHolder : MonoBehaviour
     public void AddEquipment(Equipment newEquipment)
     {
         equipment = newEquipment;
-        if (equipment.name == "Shotgun")
+        if (equipment.name == "Shotgun" || equipment.name == "Pistol")
         {
             Debug.Log(equipment.name);
             AudioFW.Play("shotgunequip");

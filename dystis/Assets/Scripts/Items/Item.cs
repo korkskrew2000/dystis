@@ -6,6 +6,8 @@ public class Item : ScriptableObject
     new public string name = "Item Name";
     public Sprite icon = null;
     public bool isDefaultItem = false;
+    public bool isQuestItem = false;
+    public GameObject model;
 
     public virtual void Use() {
         Debug.Log("Using " + name);
