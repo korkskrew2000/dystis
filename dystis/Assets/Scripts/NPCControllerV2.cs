@@ -110,6 +110,7 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
                     Debug.DrawLine(npcShootingRay.origin, npcShootingHit.point, Color.red, 2f);
                     Debug.Log("Raycast from NPC to Player got a hit!");
                     player.GetComponent<PlayerController>().health -= 1;
+                    animator.Play("FireGun");
                     AudioFW.Play("shotgunshot");
                     npcReadyToShoot = false;
                     npcShootingTimer = 0f;

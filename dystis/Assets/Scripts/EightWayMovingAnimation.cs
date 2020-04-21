@@ -56,7 +56,7 @@ public class EightWayMovingAnimation : MonoBehaviour {
 
     void FixedUpdate() {
 
-        npcHealth = player.GetComponent<NPCControllerV2>().npcHealth;
+        npcHealth = GetComponent<NPCControllerV2>().npcHealth;
         if (npcHealth < 0) return;
 
         //alkup.
