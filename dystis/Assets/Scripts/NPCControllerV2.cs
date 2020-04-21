@@ -102,7 +102,7 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
             dir = transform.TransformDirection(dir.normalized);
             playerHeading += dir;
             // PS. NPC Eyes are at 1.8 meters (Vector3.up * 1.8f).
-            npcShootingRay = new Ray(transform.position + Vector3.up * 1.8f, playerHeading);
+            npcShootingRay = new Ray(transform.position + Vector3.up * 1.5f, playerHeading);
 
             //If NPC actually sees the player...
             if (Physics.Raycast(npcShootingRay, out npcShootingHit, npcShootingDistance)) {
