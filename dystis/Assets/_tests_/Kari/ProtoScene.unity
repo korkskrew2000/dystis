@@ -14166,6 +14166,7 @@ MonoBehaviour:
   items: []
   inventorySpace: 80
   itemPrefab: {fileID: 0}
+  questItemPanel: {fileID: 0}
 --- !u!114 &5831274885529185568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40073,7 +40074,7 @@ MonoBehaviour:
   questPanel: {fileID: 1187065941500818471}
   placeholderPanel: {fileID: 5265793483879011462}
   settingsPanel: {fileID: 2320082869016627955}
-  questPopUp: {fileID: 0}
+  questActivationPanel: {fileID: 0}
   tpDestination: {fileID: 0}
   tpUsingSubway: 0
   teleportStarting: 0
