@@ -955,6 +955,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1309053423, guid: 778b89ad0e32652418d49c35a8656a10, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309053423, guid: 778b89ad0e32652418d49c35a8656a10, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -19.25
+      objectReference: {fileID: 0}
     - target: {fileID: 461609762880915435, guid: 778b89ad0e32652418d49c35a8656a10,
         type: 3}
       propertyPath: m_AnchoredPosition.x

@@ -570,9 +570,12 @@ MonoBehaviour:
     description: 
     experienceReward: 0
     moneyReward: 0
+    titleText: {fileID: 0}
+    descriptionText: {fileID: 0}
   health: 100
   experience: 0
   money: 0.95
+  questCompletePanel: {fileID: 0}
   interactionDistance: 2
   focus: {fileID: 0}
   interactableInfo: {fileID: 0}
@@ -30660,8 +30663,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -128, y: 122}
-  m_SizeDelta: {x: 350, y: 256}
+  m_AnchoredPosition: {x: -106.5, y: 97}
+  m_SizeDelta: {x: 352, y: 258}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &812378038945451526
 CanvasRenderer:
@@ -30730,8 +30733,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -128, y: 122}
-  m_SizeDelta: {x: 350, y: 256}
+  m_AnchoredPosition: {x: -106.5, y: 96}
+  m_SizeDelta: {x: 352, y: 262}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &3115281313336924724
 CanvasRenderer:
