@@ -26,10 +26,11 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
     [Tooltip("How fast NPC turns towards player.")]
     float npcTurningSpeed = 10f;
     [Tooltip("When NPC sees the player.")]
-    float npcLookDistance = 500f;
+    float npcLookDistance = 100f;
     [Tooltip("NPC turns back to it's original direction after discussion")]
     public bool npcLookReset = true;
-
+    [Range(1f, 100f), Tooltip("Damage Caused By NPC")]
+    public int npcDamagePower = 1;
     public bool npcReadyToShoot = true;
     public float npcShootingDelayTime = 3f;
     public float npcShootingTimer = 0;
@@ -91,17 +92,14 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
                 AudioFW.Play("shotgunequip");
             }
 
-            // PS. NPC Eyes are at 1.8 meters (Vector3.up * 1.8f).
             var playerHeading = (player.transform.position - transform.position).normalized;
-            //playerHeading = transform.forward;
-
             // Some randomness for NPC shooting.
             Vector3 dir = Random.insideUnitCircle * 1f;
             dir.z = npcDistanceToPlayer; 
             dir = transform.TransformDirection(dir.normalized);
-            playerHeading = playerHeading + dir;
-
-            npcShootingRay = new Ray(transform.position + Vector3.up * 1.5f, playerHeading);
+            playerHeading += dir;
+            // PS. NPC Eyes are at 1.8 meters (Vector3.up * 1.8f).
+            npcShootingRay = new Ray(transform.position + Vector3.up * 1.8f, playerHeading);
 
             //If NPC actually sees the player...
             if (Physics.Raycast(npcShootingRay, out npcShootingHit, npcShootingDistance)) {
@@ -109,7 +107,7 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
                 if (npcReadyToShoot && npcShootingHit.transform.name == "Player") {
                     Debug.DrawLine(npcShootingRay.origin, npcShootingHit.point, Color.red, 2f);
                     Debug.Log("Raycast from NPC to Player got a hit!");
-                    player.GetComponent<PlayerController>().health -= 1;
+                    player.GetComponent<PlayerController>().health -= npcDamagePower;
                     animator.Play("FireGun");
                     AudioFW.Play("shotgunshot");
                     npcReadyToShoot = false;

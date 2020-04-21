@@ -157,6 +157,7 @@ MonoBehaviour:
   npcFollowSpeed: 8
   npcFollowDistance: 4
   npcLookReset: 1
+  npcDamagePower: 1
   npcReadyToShoot: 1
   npcShootingDelayTime: 3
   npcShootingTimer: 0
