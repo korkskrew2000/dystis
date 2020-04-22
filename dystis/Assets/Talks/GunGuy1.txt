@@ -20,7 +20,7 @@ Mike: More like a.. 9mm snack.. Ha!
 Mike: I think I could have use for a trustworthy guy like you..
 Mike: [question=gunQuest] Or are you afraid?
 [choice]Of course not [newtalk start=gunQuestYes_begin break=gunQuestYes_end]
-[choice]Sorry but I really need to be going [newtalk start=gunQuestNo_begin break=gunQuestNo_end]
+[choice]I gotta go.. [newtalk start=gunQuestNo_begin break=gunQuestNo_end]
 [title=answeredQuestYes_end]
 
 [title=answeredQuestNo_begin]
@@ -43,7 +43,7 @@ Mike: More like a 9mm snack.. Ha!
 Mike: I think I could have use for a foolhardy guy like you..
 Mike: [question=gunQuest] Or are you afraid?
 [choice]Of course not [newtalk start=gunQuestYes_begin break=gunQuestYes_end]
-[choice]Sorry but I really need to be going [newtalk start=gunQuestNo_begin break=gunQuestNo_end]
+[choice]I gotta go.. [newtalk start=gunQuestNo_begin break=gunQuestNo_end]
 [title=answeredQuestYes2_end]
 
 [title=gunQuestYes_begin]
