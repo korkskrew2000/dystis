@@ -62,6 +62,9 @@ public class PlayerController : MonoBehaviour
 
     // ============================
 
+    public GameObject damageFade;
+    public CanvasGroup damageFadeCG;
+
     void Start()
     {
         //questCompletePanel = GameObject.Find("QuestCompletePanel");
@@ -75,6 +78,7 @@ public class PlayerController : MonoBehaviour
 
         // For fading... CanvasGroup is in the PlayerFadeCanvas
         fadeOverlayCG = fadeOverlay.GetComponent<CanvasGroup>();
+        damageFadeCG = damageFade.GetComponent<CanvasGroup>();
 
         // alustetaan kameraan näkyvien aseiden lista WeaponHolderin lapsiobjekteilla
         weapons = new Transform[weaponHolder.transform.childCount];
@@ -297,6 +301,7 @@ public class PlayerController : MonoBehaviour
                     npc.DamageIt(weaponDamage);
                     GameObject holeNPC = Instantiate(impactEffectBlood, hit.point, Quaternion.LookRotation(hit.normal));
                     holeNPC.transform.parent = hit.transform;
+                    npc.SetNPCMoodAggressive();
                 }
                 else
                 {

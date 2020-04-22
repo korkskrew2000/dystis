@@ -6,31 +6,43 @@ Weird guy: Hey kid!
 [title=MyTitleEnd]
 
 [title=firstMeeting_begin]
-Weird guy: blah blah blah telling about the quest
-Weird guy: [question=pizzaQuest] Could you do the quest?
-[choice]Yes! [newtalk start=answeredQuestYes_begin break=answeredQuestYes_end]
-[choice]No [newtalk start=answeredQuestNo_begin break=answeredQuestNo_end]
+Weird guy: I haven't seen you here before.. You must be new..
+Weird guy: There's not much traffic these days you see.
+Weird guy: But hey! I got an idea.
+Weird guy: I have this one friend.. We haven't been talking in a while.
+Weird guy: I can't really get in touch with him at the moment.
+Weird guy: But you being a new face around here, maybe you could help me a bit?
+Weird guy: Actually I need you to get something to him.
+Weird guy: This pizza right here. 
+Weird guy: He must be really hungry by now.. so the sooner the better..
+Weird guy: [question=pizzaQuest] Could you do that for me?
+[choice]Okay..? [newtalk start=answeredQuestYes_begin break=answeredQuestYes_end]
+[choice]I don't think so. [newtalk start=answeredQuestNo_begin break=answeredQuestNo_end]
 [title=firstMeeting_end]
 
 [title=answeredQuestYes_begin]
-Weird guy: Wow great now you have the quest
-Weird guy: omg omg
+Weird guy: Really? That's just great!
+Weird guy: He'll be so thankful.. 
+Weird guy: His name is Mike. He should be somewhere here around the block.
+Weird guy: But you should hurry.. As I said, he must be really hungry already..
 [title=answeredQuestYes_end]
 
 [title=answeredQuestNo_begin]
-Weird guy: Ok.. Fuck off then!
+Weird guy: You can't help out a buddy??
+Weird guy: Damn you kid...
+Weird guy: I tought I could trust fellow citizens these days...
 [title=answeredQuestNo_end]
 
 [title=questStarted_begin]
-Weird guy: You done it...? If not, get outta here..
+Weird guy: You've done it...? If not, get outta here..
 [title=questStarted_end]
 
 [title=questNotStarted_begin]
-Weird guy: [question=pizzaQuest] Have you changed your mind? Could you just deliver the pizza???
-[choice]Yes! [newtalk start=answeredQuestYes_begin break=answeredQuestYes_end]
-[choice]No... [newtalk start=answeredQuestNo2_begin break=answeredQuestNo2_end]
+Weird guy: [question=pizzaQuest] Have you changed your mind? Could you just deliver the pizza??
+[choice]Alright then [newtalk start=answeredQuestYes_begin break=answeredQuestYes_end]
+[choice]I said no.. [newtalk start=answeredQuestNo2_begin break=answeredQuestNo2_end]
 [title=questNotStarted_end]
 
 [title=answeredQuestNo2_begin]
-Weird guy: Stop wasting my time kid!
+Weird guy: Stop wasting my time then!
 [title=answeredQuestNo2_end]

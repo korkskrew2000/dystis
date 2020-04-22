@@ -115,7 +115,14 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
                     AudioFW.Play("shotgunshot");
                     npcReadyToShoot = false;
                     npcShootingTimer = 0f;
+                    playerController.damageFadeCG.alpha = 0.5f;
+                    Debug.Log("damage alpha " + playerController.damageFadeCG.alpha);
                 }
+            }
+
+            if(playerController.damageFadeCG.alpha > 0)
+            {
+                playerController.damageFadeCG.alpha -= Time.deltaTime * 0.2f;
             }
         }
 
