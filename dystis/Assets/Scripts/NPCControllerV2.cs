@@ -97,12 +97,12 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
 
             var playerHeading = (player.transform.position - transform.position).normalized;
             // Some randomness for NPC shooting.
-            Vector3 dir = Random.insideUnitCircle * 1f;
+            Vector3 dir = Random.insideUnitCircle * 2f;
             dir.z = npcDistanceToPlayer; 
             dir = transform.TransformDirection(dir.normalized);
             playerHeading += dir;
             // PS. NPC Eyes are at 1.8 meters (Vector3.up * 1.8f).
-            npcShootingRay = new Ray(transform.position + Vector3.up * 1.5f, playerHeading);
+            npcShootingRay = new Ray(transform.position + Vector3.up * 1.0f, playerHeading);
 
             //If NPC actually sees the player...
             if (Physics.Raycast(npcShootingRay, out npcShootingHit, npcShootingDistance)) {
@@ -111,6 +111,7 @@ public class NPCControllerV2 : MonoBehaviour, ITalkable {
                     Debug.DrawLine(npcShootingRay.origin, npcShootingHit.point, Color.red, 2f);
                     Debug.Log("Raycast from NPC to Player got a hit!");
                     playerController.health -= npcDamagePower;
+                    playerController.PlayerWasHit();
                     animator.Play("FireGun");
                     AudioFW.Play("shotgunshot");
                     npcReadyToShoot = false;

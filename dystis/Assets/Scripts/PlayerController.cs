@@ -463,7 +463,9 @@ public class PlayerController : MonoBehaviour
         focus = null;
     }
 
-    
+    public void PlayerWasHit() {
+        AudioFW.Play("npctakeshitmale");
+    }
     
     // Quest related below...
 
