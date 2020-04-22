@@ -1,36 +1,66 @@
 [title=MyTitle]
-Mike: What the..
+Mike: Huh..?
 [save start=firstMeeting_begin break=firstMeeting_end data=questCompletion mod=-1]
 [save start=questCompleted_begin break=questCompleted_end data=questCompletion mod=0]
 [save start=questNotCompleted_begin break=questNotCompleted_end data=questCompletion mod=1]
 [title=MyTitleEnd]
 
 [title=firstMeeting_begin]
-Mike: blah blah blah asking about the quest
-Mike: [question=questCompletion] Give me that box?
-[choice]Yes! [newtalk start=answeredQuestYes_begin break=answeredQuestYes_end]
-[choice]No.. [newtalk start=answeredQuestNo_begin break=answeredQuestNo_end]
+Mike: I think you have something that belongs to me.
+Mike: [question=questCompletion] Am I right?
+[choice]Give the pizza [newtalk start=answeredQuestYes_begin break=answeredQuestYes_end]
+[choice]Refuse to give it [newtalk start=answeredQuestNo_begin break=answeredQuestNo_end]
 [title=firstMeeting_end]
 
 [title=answeredQuestYes_begin]
-Mike: Wow great now you have completed the quest
-Mike: omg omg
+Mike: Thanks dude..
+Mike: You seem like a reasonable guy.
+Mike: There's no regular pepperoni pizza in here you see..
+Mike: More like a.. 9mm snack.. Ha!
+Mike: I think I could have use for a trustworthy guy like you..
+Mike: [question=gunQuest] Or are you afraid?
+[choice]Of course not [newtalk start=gunQuestYes_begin break=gunQuestYes_end]
+[choice]Sorry but I really need to be going [newtalk start=gunQuestNo_begin break=gunQuestNo_end]
 [title=answeredQuestYes_end]
 
 [title=answeredQuestNo_begin]
-Mike: Ok.. Fuck off then!
+Mike: I'll give you one warning.. and one warning only.
+Mike: You give me that pizza box or I'll give you a lesson.
+Mike: A lesson that will be your last!
+Mike: [question=questCompletion] Give it to me!
+[choice]Give the pizza [newtalk start=answeredQuestYes2_begin break=answeredQuestYes2_end]
+[choice]Still refuse [newtalk start=answeredQuestNo2_begin break=answeredQuestNo2_end]
 [title=answeredQuestNo_end]
 
-[title=questCompleted_begin]
-Mike: MOVE YOUR ASS
-[title=questCompleted_end]
-
-[title=questNotCompleted_begin]
-Mike: [question=questCompletion] Have you changed your mind? Could you just deliver the pizza???
-[choice]Yes! [newtalk start=answeredQuestYes_begin break=answeredQuestYes_end]
-[choice]No... [newtalk start=answeredQuestNo2_begin break=answeredQuestNo2_end]
-[title=questNotCompleted_end]
-
 [title=answeredQuestNo2_begin]
-Weird guy: And now you die!
+Weird guy: And now you'll die!
 [title=answeredQuestNo2_end]
+
+[title=answeredQuestYes2_begin]
+Mike: You came to your senses, huh?
+Mike: There's something else than a regular pepperoni pizza you know.
+Mike: More like a 9mm snack.. Ha!
+Mike: I think I could have use for a foolhardy guy like you..
+Mike: [question=gunQuest] Or are you afraid?
+[choice]Of course not [newtalk start=gunQuestYes_begin break=gunQuestYes_end]
+[choice]Sorry but I really need to be going [newtalk start=gunQuestNo_begin break=gunQuestNo_end]
+[title=answeredQuestYes2_end]
+
+[title=gunQuestYes_begin]
+Mike: You keep impressing me!
+Mike: So, here's the thing..
+Mike: You take this gun and take a good care of it.
+Mike: And then I need you to go meet someone..
+Mike: You get the point?
+Mike: She usually hangs out by that subway station near us.
+Mike: You'll recognize her by that ridiculous red hat she's always wearing.
+Mike: And yes, I need her dead. Tonight. 
+Mike: And what I don't need is you asking questions.
+Mike: And last thing, tell her greetings from Mike before pulling the trigger.
+Mike: Get it done and I'll have a nice reward for you.
+[title=gunQuestYes_end]
+
+[title=gunQuestNo_begin]
+Mike: You are not going anywhere!
+Mike: You already know too much.
+[title=gunQuestNo_end]

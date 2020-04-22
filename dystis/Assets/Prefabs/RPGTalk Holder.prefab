@@ -142,7 +142,7 @@ MonoBehaviour:
   textSpeed: 30
   currentChar: 0
   variables: []
-  shouldUsePhotos: 1
+  shouldUsePhotos: 0
   characters:
   - character: {fileID: 11400000, guid: 168bec8fcd7dc7b47b2cb91cc542f44a, type: 2}
     follow: {fileID: 0}
@@ -156,7 +156,7 @@ MonoBehaviour:
     follow: {fileID: 0}
     followOffset: {x: 0, y: 0, z: 0}
     animatorOverwrite: {fileID: 0}
-  UIPhoto: {fileID: 1272441725459092364}
+  UIPhoto: {fileID: 0}
   shouldStayOnScreen: 0
   textAudio: {fileID: 0}
   passAudio: {fileID: 0}
@@ -164,7 +164,7 @@ MonoBehaviour:
   passWithInputButton: 
   passWithKey: 0
   enablePass: 1
-  autoPass: 1
+  autoPass: 0
   secondsAutoPass: 3
   lineToStart: 1
   lineToBreak: -1
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: buttons area
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1861b85c4f2132c439443669dbd55cb7, type: 2}
   m_sharedMaterial: {fileID: -7428248600438265917, guid: 1861b85c4f2132c439443669dbd55cb7,
@@ -321,13 +321,13 @@ MonoBehaviour:
   m_margin: {x: 187.28088, y: 0, z: -1046.594, w: 0}
   m_textInfo:
     textComponent: {fileID: 1272441724084371086}
-    characterCount: 12
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
