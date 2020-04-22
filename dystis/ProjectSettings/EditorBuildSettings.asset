@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/-DystisFinal-.unity
     guid: f927261504c9bc74aa42c11eec233bd7
+  - enabled: 0
+    path: Assets/Scenes/AlphaVersion.unity
+    guid: bc45180ca367436429d4304ec8f8ab0e
   m_configObjects: {}
